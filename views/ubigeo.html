@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<base target="_self" />
+<title>Censo 2012</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url(assets/fonts/upcdb.ttf) format("truetype");
+}
+html, body{ margin:0; height:100%}
+body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
+}
+#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
+#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#apDiv1 {
+	position: absolute;
+	left: 3px;
+	top: 2px;
+	width: 367px;
+	height: 126px;
+	z-index: 1;
+}
+#apDiv1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<script language="JavaScript">
+function showData(frm){
+        upd = "{{ datos }}";
+  if (upd=="1")
+  {
+	frm.pDep.value= "{{ pDep }}";
+	frm.pProv.value = "{{ pProv }}";
+	frm.pDist.value = "{{ pDist }}";
+  }
+}
+</script>
+<script language="javascript">
+      function OnChange(nivel)
+      { 
+	    var form = document.forms['frmubi'];
+		// form.action = 'put your url here';
+		var el = document.createElement("input");
+		el.type = "hidden";
+		el.name = "action";
+		el.value = nivel;
+		form.appendChild(el);
+		form.submit();
+	}
+</script>
+<script type="text/javascript">
+    function getSelectedText(elementId) {
+    var elt = document.getElementById(elementId);
+    if (elt.selectedIndex == -1)
+        return null;
+    return elt.options[elt.selectedIndex].text;
+}
+
+	function submitForm()
+	{
+		var form = document.forms['frmubi'];
+		// form.action = 'put your url here';
+		var el = document.createElement("input");
+		el.type = "hidden";
+		el.name = "action";
+		el.value = "Guardar";
+		form.appendChild(el);
+		
+		//form.submit();
+		var ubinom = getSelectedText('pDep') + '-'+ getSelectedText('pProv') + '-'+ getSelectedText('pDist');
+		var ubicod = form.pDep.value + form.pProv.value + form.pDist.value + '-' + ubinom;
+		alert(ubicod);
+		if (window.opener)
+		{
+			window.opener.returnValue = ubicod;
+		}
+		window.returnValue= ubicod;
+		top.close();
+	}
+</script>
+</head>
+
+<body onload="showData(document.frmubi);">
+<div id="apDiv1">
+  <form id="frmubi" name="frmubi" method="post" action="">
+      <input type="hidden" name="frmName" value="ubigeo" />
+      <input type="hidden" name="target" id="target" value="00" />
+    <table width="100%" border="0" align="center">
+      <tr>
+        <td width="110"><div align="right"><strong>Departamento:</strong></div></td>
+        <td width="435">
+          <select name="pDep" id="pDep" onchange="OnChange('Dep');">
+	{% for valor in deps %}
+    	         <option value="{{ valor.ubidep }}"> {{ valor.nombre }} </option>
+	{% endfor %}
+          </select></td>
+      </tr>
+      <tr>
+        <td><div align="right"><strong>Provincia:</strong></div></td>
+        <td>
+           <select name="pProv" id="pProv" onchange="OnChange('Prov');">
+     {% for valor in provs %}
+                  <option value="{{ valor.ubiprov }}">{{ valor.nombre }}</option>
+     {% endfor %}
+           </select></td>
+      </tr>
+      <tr>
+        <td><div align="right"><strong>Distrito:</strong></div></td>
+        <td>
+           <select name="pDist" id="pDist" >
+     {% for valor in dists %}
+                  <option value='{{ valor.ubidist }}'>{{ valor.nombre }}</option>
+     {% endfor %}
+           </select></td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><input type="button" value="Guardar" onclick="submitForm();"/></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

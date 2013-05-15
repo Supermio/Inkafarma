@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Censo 2012</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url(assets/fonts/upcdb.ttf) format("truetype");
+}
+html, body{ margin:0; height:100%}
+body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
+}
+#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
+#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#apDiv1 {
+	position: absolute;
+	left: 32px;
+	top: 99px;
+	width: 907px;
+	height: 330px;
+	z-index: 1;
+}
+#apDiv1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<script language="JavaScript">
+function showData(frm){
+        upd = {{ datos }};
+  if (upd=="1")
+  {
+    frm.phabilidad.value = "{{ hab.idHabilidad}}";
+    //frm.ptipohab.value = "{{ hab.tipoHabilidad }}";
+    frm.ptipocal.value = "{{ hab.codCalif }}";
+  }
+}
+</script>
+</head>
+
+<body onload="showData(document.frmHabilidad);"><div id="header-title">
+  <h1>Conociéndote</h1>
+  <h2>Censo</h2>
+</div>
+<div id="apDiv1">
+  <form id="frmHabilidad" name="frmHabilidad" method="post" action="">
+  <input type="submit" name="control" id="action" value="Cancelar" />
+  <input type="hidden" name="frmName" value="page051" />
+  <input type="hidden" name="empkey" value="{{emp.key}}"/>
+  <input type="hidden" name="habkey" value="{{hab.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
+  <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
+  <h3>Identifique 5 habilidades que mejor lo describen como persona y profesional y califique cada una de ellas:</h3>
+    <table width="877" border="0">
+      <tr>
+        <td width="172"><strong>Habilidades</strong></td>
+        <td width="143">&nbsp;</td>
+        <td width="461">&nbsp;</td>
+        <td width="83">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><label for="phabilidad">Habilidad:</label></td>
+        <td><select name="phabilidad" id="phabilidad">
+        {% for valor in habs %}
+	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+	{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><label for="ptipocal">Calificación:</label></td>
+        <td><select name="ptipocal" id="ptipocal">
+        {% for valor in tipocals %}
+	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+	{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><div align="right">
+            <input type="submit" name="control" id="action" value="Cancelar" />
+        </div></td>
+        <td>
+          <div align="right">
+            <input type="submit" name="control" id="action" value="Guardar" />
+        </div></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

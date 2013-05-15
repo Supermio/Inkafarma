@@ -1,0 +1,166 @@
+indexes:
+- kind: libres
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: empAnexo
+  - name: empCelular
+  - name: empCuenta
+  - name: empEmail
+  - name: empRPM
+  
+- kind: ubigeo
+  properties:
+  - name: ubidep
+  - name: ubidist
+  - name: ubiprov
+  - name: nombre
+
+- kind: ubigeo
+  properties:
+  - name: ubidist
+  - name: ubiprov
+  - name: nombre
+  - name: ubidep
+
+- kind: ubigeo
+  properties:
+  - name: ubidep
+  - name: ubiprov
+  - name: nombre
+  - name: ubidist
+  
+- kind: ubigeo
+  properties:
+  - name: ubidep
+  - name: ubiprov
+  - name: ubidist
+  - name: nombre
+
+- kind: experiencia
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: cargo
+  - name: empresa
+  - name: fechaIni
+  - name: rubro
+  
+- kind: inEmpleado
+  ancestor: no
+  properties:
+    - name: idEmpleado
+    - name: numDoc
+    - name: fechaNac
+    
+- kind: listaValores
+  ancestor: no
+  properties:
+    - name: idTipo
+    - name: idValor
+
+- kind: listaValores
+  properties:
+  - name: idTipo
+  - name: idValor
+  - name: nombre
+  
+- kind: dependiente
+  properties:
+    - name: idCompania
+    - name: idEmpleado
+    - name: apeMat
+    - name: apePat
+    - name: nombres
+    - name: numDoc
+    
+- kind: habilidades
+  properties:
+    - name: idCompania
+    - name: idEmpleado
+    - name: codCalif
+    - name: descrip
+    - name: idHabilidad
+    - name: tipoHabilidad
+    
+- kind: capacitacion
+  properties:
+    - name: idCompania
+    - name: idEmpleado
+    - name: fechaFin
+    - name: fechaIni
+    - name: nombCurso
+    
+- kind: estudio
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: ciclo
+  - name: descrip
+  - name: grado
+  - name: periodFin
+  - name: periodIni
+    
+- kind: area
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: idArea
+  - name: idDep
+  - name: idGerencia
+  - name: idSeccion
+  
+- kind: hobbie
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: descrip
+  - name: idHobbie
+
+- kind: organizacion
+  properties:
+  - name: idArea
+  - name: idGer
+  - name: idSeccion
+  - name: idDep
+  - name: nombre
+  
+- kind: organizacion
+  properties:
+  - name: idArea
+  - name: idDep
+  - name: idSeccion
+  - name: idGer
+  - name: nombre
+
+- kind: organizacion
+  properties:
+  - name: idDep
+  - name: idGer
+  - name: idSeccion
+  - name: idArea
+  - name: nombre
+  
+- kind: organizacion
+  properties:
+  - name: idDep
+  - name: idGer
+  - name: idArea
+  
+- kind: organizacion
+  properties:
+  - name: idArea
+  - name: idDep
+  - name: idGer
+  - name: idSeccion
+  - name: nombre
+
+- kind: area
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: descrip
+  - name: idArea
+  - name: idDep
+  - name: idGerencia
+  - name: idSeccion

@@ -1,0 +1,6 @@
+[INFO     2012-09-01 22:45:53,067 bulkloader.py] Logging to bulkloader-log-20120901.224553
+[INFO     2012-09-01 22:45:53,067 bulkloader.py] Throttling transfers:
+[INFO     2012-09-01 22:45:53,068 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2012-09-01 22:45:53,068 bulkloader.py] HTTP connections: 8/second
+[INFO     2012-09-01 22:45:53,068 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2012-09-01 22:45:53,068 bulkloader.py] Batch Size: 10

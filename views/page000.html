@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Censo 2012</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url(assets/fonts/upcdb.ttf) format("truetype");
+}
+html, body{ margin:0; height:100%}
+body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
+}
+#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
+#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+
+#apDiv1 {
+	position: absolute;
+	left: 26px;
+	top: 97px;
+	width: 940px;
+	height: 649px;
+	z-index: 1;
+}
+#apDiv1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<script language="JavaScript">
+function showData(frm){
+        upd = "{{ datos }}";
+  if (upd=="1")
+  {
+	frm.ptelFijo.value = "{{ empData.telfFijo }}";
+    frm.ptelCel.value = "{{ empData.telCel }}";
+    frm.pemail.value = "{{ empData.pemail }}";
+    frm.pcontactEmer.value = "{{ empData.contactoEmer}}";
+    frm.pcontactoTelF.value = "{{ empData.contactoTelF }}";
+    frm.pcontactoTelC.value = "{{ empData.contactoTelC }}";
+    frm.ptrabInterior.value = "{{ empData.trabInterior }}";
+    frm.pturno.value = "{{ empData.turno }}";
+    
+    frm.pTipoVia.value = "{{ empData.domtipoVia }}"
+    frm.nomVia.value = "{{ empData.domnombreVia }}";
+    frm.pTipoZona.value = "{{ empData.domtipoZona}}";
+    frm.pnomZona.value = "{{ empData.domnomZona }}";
+    frm.pnum.value = "{{ empData.domnumero }}";
+    frm.pinterior.value = "{{ empData.dominterior }}";
+    frm.pdepartamento.value = "{{ empData.domDept }}";
+    frm.pmanzana.value = "{{ empData.domManz}}";
+    frm.plote.value = "{{ empData.domLote }}";
+    frm.pkm.value = "{{ empData.domKm }}";
+    frm.pblock.value = "{{ empData.domBlock }}";
+    frm.petapa.value = "{{ empData.domEtapa}}";
+    frm.preferencia.value = "{{ empData.domRef}}";
+	frm.pubi.disabled=false;
+	frm.pubi.value ="{{ empData.domUbiDep }}"+ "{{empData.domUbiProv}}" + "{{empData.domUbiDist}}" + "-" + "{{empData.domUbiDescrip }}";
+    frm.pubi.disabled=true;
+  }
+}
+function limitText(limitField, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } 
+}
+
+function isNumberKey(evt)
+{
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+	return true;
+}
+</script>
+</head>
+
+<body onload="showData(document.frmPersonal);"><div id="header-title">
+  <h1>Conociéndote</h1>
+  <h2>Censo</h2>
+</div>
+
+<div id="apDiv1">
+  <form id="frmPersonal" name="frmPersonal" method="post" action="">
+  
+    <p>
+      <input type="submit" name="control" id="action" value="Regresar" />
+      <input type="hidden" name="frmName" value="page000" />
+      <input type="hidden" name="empkey" value="{{emp.key}}"/>
+      <input name="pubigeo" type="hidden" id="pubigeo" />
+    </p>
+    <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
+    <h3>Queremos conocer más de ti, te pedimos puedas  completar la siguiente información:</h3>
+    <table width="926" border="0">
+      <tr>
+        <td><div align="left"><strong>Datos Personales</strong></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="168"><div align="right"><strong>Dirección:</strong></div></td>
+        <td width="124">&nbsp;</td>
+        <td width="548">&nbsp;</td>
+        <td width="68">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pTipoVia">Tipo de Vía:</label></td>
+        <td><select name="pTipoVia" id="pTipoVia">
+	{% for valor in tipovias %}
+	   <option value="{{ valor.idValor }}"> {{ valor.nombre }} </option>
+	{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="nomVia">Nombre de Vía:</label></td>
+        <td><input type="text" name="nomVia" id="nomVia" onkey="limitText(nomVia,20);"/>
+	</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pTipoZona">Tipo de Zona:</label></td>
+        <td><select name="pTipoZona" id="pTipoZona">
+	{% for valor1 in tipozonas %}
+	   <option value="{{ valor1.idValor }}">{{ valor1.nombre }}</option>
+	¨{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pnomZona">Nombre de Zona:</label></td>
+        <td><input type="text" name="pnomZona" id="pnomZona" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pnum">Número:</label></td>
+        <td><input type="text" name="pnum" id="pnum" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pinterior">Interior:</label></td>
+        <td><input type="text" name="pinterior" id="pinterior" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pdepartamento">Departamento:</label></td>
+        <td><input type="text" name="pdepartamento" id="pdepartamento" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pmanzana">Manzana:</label></td>
+        <td><input type="text" name="pmanzana" id="pmanzana" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="plote">Lote:</label></td>
+        <td><input type="text" name="plote" id="plote" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pkm">Kilómetro:</label></td>
+        <td><input type="text" name="pkm" id="pkm" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pblock">Block:</label></td>
+        <td><input type="text" name="pblock" id="pblock" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="petapa">Etapa:</label></td>
+        <td><input type="text" name="petapa" id="petapa" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="preferencia">Referencia:</label></td>
+        <td><input type="text" name="preferencia" id="preferencia" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="frm01dep">Dep /Prov /Dist:</label></td>
+        <td><input name=b1 id=b1 type=button value="Seleccionar" 
+        onclick="var prevReturnValue = window.returnValue; 
+                 window.returnValue = undefined;
+                 var url='ubigeo.html';
+                 orig='{{ empData.domUbiDep }}'+ '{{empData.domUbiProv}}' + '{{empData.domUbiDist}}';
+                 if (orig !='') {
+                    url='ubigeo.html?ubig='+orig;
+                 }
+                 var dlgReturnValue = window.showModalDialog(url,'','dialogWidth:450px; dialogHeight:250px');
+                 if (dlgReturnValue == undefined) { dlgReturnValue = window.returnValue; }
+                 window.returnValue = prevReturnValue;
+                 document.getElementById('pubigeo').value = dlgReturnValue;
+                 pubi.disabled=false;
+                 pubi.value= dlgReturnValue;
+                 pubi.disabled=true;" />
+         <input name="pubi" type="text" id="pubi" size="70" />        
+                 </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"><strong>Personal:</strong></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="ptelFijo">Teléfono Fijo:</label></td>
+        <td><input type="text" name="ptelFijo" id="ptelFijo" onkeypress="return isNumberKey(event)" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="ptelCel">Teléfono Celular:</label></td>
+        <td><input type="text" name="ptelCel" id="ptelCel" onkeypress="return isNumberKey(event)"/></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pemail">Email:</label></td>
+        <td><input type="text" name="pemail" id="pemail" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"><strong>En caso de emergencia llamar a:</strong></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pcontactEmer">Nombre:</label></td>
+        <td><input type="text" name="pcontactEmer" id="pcontactEmer" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pcontactoTelF">Teléfono Fijo:</label></td>
+        <td><input type="text" name="pcontactoTelF" id="pcontactoTelF" onkeypress="return isNumberKey(event)" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pcontactoTelC">Teléfono Celular:</label></td>
+        <td><input type="text" name="pcontactoTelC" id="pcontactoTelC" onkeypress="return isNumberKey(event)"/></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"><strong>Preferencias:</strong></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="ptrabInterior">¿Podrìa trabajar en el interior?</label></td>
+        <td><select name="ptrabInterior" id="ptrabInterior">
+        {% for valor2 in sino %}
+	   <option value="{{ valor2.idValor }}">{{ valor2.nombre }}</option>
+	{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pturno">¿En qué Turno? :</label></td>
+        <td><select name="pturno" id="pturno">
+	{% for valor2 in turnos %}
+	   <option value="{{ valor2.idValor }}">{{ valor2.nombre }}</option>
+	{% endfor %}
+        </select></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
+        <td>
+          <div align="right">
+            <input type="submit" name="control" id="action" value="Cancelar" />
+        </div></td>
+        <td>
+          <div align="right">
+            <input type="submit" name="control" id="action" value="Guardar" />
+        </div></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

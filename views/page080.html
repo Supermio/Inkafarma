@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Censo 2012</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url(assets/fonts/upcdb.ttf) format("truetype");
+}
+html, body{ margin:0; height:100%}
+body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
+}
+#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
+#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+
+#apDiv1 {
+	position: absolute;
+	left: 26px;
+	top: 97px;
+	width: 940px;
+	height: 649px;
+	z-index: 1;
+}
+#apDiv1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<script language="JavaScript">
+function showData(frm){
+        upd = "{{ datos }}";
+		frm.datos.value = upd;
+  if (upd=="1")
+  {
+	  {% for valor in libres %}
+	frm.librekey.value= "{{ valor.key }}";
+	frm.cuentared.value = "{{ valor.empCuenta }}";
+    frm.anexoempresa.value = "{{ valor.empAnexo }}";
+    frm.celularempresa.value = "{{ valor.empCelular }}";
+    frm.rpmempresa.value = "{{ valor.empRPM }}";
+    frm.emailempresa.value = "{{ valor.empEmail}}";
+	{% endfor %}
+	frm.datos.value =1
+  }
+}
+function limitText(limitField, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } 
+}
+
+function isNumberKey(evt)
+{
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+	return true;
+}
+</script>
+</head>
+
+<body onload="showData(document.frmPersonal);"><div id="header-title">
+  <h1>Conociéndote</h1>
+  <h2>Censo</h2>
+</div>
+
+<div id="apDiv1">
+  <form id="frmPersonal" name="frmPersonal" method="post" action="">
+  
+    <p>
+      <input type="submit" name="control" id="action" value="Regresar" />
+      <input type="hidden" name="frmName" value="page080" />
+      <input type="hidden" name="empkey" value="{{emp.key}}"/>
+      <input type="hidden" name="librekey" value=""/>
+      <input name="pubigeo" type="hidden" id="pubigeo" />
+      <input name="datos" type="hidden" id="datos" />
+    </p>
+    <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
+    <h3>Queremos conocer más de ti, te pedimos puedas  completar la siguiente información:</h3>
+    <table width="755" border="0">
+      <tr>
+        <td width="140"><div align="left"><strong>Datos Personales</strong></div></td>
+        <td width="115">&nbsp;</td>
+        <td width="386">&nbsp;</td>
+        <td width="96">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pTipoVia">Usuario de red:</label></td>
+        <td><input type="text" name="cuentared" id="cuentared" onkey="limitText(nomVia,20);"/></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="anexoempresa">Anexo Empresa:</label></td>
+        <td><input type="text" name="anexoempresa" id="anexoempresa" onkey="limitText(anexoempresa,20);"/>
+	</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="pTipoZona">Celular Empresa:</label></td>
+        <td><input type="text" name="celularempresa" id="celularempresa" onkey="limitText(celularempresa,20);"/></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="rpmempresa">RPM Empresa:</label></td>
+        <td><input type="text" name="rpmempresa" id="rpmempresa" onkey="limitText(rpmempresa,20);" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td><label for="emailempresa">Email Empresa:</label></td>
+        <td><input type="text" name="emailempresa" id="emailempresa" onkey="limitText(emailempresa,100);"/></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
+        <td>
+          <div align="right">
+            <input type="submit" name="control" id="action" value="Cancelar" />
+        </div></td>
+        <td>
+          <div align="right">
+            <input type="submit" name="control" id="action" value="Guardar" />
+        </div></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

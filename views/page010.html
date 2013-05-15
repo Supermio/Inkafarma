@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="PRAGMA" content="NO-CACHE" />
+<title>Censo 2012</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url(assets/fonts/upcdb.ttf) format("truetype");
+}
+html, body{ margin:0; height:100%}
+body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
+}
+#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
+#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+#apDiv1 {
+	position: absolute;
+	left: 53px;
+	top: 160px;
+	width: 538px;
+	height: 134px;
+	z-index: 1;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+}
+#apDiv2 {
+	position: absolute;
+	left: 30px;
+	top: 115px;
+	width: 789px;
+	height: 38px;
+	z-index: 2;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#apDiv3 {
+	position: absolute;
+	left: 56px;
+	top: 323px;
+	width: 423px;
+	height: 296px;
+	z-index: 3;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#apDiv4 {
+	position: absolute;
+	left: 30px;
+	top: 250px;
+	width: 903px;
+	height: 406px;
+	z-index: 3;
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+
+<body><div id="header-title">
+  <h1>Conociéndote</h1>
+  <h2>Censo</h2>
+</div>
+<div id="apDiv2">
+<h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
+<h3>Te invitamos a brindarnos información acerca de tus dependientes (hijos, hijas, esposo, esposa):</h3></div>
+
+<div id="apDiv4">
+<form action="" method="post" name="frmDependientes" target="_self">
+<input type="hidden" name="frmName" value="page010" />
+<input type="hidden" name="empkey" value="{{emp.key}}"/>
+<input type="submit" name="control" id="action" value="Regresar" />
+  <table width="874" border="0">
+    <tr>
+      <td width="125"><strong>Dependientes:</strong></td>
+      <td width="199">&nbsp;</td>
+      <td width="155">&nbsp;</td>
+      <td width="162">&nbsp;</td>
+      <td width="211">&nbsp;</td>
+      </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Apellido Paterno</strong></td>
+      <td><strong>Apellido Materno</strong></td>
+      <td><strong>Nombres</strong></td>
+      <td><strong>Número documento</strong></td>
+    </tr>
+    <script type="text/javascript">
+	function submitForm(pDep,pAccion)
+	{
+		var form = document.forms['frmDependientes'];
+		// form.action = 'put your url here';
+		var el = document.createElement("input");
+		el.type = "hidden";
+		el.name = "iddep";
+		el.value = pDep;
+		form.appendChild(el);
+		var es = document.createElement("input");
+		es.type = "hidden";
+		es.name = "control";
+		es.value = pAccion;
+		form.appendChild(es);
+		form.submit();
+	}
+</script>
+    {% for depend in  dependientes %}
+    <tr>
+      <td>
+        <button type="submit" name="control" id="pBorrar" value="Borrar" onclick="submitForm('{{ depend.key }}','Borrar'); false">Borrar</button>
+        <button type="submit" name="control" id="pEditar" value="Editar" onclick="submitForm('{{ depend.key }}','Editar'); false">Editar</button></td>
+      <td>{{ depend.apePat }}</td>
+      <td>{{ depend.apeMat }}</td>
+      <td>{{ depend.nombres }}</td>
+      <td>{{ depend.numDoc }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>
+        <div align="right">
+          <input type="submit" name="control" id="action" value="Agregar" />
+        </div></td>
+      </tr>
+  </table>
+  </form>
+</div>
+</body>
+</html>

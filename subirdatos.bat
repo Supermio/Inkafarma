@@ -1,0 +1,4 @@
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=inEmpleado   --filename=inEmpleado.csv
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=listaValores --filename=listavalores.csv
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=ubigeo       --filename=ubigeo.csv
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=organizacion --filename=organizacion.csv
