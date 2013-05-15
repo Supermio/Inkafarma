@@ -82,10 +82,10 @@ function isNumberKey(evt)
     <h3>Queremos conocer más de ti, te pedimos puedas  completar la siguiente información:</h3>
     <table width="755" border="0">
       <tr>
-        <td width="140"><div align="left"><strong>Datos Personales</strong></div></td>
-        <td width="115">&nbsp;</td>
-        <td width="386">&nbsp;</td>
-        <td width="96">&nbsp;</td>
+        <td width="113"><div align="left"><strong>Datos Personales</strong></div></td>
+        <td width="212">&nbsp;</td>
+        <td width="337">&nbsp;</td>
+        <td width="75">&nbsp;</td>
       </tr>
       <tr>
         <td><div align="right"></div></td>
@@ -119,7 +119,191 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
       </tr>
       <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3"> <strong>Si tiene hijos, ¿Ellos tienen todas sus vacunas?</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Vacunas</td>
+        <td><select name="mVacunas" size="1" id="mVacunas">
+          <option value="Si" selected="selected">Si</option>
+          <option value="No">No</option>
+          <option value="No tengo hijos">No tengo hijos</option>
+        </select></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>Si tiene hijos, ¿Con quién se quedan tus hijos cuando sales a trabajar?</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><label for="mHijosSalida">Con quien se quedan:</label></td>
+        <td><select name="mHijosSalida" size="1" id="mHijosSalida">
+          <option value="niñera" selected="selected">Con una niñera</option>
+          <option value="familiar">Con un familiar</option>
+          <option value="solos">Solos</option>
+          <option value="colegio/guarderia">Colegio/Guarderia</option>
+          <option value="Otros">Otros</option>
+          <option value="no tengo hijos">No tengo hijos</option>
+        </select></td>
+        <td><label for="mHijosSalidaText"></label>
+        <input name="mHijosSalidaText" type="text" id="mHijosSalidaText" value="" size="45" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>¿Tiene antecedentes de alguna enfermedades?</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><label for="mEnfermedad"></label>
+          <select name="mEnfermedad" size="1" id="mEnfermedad">
+            <option value="si" selected="selected">Si</option>
+            <option value="no">No</option>
+        </select></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Enfermedades</td>
+        <td><p>
+          <input type="checkbox" name="mEnfermedades" id="mEnfermedades" />
+          <label for="mEnfermedades">Alergias</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades" id="mEnfermedades" />
+          <label for="mEnfermedades">Diabetes</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades2" id="mEnfermedades2" />
+          <label for="mEnfermedades2">TBC</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades3" id="mEnfermedades3" />
+          <label for="mEnfermedades3">Hepatitis B</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades4" id="mEnfermedades4" />
+          <label for="mEnfermedades4">Asma</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades5" id="mEnfermedades5" />
+          <label for="mEnfermedades5">Tifoidea</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades6" id="mEnfermedades6" />
+          <label for="mEnfermedades6">Bronquitis</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades7" id="mEnfermedades7" />
+          <label for="mEnfermedades7">Neoplasia</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades8" id="mEnfermedades8" />
+          <label for="mEnfermedades8">Convulsiones</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfermedades9" id="mEnfermedades9" />
+          <label for="mEnfermedades9">Otros</label>
+        </p></td>
+        <td valign="bottom"><label for="mEnfermedadesTexto"></label>
+        <input name="mEnfermedadesTexto" type="text" id="mEnfermedadesTexto" value="" size="45" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>Sufres actualmente de alguna enfermedad:</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><select name="mEnfActual" size="1" id="mEnfActual">
+          <option value="si" selected="selected">Si</option>
+          <option value="no">No</option>
+        </select></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
         <td><div align="right"></div></td>
+        <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Enfermedades</td>
+        <td><p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Digestivo</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Pared Abdominal</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Cardiovascular</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Respiratorio</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Renal</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Genitourinario</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Sistema Nervioso Central</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Oftalmológicas</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Musculoesquelética</label>
+        </p>
+        <p>
+          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
+          <label for="mEnfActual">Otros</label>
+        </p></td>
+        <td valign="bottom"><input name="mEnfActualTexto" type="text" id="mEnfermedadesTexto" value="" size="45" /></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
