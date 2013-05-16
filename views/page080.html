@@ -151,15 +151,15 @@ function isNumberKey(evt)
       <tr>
         <td><label for="mHijosSalida">Con quien se quedan:</label></td>
         <td><select name="mHijosSalida" size="1" id="mHijosSalida">
-          <option value="niñera" selected="selected">Con una niñera</option>
+          <option value="ninera" selected="selected">Con una niñera</option>
           <option value="familiar">Con un familiar</option>
           <option value="solos">Solos</option>
-          <option value="colegio/guarderia">Colegio/Guarderia</option>
-          <option value="Otros">Otros</option>
-          <option value="no tengo hijos">No tengo hijos</option>
+          <option value="colegio">Colegio/Guarderia</option>
+          <option value="otros">Otros</option>
+          <option value="no">No tengo hijos</option>
         </select></td>
-        <td><label for="mHijosSalidaText"></label>
-        <input name="mHijosSalidaText" type="text" id="mHijosSalidaText" value="" size="45" /></td>
+        <td>
+        <input name="mHijosSalidaTexto" type="text" id="mHijosSalidaTexto" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -189,48 +189,20 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>Enfermedades</td>
-        <td><p>
-          <input type="checkbox" name="mEnfermedades" id="mEnfermedades" />
-          <label for="mEnfermedades">Alergias</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades" id="mEnfermedades" />
-          <label for="mEnfermedades">Diabetes</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades2" id="mEnfermedades2" />
-          <label for="mEnfermedades2">TBC</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades3" id="mEnfermedades3" />
-          <label for="mEnfermedades3">Hepatitis B</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades4" id="mEnfermedades4" />
-          <label for="mEnfermedades4">Asma</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades5" id="mEnfermedades5" />
-          <label for="mEnfermedades5">Tifoidea</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades6" id="mEnfermedades6" />
-          <label for="mEnfermedades6">Bronquitis</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades7" id="mEnfermedades7" />
-          <label for="mEnfermedades7">Neoplasia</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades8" id="mEnfermedades8" />
-          <label for="mEnfermedades8">Convulsiones</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfermedades9" id="mEnfermedades9" />
-          <label for="mEnfermedades9">Otros</label>
-        </p></td>
-        <td valign="bottom"><label for="mEnfermedadesTexto"></label>
-        <input name="mEnfermedadesTexto" type="text" id="mEnfermedadesTexto" value="" size="45" /></td>
+        <td>
+          <input type="checkbox" name="mEnf1" id="mEnf1" value="Alergias" />Alergias<br>
+          <input type="checkbox" name="mEnf2" id="mEnf2" value="Diabetes" />Diabetes<br>
+          <input type="checkbox" name="mEnf3" id="mEnf3" value="TBC"/>TBC<br>
+          <input type="checkbox" name="mEnf4" id="mEnf4" value="Hepatitis B"/>Hepatitis B<br>
+          <input type="checkbox" name="mEnf5" id="mEnf5" value="Asma"/>Asma<br>
+          <input type="checkbox" name="mEnf6" id="mEnf6" value="Tifoidea"/>Tifoidea<br>
+          <input type="checkbox" name="mEnf7" id="mEnf7" value="Bronquitis"/>Bronquitis<br>
+          <input type="checkbox" name="mEnf8" id="mEnf8" value="Neoplasia"/>Neoplasia<br>
+          <input type="checkbox" name="mEnf9" id="mEnf9" value="Convulsiones"/>Convulsiones<br>
+          <input type="checkbox" name="mEnf10" id="mEnf10" value="Otros"/>Otros
+        </td>
+        <td valign="bottom">
+        <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -259,47 +231,18 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>Enfermedades</td>
-        <td><p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Digestivo</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Pared Abdominal</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Cardiovascular</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Respiratorio</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Renal</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Genitourinario</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Sistema Nervioso Central</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Oftalmológicas</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Musculoesquelética</label>
-        </p>
-        <p>
-          <input type="checkbox" name="mEnfActual" id="mEnfActual" />
-          <label for="mEnfActual">Otros</label>
-        </p></td>
-        <td valign="bottom"><input name="mEnfActualTexto" type="text" id="mEnfermedadesTexto" value="" size="45" /></td>
+        <td>
+          <input type="checkbox" name="mEnfAct1" id="mEnfAct1" />Digestivo<br>
+          <input type="checkbox" name="mEnfAct2" id="mEnfAct2" />Pared Abdominal<br>
+          <input type="checkbox" name="mEnfAct3" id="mEnfAct3" />Cardiovascular<br>
+          <input type="checkbox" name="mEnfAct4" id="mEnfAct4" />Respiratorio<br>
+          <input type="checkbox" name="mEnfAct5" id="mEnfAct5" />Renal<br>
+          <input type="checkbox" name="mEnfAct6" id="mEnfAct6" />Genitourinario<br>
+          <input type="checkbox" name="mEnfAct7" id="mEnfAct7" />Sistema Nervioso Central<br>
+          <input type="checkbox" name="mEnfAct8" id="mEnfAct8" />Oftalmológicas<br>
+          <input type="checkbox" name="mEnfAct9" id="mEnfAct9" />Musculoesquelética<br>
+          <input type="checkbox" name="mEnfAct10" id="mEnfAct10" />Otros</td>
+        <td valign="bottom"><input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>

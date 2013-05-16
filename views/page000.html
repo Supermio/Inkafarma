@@ -309,17 +309,12 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><input type="radio" name="radio" id="mVivienda" value="mVivienda" />
-        <label for="mVivienda">Propia
-          <br />
-          <input type="radio" name="radio" id="mVivienda2" value="mVivienda" />
-        Alquilada<br />
-        <input type="radio" name="radio" id="mVivienda3" value="mVivienda" />
-        Familiar<br />
-        <input type="radio" name="radio" id="mVivienda4" value="mVivienda" />
-        Otros        </label></td>
-        <td valign="bottom"><label for="mViviendaOtros"></label>
-        <input name="mViviendaOtros" type="text" id="mViviendaOtros" value="" size="45" /></td>
+        <td><input type="radio" name="mViv" id="mViv1" value="Propia" />Propia<br />
+          <input name="mViv" type="radio" id="mViv2" value="Alquilada" />Alquilada<br />
+        <input type="radio" name="mViv" id="mViv3" value="Familiar" />Familiar<br />
+        <input type="radio" name="mViv" id="mViv4" value="Otros" />Otros</td>
+        <td valign="bottom">
+        <input name="mVivOtros" type="text" id="mViviendaOtros" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -330,6 +325,11 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td colspan="2"><strong>¿Cuántas personas viven en casa?</strong></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
         <td><label for="mMiembros">Miembros</label>
           <select name="mMiembros" size="1" id="mMiembros">
             <option value="1" selected="selected">1</option>
@@ -343,11 +343,6 @@ function isNumberKey(evt)
             <option value="9">9</option>
             <option value="10">10</option>
         </select></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
