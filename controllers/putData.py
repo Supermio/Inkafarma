@@ -1,6 +1,7 @@
 from google.appengine.ext import db
 from models import models
 import getData
+import logging
 
 def delRecord(pkey):
     dep= db.get(pkey)
@@ -97,39 +98,39 @@ def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfe
            pdomManz,pdomLote,pdomKm,pdomBlock,pdomEtapa,pdomRef,pdomUbiDep,pdomUbiProv,pdomUbiDist,pdomUbides,pdeclarado):
 
     e = models.dependiente(idCompania    = pidCompania,
-			   idEmpleado    = pidEmpleado,
-			   tipoDoc       = ptipoDoc,
-			   numDoc        = pnumDoc,
-			   apePat        = papePat,
-			   apeMat        = papeMat,
-			   nombres       = pnombres,
-			   fechaNac      = pfechaNac,
-			   sexo          = psexo,
-			   vinculo       = pvinculo,
-			   tipoDocSus    = ptipoDocSus,
-			   numDocSus     = pnumDocSus,
-			   fechaAlta     = pfechaAlta,
-			   fechaBaja     = pfechaBaja,
-			   motivBaja     = pmotivBaja,
-			   domicProp     = pdomicProp,
-			   domtipoVia    = pdomtipoVia,
-    			   domnombreVia  = pdomnombreVia,
-			   domtipoZona   = pdomtipoZona,
-			   domnomZona    = pdomnomZona,
-			   domnumero     = pdomnumero,
-			   dominterior   = pdominterior,
-			   domDept       = pdomDept,
-			   domManz       = pdomManz,
-			   domLote       = pdomLote,
-			   domKm         = pdomKm,
-			   domBlock      = pdomBlock,
-			   domEtapa      = pdomEtapa,
-			   domRef        = pdomRef,
-			   domUbiDep     = pdomUbiDep,
-			   domUbiProv    = pdomUbiProv,
-			   domUbiDist    = pdomUbiDist,
-			   domUbiDescrip = pdomUbides,
-			   declarado     = pdeclarado)
+               idEmpleado    = pidEmpleado,
+               tipoDoc       = ptipoDoc,
+               numDoc        = pnumDoc,
+               apePat        = papePat,
+               apeMat        = papeMat,
+               nombres       = pnombres,
+               fechaNac      = pfechaNac,
+               sexo          = psexo,
+               vinculo       = pvinculo,
+               tipoDocSus    = ptipoDocSus,
+               numDocSus     = pnumDocSus,
+               fechaAlta     = pfechaAlta,
+               fechaBaja     = pfechaBaja,
+               motivBaja     = pmotivBaja,
+               domicProp     = pdomicProp,
+               domtipoVia    = pdomtipoVia,
+               domnombreVia  = pdomnombreVia,
+               domtipoZona   = pdomtipoZona,
+               domnomZona    = pdomnomZona,
+               domnumero     = pdomnumero,
+               dominterior   = pdominterior,
+               domDept       = pdomDept,
+               domManz       = pdomManz,
+               domLote       = pdomLote,
+               domKm         = pdomKm,
+               domBlock      = pdomBlock,
+               domEtapa      = pdomEtapa,
+               domRef        = pdomRef,
+               domUbiDep     = pdomUbiDep,
+               domUbiProv    = pdomUbiProv,
+               domUbiDist    = pdomUbiDist,
+               domUbiDescrip = pdomUbides,
+               declarado     = pdeclarado)
     e.put()
 
 def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
@@ -346,20 +347,22 @@ def getDep(pkey):
 def setVivienda(pidCompania,pidEmpleado,pmViv,pmVivOtros,pmMiembros):
     data = db.GqlQuery("SELECT __key__ from adicionales where idCompania= :1 and idEmpleado= :2",str(pidCompania),str(pidEmpleado))
     total = data.count()
+    logging.error('pmViv:'+ pmViv + ' pmVivOtros:'+pmVivOtros +' pmMiembros:' + pmMiembros)
     if total > 0:
        pkey= data[0]
        e = db.get(pkey)
-       e.VivProp      = pmViv
-       e.VivPropOtros = pmVivOtros
-       e.VivMiembros = pmMiembros
+       e.vivProp      = pmViv
+       e.vivPropOtros = pmVivOtros
+       e.vivMiembros  = pmMiembros
        e.put()
     else:
        e = models.adicionales(idCompania    =  pidCompania,
                               idEmpleado    =  pidEmpleado,
-                              VivProp       =  pmViv,
-                              VivPropOtros  =  pmVivOtros,
-                              VivMiembros   =  pmMiembros)
+                              vivProp       =  pmViv,
+                              vivPropOtros  =  pmVivOtros,
+                              vivMiembros   =  pmMiembros)
        e.put()
+       
 def setEnfes(pidCompania,pidEmpleado,pmHijosSalida,pmHijosSalidaTexto,pmEnfermedad,pmEnf1,pmEnf2,pmEnf3,pmEnf4,pmEnf5,pmEnf6,pmEnf7,pmEnf8,pmEnf9,pmEnf10,pmEnfTexto,pmEnfActual,pmEnfAct1,pmEnfAct2,pmEnfAct3,pmEnfAct4,pmEnfAct5,pmEnfAct6,pmEnfAct7,pmEnfAct8,pmEnfAct9,pmEnfAct10,pmEnfActTexto):
     data = db.GqlQuery("SELECT __key__ from adicionales where idCompania= :1 and idEmpleado= :2",str(pidCompania),str(pidEmpleado))
     total = data.count()
