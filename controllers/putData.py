@@ -342,3 +342,84 @@ def updArea(pkey,pidGerencia,pidDep,pidArea,pidSeccion):
 def getDep(pkey):
     dep = db.get(pkey)
     return dep
+
+def setVivienda(pidCompania,pidEmpleado,pmViv,pmVivOtros,pmMiembros):
+    data = db.GqlQuery("SELECT __key__ from adicionales where idCompania= :1 and idEmpleado= :2",str(pidCompania),str(pIdEmpleado))
+    total = data.count()
+    if total > 0:
+       pkey= data[0]
+       e = db.get(pkey)
+       e.VivProp      = pmViv
+       e.VivPropOtros = pmVivOtros
+       e.VivMiembros = pmMiembros
+       e.put()
+    else:
+       e = models.adicionales(idCompania    =  pidCompania,
+                              idEmpleado    =  pidEmpleado,
+                              VivProp       =  pmViv,
+                              VivPropOtros  =  pmVivOtros,
+                              VivMiembros   =  pmMiembros)
+       e.put()
+def setEnfes(pidCompania,pidEmpleado,pmHijosSalida,pmHijosSalidaTexto,pmEnfermedad,pmEnf1,pmEnf2,pmEnf3,pmEnf4,pmEnf5,pmEnf6,pmEnf7,pmEnf8,pmEnf9,pmEnf10,pmEnfTexto,pmEnfActual,pmEnfAct1,pmEnfAct2,pmEnfAct3,pmEnfAct4,pmEnfAct5,pmEnfAct6,pmEnfAct7,pmEnfAct8,pmEnfAct9,pmEnfAct10,pmEnfActTexto):
+    data = db.GqlQuery("SELECT __key__ from adicionales where idCompania= :1 and idEmpleado= :2",str(pidCompania),str(pIdEmpleado))
+    total = data.count()
+    if total > 0:
+       pkey= data[0]
+       e = db.get(pkey)
+       e.hSalida       = pmHijosSalida
+       e.hSalidaTexto  = pmHijosSalidaTexto
+       e.antEnf        = pmEnfermedad
+       e.antEnf1       = pmEnf1
+       e.antEnf2       = pmEnf2
+       e.antEnf3       = pmEnf3
+       e.antEnf4       = pmEnf4
+       e.antEnf5       = pmEnf5
+       e.antEnf6       = pmEnf6
+       e.antEnf7       = pmEnf7
+       e.antEnf8       = pmEnf8
+       e.antEnf9       = pmEnf9
+       e.antEnf10      = pmEnf10
+       e.antEnfNote    = pmEnfTexto
+       e.actEnf        = pmEnfActual
+       e.actEnf1       = pmEnfAct1
+       e.actEnf2       = pmEnfAct2
+       e.actEnf3       = pmEnfAct3
+       e.actEnf4       = pmEnfAct4
+       e.actEnf5       = pmEnfAct5
+       e.actEnf6       = pmEnfAct6
+       e.actEnf7       = pmEnfAct7
+       e.actEnf8       = pmEnfAct8
+       e.actEnf9       = pmEnfAct9
+       e.actEnf10      = pmEnfAct10
+       e.actEnfNote    = pmEnfActTexto
+       e.put()
+    else:
+       e = models.adicionales(idCompania      =  pidCompania,
+                              idEmpleado      =  pidEmpleado,
+                              hSalida         =  pmHijosSalida,
+                              hSalidaTexto    =  pmHijosSalidaTexto,
+                              antEnf          =  pmEnfermedad,
+                              antEnf1         =  pmEnf1,
+                              antEnf2         =  pmEnf2,
+                              antEnf3         =  pmEnf3,
+                              antEnf4         =  pmEnf4,
+                              antEnf5         =  pmEnf5,
+                              antEnf6         =  pmEnf6,
+                              antEnf7         =  pmEnf7,
+                              antEnf8         =  pmEnf8,
+                              antEnf9         =  pmEnf9,
+                              antEnf10        =  pmEnf10,
+                              antEnfNote      =  pmEnfTexto,
+                              actEnf          =  pmEnfActual,
+                              actEnf1         =  pmEnfAct1,
+                              actEnf2         =  pmEnfAct2,
+                              actEnf3         =  pmEnfAct3,
+                              actEnf4         =  pmEnfAct4,
+                              actEnf5         =  pmEnfAct5,
+                              actEnf6         =  pmEnfAct6,
+                              actEnf7         =  pmEnfAct7,
+                              actEnf8         =  pmEnfAct8,
+                              actEnf9         =  pmEnfAct9,
+                              actEnf10        =  pmEnfAct10,
+                              actEnfNote      =  pmEnfActTexto)
+       e.put()

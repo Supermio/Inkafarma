@@ -186,7 +186,7 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('pcontactoTelC'),
                         self.request.get('ptrabInterior'),
                         self.request.get('pturno')
-                        )
+                        )                
                  else:
                      putData.updEmp(empDatos[0].key(),
                         self.request.get('pTipoVia'),
@@ -215,6 +215,11 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('ptrabInterior'),
                         self.request.get('pturno')
                         )
+                 putData.setVivienda(pEmp.idCompania,
+                                         pEmp.idEmpleado,
+                                         self.request.get('mViv'),
+                                         self.request.get('mVivOtros'),
+                                         self.request.get('mMiembros'))
                  path= "views/main.html"
                  template_values = {'emp' : pEmp,
                                     'error': action}
@@ -552,6 +557,34 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('celularempresa'),
                         self.request.get('rpmempresa'),
                         self.request.get('emailempresa'))
+                 putData.setEnfes(pEmp.idCompania,
+                                  pEmp.idEmpleado,
+                                  self.request.get('mHijosSalida'),
+                                  self.request.get('mHijosSalidaTexto'),
+                                  self.request.get('mEnfermedad'),
+                                  self.request.get('mEnf1'),
+                                  self.request.get('mEnf2'),
+                                  self.request.get('mEnf3'),
+                                  self.request.get('mEnf4'),
+                                  self.request.get('mEnf5'),
+                                  self.request.get('mEnf6'),
+                                  self.request.get('mEnf7'),
+                                  self.request.get('mEnf8'),
+                                  self.request.get('mEnf9'),
+                                  self.request.get('mEnf10'),
+                                  self.request.get('mEnfTexto'),
+                                  self.request.get('mEnfActual'),
+                                  self.request.get('mEnfAct1'),
+                                  self.request.get('mEnfAct2'),
+                                  self.request.get('mEnfAct3'),
+                                  self.request.get('mEnfAct4'),
+                                  self.request.get('mEnfAct5'),
+                                  self.request.get('mEnfAct6'),
+                                  self.request.get('mEnfAct7'),
+                                  self.request.get('mEnfAct8'),
+                                  self.request.get('mEnfAct9'),
+                                  self.request.get('mEnfAct10'),
+                                  self.request.get('mEnfActTexto'))
                  path= "views/main.html"
                  template_values = {'emp' : pEmp,
                                     'error': paso}
