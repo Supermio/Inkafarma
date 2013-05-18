@@ -89,7 +89,7 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td><div align="right"></div></td>
-        <td><label for="pTipoVia">Usuario de red:</label></td>
+        <td><label for="cuentared">Usuario de red:</label></td>
         <td><input type="text" name="cuentared" id="cuentared" onkey="limitText(nomVia,20);"/></td>
         <td>&nbsp;</td>
       </tr>
@@ -102,7 +102,7 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td><div align="right"></div></td>
-        <td><label for="pTipoZona">Celular Empresa:</label></td>
+        <td><label for="celularempresa">Celular Empresa:</label></td>
         <td><input type="text" name="celularempresa" id="celularempresa" onkey="limitText(celularempresa,20);"/></td>
         <td>&nbsp;</td>
       </tr>
@@ -182,6 +182,7 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
+      <div id="enfSeccion">
       <tr>
         <td>&nbsp;</td>
         <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
@@ -202,9 +203,11 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnf10" id="mEnf10" value="Otros"/>Otros
         </td>
         <td valign="bottom">
-        <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" /></td>
+        <div name="enfOtrosSeccion">
+        <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" /></div></td>
         <td>&nbsp;</td>
       </tr>
+      </div>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -224,8 +227,9 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
+      <div id="antEnfSeccion">
       <tr>
-        <td><div align="right"></div></td>
+        <td>&nbsp;</td>
         <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
         <td>&nbsp;</td>
       </tr>
@@ -242,9 +246,10 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnfAct8" id="mEnfAct8" />Oftalmológicas<br>
           <input type="checkbox" name="mEnfAct9" id="mEnfAct9" />Musculoesquelética<br>
           <input type="checkbox" name="mEnfAct10" id="mEnfAct10" />Otros</td>
-        <td valign="bottom"><input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" /></td>
+        <td valign="bottom"><div name="enfActOtrosSeccion"><input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" /></div></td>
         <td>&nbsp;</td>
       </tr>
+      </div>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>

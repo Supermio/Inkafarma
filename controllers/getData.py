@@ -314,3 +314,10 @@ def getUbidist(ubidep,ubiprov):
     results =db.GqlQuery("Select ubidist, nombre from ubigeo where ubidep=:1 and ubiprov= :2 and ubidist!='00'" ,ubidep, ubiprov)
     return results
 
+def getVivienda(pidCompania,pidEmpleado):
+    results = db.GqlQuery("Select vivProp,vivPropOtros,vivMiembros from adicionales where idCompania= :1, and idEmpleado =  :2",str(pidCompania),str(pidEmpleado))
+    return results
+
+def getEnfs(pidCompania,pidEmpleado):
+    results = db.GqlQuery("Select antEnf,antEnf1,antEnf2,antEnf3,antEnf4,antEnf5,antEnf6,antEnf7,antEnf8,antEnf9,antEnf10,antEnfNote,actEnf,actEnf1,actEnf2,actEnf3,actEnf4,actEnf5,actEnf6,actEnf7,actEnf8,actEnf9,actEnf10,actEnfNote,hSalida,hSalidaNote from adicionales where idCompania = :1 and idEmpleado = :2",str(pidCompania),str(pidEmpleado));
+    return results

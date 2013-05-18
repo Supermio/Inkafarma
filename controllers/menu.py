@@ -62,17 +62,31 @@ class MainHandler(webapp2.RequestHandler):
                                        'tipozonas'    : tipozonas,
                                        'turnos'       : turnos,
                                        'ubigeo'       : '010101',
-                                       'sino'         : sino }
+                                       'sino'         : sino,
+                                       'vivProp'      : '',
+                                       'vivPropOtros' : '',
+                                       'mMiembros'    : ''}
                  else:
-                     error='Modificacion de datos'
-                     template_values = {'emp'         : pEmp,
-                                        'empData'     : empDatos[0],
-                                        'datos'       : '1',
-                                        'error'       : error,
-                                        'tipovias'    : tipovias,
-                                        'tipozonas'   : tipozonas,
-                                        'turnos'      : turnos,
-                                        'sino'        : sino }
+                    error='Modificacion de datos'
+                    empViv = getData.getVivienda(pEmp.idCompania, pEmp.idEmpleado)
+                    vivProp = '';
+                    vivPropOtros = '';
+                    mMiembros = '';
+                    if empViv.count() > 0:
+                       vivProp = empViv[0]
+                       vivPropOtros = empViv[1]
+                       mMiembros = empViv[2]
+                    template_values = {'emp'         : pEmp,
+                                       'empData'     : empDatos[0],
+                                       'datos'       : '1',
+                                       'error'       : error,
+                                       'tipovias'    : tipovias,
+                                       'tipozonas'   : tipozonas,
+                                       'turnos'      : turnos,
+                                       'sino'        : sino,
+                                       'vivProp'     : vivProp,
+                                       'vivPropOtros': vivPropOtros,
+                                       'mMiembros'   : mMiembros}
             elif opcion == "2":
                  path = "views/page010.html"
                  deps = getData.getAllDepends(pEmp.idCompania,
@@ -131,9 +145,35 @@ class MainHandler(webapp2.RequestHandler):
                  if cuenta != 0:
                    cuenta=1
                  template_values = {'emp'         : pEmp,
-                                    'libres'       : libre,
+                                    'libres'      : libre,
                                     'datos'       : cuenta,
-                                    'error'       : opcion}
+                                    'error'       : opcion,
+                                    'antEnf'      : antEnf,
+                                    'antEnf1'     : antEnf1,
+                                    'antEnf2'     : antEnf2,
+                                    'antEnf3'     : antEnf3,
+                                    'antEnf4'     : antEnf4,
+                                    'antEnf5'     : antEnf5,
+                                    'antEnf6'     : antEnf6,
+                                    'antEnf7'     : antEnf7,
+                                    'antEnf8'     : antEnf8,
+                                    'antEnf9'     : antEnf9,
+                                    'antEnf10'    : antEnf10,
+	antEnfNote   = db.StringProperty()
+	actEnf       = db.StringProperty()
+	actEnf1      = db.StringProperty()
+	actEnf2      = db.StringProperty()
+	actEnf3      = db.StringProperty()
+	actEnf4      = db.StringProperty()
+	actEnf5      = db.StringProperty()
+	actEnf6      = db.StringProperty()
+	actEnf7      = db.StringProperty()
+	actEnf8      = db.StringProperty()
+	actEnf9      = db.StringProperty()
+	actEnf10     = db.StringProperty()
+	actEnfNote   = db.StringProperty()
+	hSalida      = db.StringProperty()
+	hSalidaNote  = db.StringProperty()}
          elif pagina=="page000":
             action= self.request.get("control")
             path= "views/main.html"
