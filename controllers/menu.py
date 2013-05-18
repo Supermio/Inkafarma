@@ -144,11 +144,67 @@ class MainHandler(webapp2.RequestHandler):
                  cuenta = libre.count();
                  if cuenta != 0:
                    cuenta=1
+                   enfs = getData.getEnfs(pEmp.idCompania,pEmp.idEmpleado);
+                   mVac="";
+                   antEnf="";
+                   antEnf1="";
+                   antEnf2="";
+                   antEnf3="";
+                   antEnf4="";
+                   antEnf5="";
+                   antEnf6="";
+                   antEnf7="";
+                   antEnf8="";
+                   antEnf9="";
+                   antEnf10="";
+                   antEnfNote="";
+                   actEnf="";
+                   actEnf1="";
+                   actEnf2="";
+                   actEnf3="";
+                   actEnf4="";
+                   actEnf5="";
+                   actEnf6="";
+                   actEnf7="";
+                   actEnf8="";
+                   actEnf9="";
+                   actEnf10="";
+                   actEnfNote="";
+                   hSalida="";
+                   hSalidaNote="";
+                   if enfs.count()==1:
+                     mVac        = enfs[0];
+                     antEnf      = enfs[1];
+                     antEnf1     = enfs[2];
+                     antEnf2     = enfs[3];
+                     antEnf3     = enfs[4];
+                     antEnf4     = enfs[5];
+                     antEnf5     = enfs[6];
+                     antEnf6     = enfs[7];
+                     antEnf7     = enfs[8];
+                     antEnf8     = enfs[9];
+                     antEnf9     = enfs[10];
+                     antEnf10    = enfs[11];
+                     antEnfNote  = enfs[12];
+                     actEnf      = enfs[13];
+                     actEnf1     = enfs[14];
+                     actEnf2     = enfs[15];
+                     actEnf3     = enfs[16];
+                     actEnf4     = enfs[17];
+                     actEnf5     = enfs[18];
+                     actEnf6     = enfs[19];
+                     actEnf7     = enfs[20];
+                     actEnf8     = enfs[21];
+                     actEnf9     = enfs[22];
+                     actEnf10    = enfs[23];
+                     actEnfNote  = enfs[24];
+                     hSalida     = enfs[25];
+                     hSalidaNote = enfs[26];
                  template_values = {'emp'         : pEmp,
                                     'libres'      : libre,
                                     'datos'       : cuenta,
                                     'error'       : opcion,
-                                    'mVac'        : vacunas,
+                                    'mVac'        : mVac,
                                     'antEnf'      : antEnf,
                                     'antEnf1'     : antEnf1,
                                     'antEnf2'     : antEnf2,

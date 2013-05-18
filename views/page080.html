@@ -44,9 +44,9 @@ function showData(frm){
     frm.emailempresa.value = "{{ valor.empEmail}}";
 	{% endfor %}
 	frm.datos.value =1
-	frm.mVacunas.value =
-	frm.hSalida.value =
-	frm.hSalidaNote.value =
+	frm.mVacunas.value = "{{ mVac }}";
+	frm.hSalida.value = "{{ hSalida }}";
+	frm.hSalidaNote.value ="{{ hSalidaNote }}";
 	frm.mEnf.value = "{{ antEnf }}";
 	frm.mEnf1.value = "{{ antEnf1 }}";
 	frm.mEnf2.value = "{{ antEnf2 }}";
