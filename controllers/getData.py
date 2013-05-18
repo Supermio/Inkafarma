@@ -315,7 +315,7 @@ def getUbidist(ubidep,ubiprov):
     return results
 
 def getVivienda(pidCompania,pidEmpleado):
-    results = db.GqlQuery("Select vivProp,vivPropOtros,vivMiembros from adicionales where idCompania= :1, and idEmpleado =  :2",str(pidCompania),str(pidEmpleado))
+    results = db.GqlQuery("Select vivProp,vivPropOtros,vivMiembros from adicionales where idCompania= :1 and idEmpleado =  :2",str(pidCompania),str(pidEmpleado))
     return results
 
 def getEnfs(pidCompania,pidEmpleado):
