@@ -177,3 +177,34 @@ indexes:
   - name: vivMiembros
   - name: vivProp
   - name: vivPropOtros
+- kind: adicionales
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: actEnf
+  - name: actEnf1
+  - name: actEnf10
+  - name: actEnf2
+  - name: actEnf3
+  - name: actEnf4
+  - name: actEnf5
+  - name: actEnf6
+  - name: actEnf7
+  - name: actEnf8
+  - name: actEnf9
+  - name: actEnfNote
+  - name: antEnf
+  - name: antEnf1
+  - name: antEnf10
+  - name: antEnf2
+  - name: antEnf3
+  - name: antEnf4
+  - name: antEnf5
+  - name: antEnf6
+  - name: antEnf7
+  - name: antEnf8
+  - name: antEnf9
+  - name: antEnfNote
+  - name: hSalida
+  - name: hSalidaNote
+  - name: vacunas
