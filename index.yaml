@@ -169,3 +169,11 @@ indexes:
   properties:
   - name: idCompania
   - name: idEmpleado
+
+- kind: adicionales
+  properties:
+  - name: idCompania
+  - name: idEmpleado
+  - name: vivMiembros
+  - name: vivProp
+  - name: vivPropOtros
