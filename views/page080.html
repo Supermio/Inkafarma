@@ -44,6 +44,31 @@ function showData(frm){
     frm.emailempresa.value = "{{ valor.empEmail}}";
 	{% endfor %}
 	frm.datos.value =1
+	frm.mVacunas.value =
+	frm.hSalida.value =
+	frm.hSalidaNote.value =
+	frm.mEnf.value = "{{ antEnf }}";
+	frm.mEnf1.value = "{{ antEnf1 }}";
+	frm.mEnf2.value = "{{ antEnf2 }}";
+	frm.mEnf3.value = "{{ antEnf3 }}";
+	frm.mEnf4.value = "{{ antEnf4 }}";
+	frm.mEnf5.value = "{{ antEnf5 }}";
+	frm.mEnf6.value = "{{ antEnf6 }}";
+	frm.mEnf7.value = "{{ antEnf7 }}";
+	frm.mEnf8.value = "{{ antEnf8 }}";
+	frm.mEnf9.value = "{{ antEnf9 }}";
+	frm.mEnf10.value = "{{ antEnf10 }}";
+	frm.mEnfAct.value = "{{ actEnf }}";
+	frm.mEnfAct1.value = "{{ actEnf1 }}";
+	frm.mEnfAct2.value = "{{ actEnf2 }}";
+	frm.mEnfAct3.value = "{{ actEnf3 }}";
+	frm.mEnfAct4.value = "{{ actEnf4 }}";
+	frm.mEnfAct5.value = "{{ actEnf5 }}";
+	frm.mEnfAct6.value = "{{ actEnf6 }}";
+	frm.mEnfAct7.value = "{{ actEnf7 }}";
+	frm.mEnfAct8.value = "{{ actEnf8 }}";
+	frm.mEnfAct9.value = "{{ actEnf9 }}";
+	frm.mEnfAct10.value = "{{ actEnf10 }}";
   }
 }
 function limitText(limitField, limitNum) {
@@ -174,8 +199,8 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><label for="mEnfermedad"></label>
-          <select name="mEnfermedad" size="1" id="mEnfermedad">
+        <td><label for="mEnf"></label>
+          <select name="mEnf" size="1" id="mEnf">
             <option value="si" selected="selected">Si</option>
             <option value="no">No</option>
         </select></td>
@@ -220,7 +245,7 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><select name="mEnfActual" size="1" id="mEnfActual">
+        <td><select name="mEnfAct" size="1" id="mEnfAct">
           <option value="si" selected="selected">Si</option>
           <option value="no">No</option>
         </select></td>

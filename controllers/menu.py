@@ -148,6 +148,7 @@ class MainHandler(webapp2.RequestHandler):
                                     'libres'      : libre,
                                     'datos'       : cuenta,
                                     'error'       : opcion,
+                                    'mVac'        : vacunas,
                                     'antEnf'      : antEnf,
                                     'antEnf1'     : antEnf1,
                                     'antEnf2'     : antEnf2,
@@ -159,21 +160,21 @@ class MainHandler(webapp2.RequestHandler):
                                     'antEnf8'     : antEnf8,
                                     'antEnf9'     : antEnf9,
                                     'antEnf10'    : antEnf10,
-	antEnfNote   = db.StringProperty()
-	actEnf       = db.StringProperty()
-	actEnf1      = db.StringProperty()
-	actEnf2      = db.StringProperty()
-	actEnf3      = db.StringProperty()
-	actEnf4      = db.StringProperty()
-	actEnf5      = db.StringProperty()
-	actEnf6      = db.StringProperty()
-	actEnf7      = db.StringProperty()
-	actEnf8      = db.StringProperty()
-	actEnf9      = db.StringProperty()
-	actEnf10     = db.StringProperty()
-	actEnfNote   = db.StringProperty()
-	hSalida      = db.StringProperty()
-	hSalidaNote  = db.StringProperty()}
+                                    'antEnfNote'  : antEnfNote,
+                                    'actEnf'      : actEnf,
+                                    'actEnf1'     : actEnf1,
+                                    'actEnf2'     : actEnf2,
+                                    'actEnf3'     : actEnf3,
+                                    'actEnf4'     : actEnf4,
+                                    'actEnf5'     : actEnf5,
+                                    'actEnf6'     : actEnf6,
+                                    'actEnf7'     : actEnf7,
+                                    'actEnf8'     : actEnf8,
+                                    'actEnf9'     : actEnf9,
+                                    'actEnf10'    : actEnf10,
+                                    'actEnfNote'  : actEnfNote,
+                                    'hSalida'     : hSalida,
+                                    'hSalidaNote' : hSalidaNote}
          elif pagina=="page000":
             action= self.request.get("control")
             path= "views/main.html"

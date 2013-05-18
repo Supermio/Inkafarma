@@ -174,6 +174,7 @@ class adicionales(db.Model):
 	vivProp      = db.StringProperty()
 	vivPropOtros = db.StringProperty()
 	vivMiembros  = db.StringProperty()
+	vacunas      = db.StringProperty()
 	antEnf       = db.StringProperty()
 	antEnf1      = db.StringProperty()
 	antEnf2      = db.StringProperty()
