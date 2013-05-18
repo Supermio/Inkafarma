@@ -73,9 +73,9 @@ class MainHandler(webapp2.RequestHandler):
                     vivPropOtros = '';
                     mMiembros = '';
                     if empViv.count() > 0:
-                       vivProp = empViv[0]
-                       vivPropOtros = empViv[1]
-                       mMiembros = empViv[2]
+                       vivProp = empViv[0].vivProp
+                       vivPropOtros = empViv[0].vivPropOtros
+                       mMiembros = empViv[0].mMiembros
                     template_values = {'emp'         : pEmp,
                                        'empData'     : empDatos[0],
                                        'datos'       : '1',
