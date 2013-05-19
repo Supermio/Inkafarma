@@ -371,7 +371,7 @@ def setEnfes(pidCompania,pidEmpleado,pVac,pmHijosSalida,pmHijosSalidaTexto,pmEnf
        e = db.get(pkey)
        e.vacunas       = pVac
        e.hSalida       = pmHijosSalida
-       e.hSalidaTexto  = pmHijosSalidaTexto
+       e.hSalidaNote   = pmHijosSalidaTexto
        e.antEnf        = pmEnfermedad
        e.antEnf1       = pmEnf1
        e.antEnf2       = pmEnf2
