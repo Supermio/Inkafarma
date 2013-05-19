@@ -363,12 +363,13 @@ def setVivienda(pidCompania,pidEmpleado,pmViv,pmVivOtros,pmMiembros):
                               vivMiembros   =  pmMiembros)
        e.put()
        
-def setEnfes(pidCompania,pidEmpleado,pmHijosSalida,pmHijosSalidaTexto,pmEnfermedad,pmEnf1,pmEnf2,pmEnf3,pmEnf4,pmEnf5,pmEnf6,pmEnf7,pmEnf8,pmEnf9,pmEnf10,pmEnfTexto,pmEnfActual,pmEnfAct1,pmEnfAct2,pmEnfAct3,pmEnfAct4,pmEnfAct5,pmEnfAct6,pmEnfAct7,pmEnfAct8,pmEnfAct9,pmEnfAct10,pmEnfActTexto):
+def setEnfes(pidCompania,pidEmpleado,pmVacunas,pmHijosSalida,pmHijosSalidaTexto,pmEnfermedad,pmEnf1,pmEnf2,pmEnf3,pmEnf4,pmEnf5,pmEnf6,pmEnf7,pmEnf8,pmEnf9,pmEnf10,pmEnfTexto,pmEnfActual,pmEnfAct1,pmEnfAct2,pmEnfAct3,pmEnfAct4,pmEnfAct5,pmEnfAct6,pmEnfAct7,pmEnfAct8,pmEnfAct9,pmEnfAct10,pmEnfActTexto):
     data = db.GqlQuery("SELECT __key__ from adicionales where idCompania= :1 and idEmpleado= :2",str(pidCompania),str(pidEmpleado))
     total = data.count()
     if total > 0:
        pkey= data[0]
        e = db.get(pkey)
+       e.vacunas       = pmVacunas
        e.hSalida       = pmHijosSalida
        e.hSalidaTexto  = pmHijosSalidaTexto
        e.antEnf        = pmEnfermedad
