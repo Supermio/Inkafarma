@@ -172,7 +172,7 @@ class MainHandler(webapp2.RequestHandler):
                    actEnfNote="";
                    hSalida="";
                    hSalidaNote="";
-                   if enfs.count()==1:
+                   if enfs.count()>0:
                      mVac        = enfs[0].vacunas;
                      antEnf      = enfs[0].antEnf;
                      antEnf1     = enfs[0].antEnf1;
@@ -656,8 +656,9 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('emailempresa'))
                  putData.setEnfes(pEmp.idCompania,
                                   pEmp.idEmpleado,
-                                  self.request.get('mHijosSalida'),
-                                  self.request.get('mHijosSalidaTexto'),
+                                  self.request.get('mVacunas'),
+                                  self.request.get('hSalida'),
+                                  self.request.get('hSalidaNote'),
                                   self.request.get('mEnf'),
                                   self.request.get('mEnf1'),
                                   self.request.get('mEnf2'),
