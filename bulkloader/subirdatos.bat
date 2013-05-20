@@ -1,0 +1,4 @@
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=inEmpleado   --filename=input\inEmpleado.csv   --email=adminorion@inkafarma.com.pe --passin < pass.txt
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=listaValores --filename=input\valores.csv --email=adminorion@inkafarma.com.pe --passin < pass.txt
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=ubigeo       --filename=input\ubigeo.csv       --email=adminorion@inkafarma.com.pe --passin < pass.txt
+appcfg upload_data --url=http://encuestainkafarma.appspot.com/_ah/remote_api --config_file=bulk1012.yaml --kind=organizacion --filename=input\organizacion.csv --email=adminorion@inkafarma.com.pe --passin < pass.txt

@@ -1,0 +1,75 @@
+nombre,idArea,idSeccion,idGer,idDep
+Control de Inventario,16,05,01,08
+Registros Sanitarios,09,01,01,06
+Boticas,25,09,01,10
+Almacen de Canjes,16,07,01,08
+Supervisores,25,08,01,10
+Seguridad,38,00,01,12
+Administracion Inventarios,16,04,01,08
+Almacen de Productos,16,06,01,08
+Aseguramiento de la Calidad,09,02,01,06
+Control de establecimientos farmacéuticos,09,03,01,06
+Pharma Marcas Exclusivas,04,00,01,05
+Marketing Marcas Exclusivas,07,00,01,05
+Cuidado Personal Marcas Exclusivas,06,00,01,05
+Precios,03,00,01,04
+Compras Farma,01,00,01,04
+Gestion Humana,00,00,01,12
+Compras Consumo,02,00,01,04
+Ventas,00,00,01,10
+Administracion y Finanzas,00,00,01,11
+Nutrición Marcas Exclusivas,05,00,01,05
+Gestion del Talento y Liderazgo,36,00,01,12
+Administración y Servicios al Personal,37,00,01,12
+Centro de Productividad del Personal,35,00,01,12
+Adquisiciones,33,00,01,11
+Planeamiento y Control de Gestión,31,00,01,11
+Auditoria Interna,30,00,01,11
+Formulario Magistral,28,00,01,10
+Contabilidad,34,00,01,11
+Desarrollo Inmobiliario,29,00,01,10
+Tesoreria,32,00,01,11
+Administracion de Categorias y Merchandising,12,00,01,07
+Gestion de Clientes Premium,14,00,01,07
+CRM y Servicio al Cliente,10,00,01,07
+Asesoria Legal,08,00,01,06
+Centro de Distribucion y Operaciones,16,00,01,07
+Asuntos Regulatorios,09,00,01,06
+Atención Farmaceutica,11,00,01,07
+Maestro de Productos,15,00,01,07
+Gestion de la Información,17,00,01,09
+Servicios de Marketing,13,00,01,07
+Trámite Documentario,37,22,01,12
+Nominas y Contratos,37,23,01,12
+Bienestar Social,37,20,01,12
+Responsables Regionales,37,21,01,12
+Infraestructura,00,00,01,03
+Legal y Asuntos Regulatorios,00,00,01,06
+Logistica y Operaciones,00,00,01,08
+Compras,00,00,01,04
+Sistemas,00,00,01,09
+Gerencia General,00,00,01,00
+Comercial Marcas Exclusivas,00,00,01,05
+Marketing,00,00,01,07
+Comite Corporativo de Inteligencia de Negocios,00,00,01,02
+Comite de Gerencia,00,00,01,01
+Networking,21,00,01,09
+Convenios y Ventas Especiales,27,00,01,10
+Jefatura Regional,25,00,01,10
+Soporte Tecnico,22,00,01,09
+Monitoreos,26,00,01,10
+Aplicaciones Punto de Venta,19,00,01,09
+Software Base,23,00,01,09
+Integracion y Q.A.,24,00,01,09
+Aplicaciones ERP,20,00,01,09
+Operaciones,18,00,01,09
+Caja Electronica,34,12,01,11
+Call Center,25,10,01,10
+Tributacion,34,17,01,11
+Selección y Desarrollo,36,18,01,12
+Cuentas por Pagar,34,14,01,11
+Cuentas por Cobrar,34,16,01,11
+"Facturacion,Creditos y Cobranzas",32,11,01,11
+Capacitacion,36,19,01,12
+Conciliacion Bancaria,34,13,01,11
+Control de Gastos,34,15,01,11

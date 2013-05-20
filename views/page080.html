@@ -71,6 +71,36 @@ function showData(frm){
 	frm.mEnfAct9.value = "{{ actEnf9 }}";
 	frm.mEnfAct10.value = "{{ actEnf10 }}";
 	frm.mEnfActTexto.value = "{{ actEnfNote }}";
+	
+	var res=document.getElementById("mEnf");
+	if (res.value=='si') {
+		console.debug(res.value);
+		pSel = document.getElementById("divEnf");
+		pSel.style.display='block';
+		pSel1 = document.getElementById("divEnf1");
+		pSel1.style.display='block';
+		} else {
+		console.debug(res.value);
+		pSel = document.getElementById("divEnf");
+		pSel.style.display='none';
+		pSel1 = document.getElementById("divEnf1");
+		pSel1.style.display='none';
+	}
+	
+	var res=document.getElementById("mEnfAct");
+	if (res.value=='si') {
+		console.debug(res.value);
+		pSel = document.getElementById("divAct");
+		pSel.style.display='block';
+		pSel1 = document.getElementById("divAct1");
+		pSel1.style.display='block';
+		} else {
+		console.debug(res.value);
+		pSel = document.getElementById("divAct");
+		pSel.style.display='none';
+		pSel1 = document.getElementById("divAct1");
+		pSel1.style.display='none';
+	}
   }
 }
 function limitText(limitField, limitNum) {
@@ -171,6 +201,7 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
+      
       <tr>
         <td colspan="3"><strong>Si tiene hijos, ¿Con quién se quedan tus hijos cuando sales a trabajar?</strong></td>
         <td>&nbsp;</td>
@@ -201,24 +232,42 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td><label for="mEnf"></label>
-          <select name="mEnf" size="1" id="mEnf">
+        <script>
+		function checkAntEnf() {
+			var res=document.getElementById("mEnf");
+			if (res.value=='si') {
+				console.debug(res.value);
+				pSel = document.getElementById("divEnf");
+				pSel.style.display='block';
+				pSel1 = document.getElementById("divEnf1");
+				pSel1.style.display='block';
+				}
+			else {
+				console.debug(res.value);
+				pSel = document.getElementById("divEnf");
+				pSel.style.display='none';
+				pSel1 = document.getElementById("divEnf1");
+				pSel1.style.display='none';
+				}
+		}
+		</script>
+        <td>
+          <select name="mEnf" size="1" id="mEnf" onchange="checkAntEnf()">
             <option value="si" selected="selected">Si</option>
             <option value="no">No</option>
         </select></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
-      <div id="enfSeccion">
-      <tr>
+      <tr >
         <td>&nbsp;</td>
         <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Enfermedades</td>
-        <td>
-          <input type="checkbox" name="mEnf1" id="mEnf1" value="Alergias" />Alergias<br>
+        <td></td>
+        <td id='divEnf' style='display:'>
+          <input type="checkbox" name="mEnf1" id="mEnf1" value="Alergias"/>Alergias<br>
           <input type="checkbox" name="mEnf2" id="mEnf2" value="Diabetes" />Diabetes<br>
           <input type="checkbox" name="mEnf3" id="mEnf3" value="TBC"/>TBC<br>
           <input type="checkbox" name="mEnf4" id="mEnf4" value="Hepatitis B"/>Hepatitis B<br>
@@ -229,11 +278,10 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnf9" id="mEnf9" value="Convulsiones"/>Convulsiones<br>
           <input type="checkbox" name="mEnf10" id="mEnf10" value="Otros"/>Otros
         </td>
-        <td valign="bottom">
+        <td valign="bottom" id='divEnf1' style='display:'>
         <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
-      </div>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -244,24 +292,42 @@ function isNumberKey(evt)
         <td colspan="3"><strong>Sufres actualmente de alguna enfermedad:</strong></td>
         <td>&nbsp;</td>
       </tr>
+      <script>
+		function checkAct() {
+			var res=document.getElementById("mEnfAct");
+			if (res.value=='si') {
+				console.debug(res.value);
+				pSel = document.getElementById("divAct");
+				pSel.style.display='block';
+				pSel1 = document.getElementById("divAct1");
+				pSel1.style.display='block';
+				}
+			else {
+				console.debug(res.value);
+				pSel = document.getElementById("divAct");
+				pSel.style.display='none';
+				pSel1 = document.getElementById("divAct1");
+				pSel1.style.display='none';
+				}
+		}
+		</script>
       <tr>
         <td>&nbsp;</td>
-        <td><select name="mEnfAct" size="1" id="mEnfAct">
+        <td><select name="mEnfAct" size="1" id="mEnfAct" onchange="checkAct()">
           <option value="si" selected="selected">Si</option>
           <option value="no">No</option>
         </select></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
-      <div id="antEnfSeccion">
       <tr>
         <td>&nbsp;</td>
         <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Enfermedades</td>
-        <td>
+        <td></td>
+        <td  id='divAct' style='display:'>
           <input type="checkbox" name="mEnfAct1" id="mEnfAct1" value="Digestivo"/>Digestivo<br>
           <input type="checkbox" name="mEnfAct2" id="mEnfAct2" value="Abdominal"/>Pared Abdominal<br>
           <input type="checkbox" name="mEnfAct3" id="mEnfAct3" value="Cardiovascular" />Cardiovascular<br>
@@ -272,10 +338,9 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnfAct8" id="mEnfAct8" value="Oftalmologicas"/>Oftalmológicas<br>
           <input type="checkbox" name="mEnfAct9" id="mEnfAct9" value="Musculoesqueletica"/>Musculoesquelética<br>
           <input type="checkbox" name="mEnfAct10" id="mEnfAct10" value="Otros"/>Otros</td>
-        <td valign="bottom"><input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" /></td>
+        <td valign="bottom"  id='divAct1' style='display:'><input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
-      </div>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
