@@ -62,6 +62,17 @@ function showData(frm){
 	frm.mViv.value = "{{ vivProp }}";
 	frm.mVivOtros.value ="{{ vivPropOtros }}";
 	frm.mMiembros.value = "{{ mMiembros }}";
+	
+	var res=document.getElementById("mViv");
+	if (res.value=='Otros') {
+		console.debug(res.value);
+		pSel = document.getElementById("tdOtros");
+		pSel.style.display='block';
+		} else {
+		console.debug(res.value);
+		pSel = document.getElementById("tdOtros");
+		pSel.style.display='none';
+	}
   }
 }
 function limitText(limitField, limitNum) {
@@ -311,14 +322,29 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Vivienda</td>
-        <td><select name="mViv" size="1" id="mViv">
+        <td>&nbsp;</td>
+        <script>
+		function checkViv() {
+			var res=document.getElementById("mViv");
+			if (res.value=='Otros') {
+				console.debug(res.value);
+				pSel = document.getElementById("tdOtros");
+				pSel.style.display='block';
+				}
+			else {
+				console.debug(res.value);
+				pSel = document.getElementById("tdOtros");
+				pSel.style.display='none';
+				}
+		}
+		</script>
+        <td><select name="mViv" size="1" id="mViv" onchange="checkViv()">
             <option value="Propia">Propia</option>
             <option value="Alquilada">Alquilada</option>
             <option value="Familiar">Familiar</option>
             <option value="Otros">Otros</option>
           </select></td>
-        <td valign="bottom">
+        <td valign="bottom" id="tdOtros" style="display:none">
         <input name="mVivOtros" type="text" id="mVivOtros" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
@@ -329,8 +355,7 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><strong>¿Cuántas personas viven en casa?</strong></td>
-        <td>&nbsp;</td>
+        <td colspan="3"><strong>¿Cuántas personas viven en casa (incluyéndote)?</strong></td>
         <td>&nbsp;</td>
       </tr>
       <tr>

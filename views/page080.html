@@ -182,11 +182,11 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="3"> <strong>Si tiene hijos, ¿Ellos tienen todas sus vacunas?</strong></td>
+        <td colspan="3"> <strong>Si tienes hijos, ¿Tienen ellos todas sus vacunas?</strong></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Vacunas</td>
+        <td>Indique:</td>
         <td><select name="mVacunas" size="1" id="mVacunas">
           <option value="Si" selected="selected">Si</option>
           <option value="No">No</option>
@@ -206,9 +206,24 @@ function isNumberKey(evt)
         <td colspan="3"><strong>Si tiene hijos, ¿Con quién se quedan tus hijos cuando sales a trabajar?</strong></td>
         <td>&nbsp;</td>
       </tr>
+      <script>
+		function checkHijos() {
+			var res=document.getElementById("hSalida");
+			if (res.value=='otros') {
+				console.debug(res.value);
+				pSel = document.getElementById("tdOtrosHijo");
+				pSel.style.display='block';
+				}
+			else {
+				console.debug(res.value);
+				pSel = document.getElementById("tdOtrosHijo");
+				pSel.style.display='none';
+				}
+		}
+		</script>
       <tr>
         <td>Con quien se quedan:</td>
-        <td><select name="hSalida" size="1" id="hSalida">
+        <td><select name="hSalida" size="1" id="hSalida" onchange="checkHijos()">
           <option value="ninera" selected="selected">Con una niñera</option>
           <option value="familiar">Con un familiar</option>
           <option value="solos">Solos</option>
@@ -216,7 +231,7 @@ function isNumberKey(evt)
           <option value="otros">Otros</option>
           <option value="no">No tengo hijos</option>
         </select></td>
-        <td>
+        <td id="tdOtrosHijo" style="display:none">
         <input name="hSalidaNote" type="text" id="hSalidaNote" value="" size="45" /></td>
         <td>&nbsp;</td>
       </tr>
@@ -231,7 +246,7 @@ function isNumberKey(evt)
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
+        <td>Indique:</td>
         <script>
 		function checkAntEnf() {
 			var res=document.getElementById("mEnf");
@@ -261,7 +276,7 @@ function isNumberKey(evt)
       </tr>
       <tr >
         <td>&nbsp;</td>
-        <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
+        <td colspan="2">En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -312,7 +327,7 @@ function isNumberKey(evt)
 		}
 		</script>
       <tr>
-        <td>&nbsp;</td>
+        <td>Indique:</td>
         <td><select name="mEnfAct" size="1" id="mEnfAct" onchange="checkAct()">
           <option value="si" selected="selected">Si</option>
           <option value="no">No</option>
@@ -322,7 +337,7 @@ function isNumberKey(evt)
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="2"><strong>En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</strong></td>
+        <td colspan="2">En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
