@@ -4,8 +4,9 @@ import getData
 import logging
 
 def delRecord(pkey):
-    dep= db.get(pkey)
-    dep.delete()
+    dep = db.get(pkey)
+    if not dep is None:
+      dep.delete()
 
 def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,pempEmail):
     e = models.libres(idCompania    = pidCompania,
