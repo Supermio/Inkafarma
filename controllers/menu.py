@@ -654,35 +654,155 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('anexoempresa'),
                         self.request.get('celularempresa'),
                         self.request.get('rpmempresa'),
-                        self.request.get('emailempresa'))                     
+                        self.request.get('emailempresa'))
+                 penf1 = 'False'
+                 penf2 = 'False'
+                 penf3 = 'False'
+                 penf4 = 'False'
+                 penf5 = 'False'
+                 penf6 = 'False'
+                 penf7 = 'False'
+                 penf8 = 'False'
+                 penf9 = 'False'
+                 penf10 = 'False'
+                 try:
+                     if self.request.get_all('mEnf1')[0] == 'Yes': penf1 = 'True'
+                     else: penf1 = 'False'
+                 except:
+                     penf1 = 'False'
+                 try:
+                     if self.request.get_all('mEnf2')[0] == 'Yes': penf2 = 'True'
+                     else: penf2 = 'False'
+                 except:
+                     penf2 = 'False'
+                 try:
+                     if self.request.get_all('mEnf3')[0] == 'Yes': penf3 = 'True'
+                     else: penf3 = 'False'
+                 except:
+                     penf3 = 'False'
+                 try:
+                     if self.request.get_all('mEnf4')[0] == 'Yes': penf4 = 'True'
+                     else: penf4 = 'False'
+                 except:
+                     penf4 = 'False'
+                 try:
+                     if self.request.get_all('mEnf5')[0] == 'Yes': penf5 = 'True'
+                     else: penf5 = 'False'
+                 except:
+                     penf5 = 'False'
+                 try:
+                     if self.request.get_all('mEnf6')[0] == 'Yes': penf6 = 'True'
+                     else: penf6 = 'False'
+                 except:
+                     penf6 = 'False'
+                 try:
+                     if self.request.get_all('mEnf7')[0] == 'Yes': penf7 = 'True'
+                     else: penf7 = 'False'
+                 except:
+                     penf7 = 'False'
+                 try:
+                     if self.request.get_all('mEnf8')[0] == 'Yes': penf8 = 'True'
+                     else: penf8 = 'False'
+                 except:
+                     penf8 = 'False'
+                 try:
+                     if self.request.get_all('mEnf9')[0] == 'Yes': penf9 = 'True'
+                     else: penf9 = 'False'
+                 except:
+                     penf9 = 'False'
+                 try:
+                     if self.request.get_all('mEnf10')[0] == 'Yes': penf10 = 'True'
+                     else: penf10 = 'False'
+                 except:
+                     penf10 = 'False'
+                 penfAct1 = 'False'
+                 penfAct2 = 'False'
+                 penfAct3 = 'False'
+                 penfAct4 = 'False'
+                 penfAct5 = 'False'
+                 penfAct6 = 'False'
+                 penfAct7 = 'False'
+                 penfAct8 = 'False'
+                 penfAct9 = 'False'
+                 penfAct10 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct1')[0] == 'Yes': penfAct1 = 'True'
+                     else: penfAct1 = 'False'
+                 except:
+                     penfAct1 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct2')[0] == 'Yes': penfAct2 = 'True'
+                     else: penfAct2 = 'False'
+                 except:
+                     penfAct2 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct3')[0] == 'Yes': penfAct3 = 'True'
+                     else: penfAct3 = 'False'
+                 except:
+                     penfAct3 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct4')[0] == 'Yes': penfAct4 = 'True'
+                     else: penfAct4 = 'False'
+                 except:
+                     penfAct4 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct5')[0] == 'Yes': penfAct5 = 'True'
+                     else: penfAct5 = 'False'
+                 except:
+                     penfAct5 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct6')[0] == 'Yes': penfAct6 = 'True'
+                     else: penfAct6 = 'False'
+                 except:
+                     penfAct6 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct7')[0] == 'Yes': penfAct7 = 'True'
+                     else: penfAct7 = 'False'
+                 except:
+                     penfAct7 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct8')[0] == 'Yes': penfAct8 = 'True'
+                     else: penfAct8 = 'False'
+                 except:
+                     penfAct8 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct9')[0] == 'Yes': penfAct9 = 'True'
+                     else: penfAct9 = 'False'
+                 except:
+                     penfAct9 = 'False'
+                 try:
+                     if self.request.get_all('mEnfAct10')[0] == 'Yes': penfAct10 = 'True'
+                     else: penfAct10 = 'False'
+                 except:
+                     penfAct10 = 'False'
                  putData.setEnfes(pEmp.idCompania,
                                   pEmp.idEmpleado,
                                   self.request.get('mVacunas'),
                                   self.request.get('hSalida'),
                                   self.request.get('hSalidaNote'),
                                   self.request.get('mEnf'),
-                                  self.request.get_all('mEnf1')[0],
-                                  self.request.get_all('mEnf2')[0],
-                                  self.request.get_all('mEnf3')[0],
-                                  self.request.get_all('mEnf4')[0],
-                                  self.request.get_all('mEnf5')[0],
-                                  self.request.get_all('mEnf6')[0],
-                                  self.request.get_all('mEnf7')[0],
-                                  self.request.get_all('mEnf8')[0],
-                                  self.request.get_all('mEnf9')[0],
-                                  self.request.get_all('mEnf10')[0],
+                                  penf1,
+                                  penf2,
+                                  penf3,
+                                  penf4,
+                                  penf5,
+                                  penf6,
+                                  penf7,
+                                  penf8,
+                                  penf9,
+                                  penf10,
                                   self.request.get('mEnfTexto'),
                                   self.request.get('mEnfAct'),
-                                  self.request.get_all('mEnfAct1')[0],
-                                  self.request.get_all('mEnfAct2')[0],
-                                  self.request.get_all('mEnfAct3')[0],
-                                  self.request.get_all('mEnfAct4')[0],
-                                  self.request.get_all('mEnfAct5')[0],
-                                  self.request.get_all('mEnfAct6')[0],
-                                  self.request.get_all('mEnfAct7')[0],
-                                  self.request.get_all('mEnfAct8')[0],
-                                  self.request.get_all('mEnfAct9')[0],
-                                  self.request.get_all('mEnfAct10')[0],
+                                  penfAct1,
+                                  penfAct2,
+                                  penfAct3,
+                                  penfAct4,
+                                  penfAct5,
+                                  penfAct6,
+                                  penfAct7,
+                                  penfAct8,
+                                  penfAct9,
+                                  penfAct10,
                                   self.request.get('mEnfActTexto'))
                  path= "views/main.html"
                  template_values = {'emp' : pEmp,

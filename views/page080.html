@@ -48,28 +48,28 @@ function showData(frm){
 	frm.hSalida.value = "{{ hSalida }}";
 	frm.hSalidaNote.value ="{{ hSalidaNote }}";
 	frm.mEnf.value = "{{ antEnf }}";
-	frm.mEnf1.value = "{{ antEnf1 }}";
-	frm.mEnf2.value = "{{ antEnf2 }}";
-	frm.mEnf3.value = "{{ antEnf3 }}";
-	frm.mEnf4.value = "{{ antEnf4 }}";
-	frm.mEnf5.value = "{{ antEnf5 }}";
-	frm.mEnf6.value = "{{ antEnf6 }}";
-	frm.mEnf7.value = "{{ antEnf7 }}";
-	frm.mEnf8.value = "{{ antEnf8 }}";
-	frm.mEnf9.value = "{{ antEnf9 }}";
-	frm.mEnf10.value = "{{ antEnf10 }}";
+	if ('{{ antEnf1 }}'=='True') frm.mEnf1.checked = 'true';
+	if ('{{ antEnf2 }}'=='True') frm.mEnf2.checked = 'true';
+	if ('{{ antEnf3 }}'=='True') frm.mEnf3.checked = 'true';
+	if ('{{ antEnf4 }}'=='True') frm.mEnf4.checked = 'true';
+	if ('{{ antEnf5 }}'=='True') frm.mEnf5.checked = 'true';
+	if ('{{ antEnf6 }}'=='True') frm.mEnf6.checked = 'true';
+	if ('{{ antEnf7 }}'=='True') frm.mEnf7.checked = 'true';
+	if ('{{ antEnf8 }}'=='True') frm.mEnf8.checked = 'true';
+	if ('{{ antEnf9 }}'=='True') frm.mEnf9.checked = 'true';
+	if ('{{ antEnf10 }}'=='True') frm.mEnf10.checked = 'true';
 	frm.mEnfTexto.value = "{{ antEnfNote }}"
 	frm.mEnfAct.value = "{{ actEnf }}";
-	frm.mEnfAct1.value = "{{ actEnf1 }}";
-	frm.mEnfAct2.value = "{{ actEnf2 }}";
-	frm.mEnfAct3.value = "{{ actEnf3 }}";
-	frm.mEnfAct4.value = "{{ actEnf4 }}";
-	frm.mEnfAct5.value = "{{ actEnf5 }}";
-	frm.mEnfAct6.value = "{{ actEnf6 }}";
-	frm.mEnfAct7.value = "{{ actEnf7 }}";
-	frm.mEnfAct8.value = "{{ actEnf8 }}";
-	frm.mEnfAct9.value = "{{ actEnf9 }}";
-	frm.mEnfAct10.value = "{{ actEnf10 }}";
+	if ('{{ actEnf1 }}'=='True') frm.mEnfAct1.checked = 'true';
+	if ('{{ actEnf2 }}'=='True') frm.mEnfAct2.checked = 'true';
+	if ('{{ actEnf3 }}'=='True') frm.mEnfAct3.checked = 'true';
+	if ('{{ actEnf4 }}'=='True') frm.mEnfAct4.checked = 'true';
+	if ('{{ actEnf5 }}'=='True') frm.mEnfAct5.checked = 'true';
+	if ('{{ actEnf6 }}'=='True') frm.mEnfAct6.checked = 'true';
+	if ('{{ actEnf7 }}'=='True') frm.mEnfAct7.checked = 'true';
+	if ('{{ actEnf8 }}'=='True') frm.mEnfAct8.checked = 'true';
+	if ('{{ actEnf9 }}'=='True') frm.mEnfAct9.checked = 'true';
+	if ('{{ actEnf10 }}'=='True') frm.mEnfAct10.checked = 'true';
 	frm.mEnfActTexto.value = "{{ actEnfNote }}";
 	
 	var res=document.getElementById("mEnf");
@@ -263,6 +263,16 @@ function isNumberKey(evt)
 				pSel.style.display='none';
 				pSel1 = document.getElementById("divEnf1");
 				pSel1.style.display='none';
+				document.frmPersonal.mEnf1.checked = 'false';
+				document.frmPersonal.mEnf2.checked = 'false';
+				document.frmPersonal.mEnf3.checked = 'false';
+				document.frmPersonal.mEnf4.checked = 'false';
+				document.frmPersonal.mEnf5.checked = 'false';
+				document.frmPersonal.mEnf6.checked = 'false';
+				document.frmPersonal.mEnf7.checked = 'false';
+				document.frmPersonal.mEnf8.checked = 'false';
+				document.frmPersonal.mEnf9.checked = 'false';
+				document.frmPersonal.mEnf10.checked = 'false';
 				}
 		}
 		</script>
@@ -323,6 +333,16 @@ function isNumberKey(evt)
 				pSel.style.display='none';
 				pSel1 = document.getElementById("divAct1");
 				pSel1.style.display='none';
+				document.frmPersonal.mEnfAct1.checked = 'false';
+				document.frmPersonal.mEnfAct2.checked = 'false';
+				document.frmPersonal.mEnfAct3.checked = 'false';
+				document.frmPersonal.mEnfAct4.checked = 'false';
+				document.frmPersonal.mEnfAct5.checked = 'false';
+				document.frmPersonal.mEnfAct6.checked = 'false';
+				document.frmPersonal.mEnfAct7.checked = 'false';
+				document.frmPersonal.mEnfAct8.checked = 'false';
+				document.frmPersonal.mEnfAct9.checked = 'false';
+				document.frmPersonal.mEnfAct10.checked = 'false';
 				}
 		}
 		</script>
