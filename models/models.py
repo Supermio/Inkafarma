@@ -5,6 +5,14 @@ from google.appengine.ext import db
 # These classes define the data objects
 # that you will be able to store in
 # AppEngine's data store.
+
+class autorizado(db.Model):
+	idCompania = db.StringProperty(required=True, indexed=True)
+	idEmpleado = db.StringProperty(required=True, indexed=True)
+	mAutorizado = db.IntegerProperty(required=True)
+	mNavegador = db.StringProperty()
+	mFecha = db.StringProperty(required=True)
+	
 class libres(db.Model):
 	idCompania  = db.StringProperty(required=True, indexed=True)
 	idEmpleado  = db.StringProperty(required=True, indexed=True)
