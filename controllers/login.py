@@ -39,13 +39,20 @@ class MainHandler(webapp2.RequestHandler):
       if total==1:
          pkey= tmpEmpleados[0]
          pEmp = getData.getEmp(pkey)
-         path =  "views/main.html"
-         template_values = {'emp'    : pEmp,
-                            'empkey' : pkey}
+         pRes = getData.getDisclaimer(pcodEmpleado)
+         if (pRes== 'True'):
+            path =  "views/main.html"
+            template_values = {'emp'    : pEmp,
+                              'empkey' : pkey}
+         else:
+            terms = getData.getTextoDis(pEmp.idCompania,1)
+            path = "views/disclaimer.html"
+            template_values = {'emp' : pEmp,
+                               'empkey' : pkey,
+                               'terms': terms}
       else:
          path = "views/default.html"
          template_values = {"error": "Credenciales invalidas",
-                            "total": total}
-      
+                            "total": total}   
       self.response.out.write(template.render(path, template_values))
    

@@ -6,6 +6,11 @@ from google.appengine.ext import db
 # that you will be able to store in
 # AppEngine's data store.
 
+class textos(db.Model):
+	idCompania = db.StringProperty(required=True, indexed=True)
+	idTexto = db.IntegerProperty(required=True, indexed=True)
+	texto = db.StringProperty()
+	
 class autorizado(db.Model):
 	idCompania = db.StringProperty(required=True, indexed=True)
 	idEmpleado = db.StringProperty(required=True, indexed=True)
