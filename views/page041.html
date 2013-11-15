@@ -1,53 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Censo 2012</title>
-<link rel="stylesheet" type="text/css" media="all" href="assets/css/jsDatePick_ltr.min.css" />
-<script type="text/javascript" src="assets/js/jsDatePick.min.1.3.js"></script>
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"pperiodoIni",
-			dateFormat:"%d/%m/%Y",
-			cellColorScheme:"armygreen",
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"pperiodoFin",
-			dateFormat:"%d/%m/%Y",
-			cellColorScheme:"armygreen",
-		});
-	};
-</script>
-<style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Sanchez);
-@font-face {
-  font-family: "DilleniaUPC";
-  src: url(assets/fonts/upcdb.ttf) format("truetype");
-}
-html, body{ margin:0; height:100%}
-body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
-}
-#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
-#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
-#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
-#apDiv1 {
-	position: absolute;
-	left: 35px;
-	top: 117px;
-	width: 804px;
-	height: 330px;
-	z-index: 1;
-}
-#apDiv1 {
-	font-family: Arial, Helvetica, sans-serif;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Conociéndote | Inkafarma</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="files/imperio.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 <script language="JavaScript">
 function showData(frm){
-        upd = {{ datos }};
+        upd = "{{ datos }}";
   if (upd=="1")
   {
     frm.pempresa.value = "{{ exper.empresa }}";
@@ -77,57 +44,86 @@ function showData(frm){
 		});
 }
 </script>
-</head>
+	</head>
+    <body onload="showData(document.frmExperiencia);">
+        <div class="container-fluid nopadding">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="header">
+                        <a href="#">
+							<img src="files/logo.png" alt="">
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="container">
+            <div class="row-fluid">
+            
+                <div class="span3 leftmenu">
+                    <ul style="position: relative; top: 0px; width: auto;">
+                        <li><a href="1.html"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
+                        <li><a href="2.html"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
+                        <li><a href="3.html"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
+                        <li><a href="4.html"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
+                        <li class="active"><a href="5.html"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
+                        <li><a href="6.html"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
+                        <li><a href="7.html"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
+                        <li><a href="8.html"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
+                        
+                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+                
+                <div class="span9" id="content">
 
-<body onload="showData(document.frmExperiencia);"><div id="header-title">
-  <h1>Conociéndote</h1>
-  <h2>Censo</h2>
-</div>
-<div id="apDiv1">
-  <form id="frmExperiencia" name="frmExperiencia" method="post" action="">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="box alternate">
+                                
+                                <div class="box-content nopadding">
+<form id="frmExperiencia" name="frmExperiencia" method="post" action="" class="form-horizontal" novalidate>
   <input type="submit" name="control" id="action" value="Cancelar" />
   <input type="hidden" name="frmName" value="page041" />
   <input type="hidden" name="empkey" value="{{emp.key}}"/>
   <input type="hidden" name="expkey" value="{{exper.key}}"/>
   <input type="hidden" name="datos" value="{{datos}}"/>
-  <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
-  <h3>A continuación te pedimos puedas detallas tus últimas tres experiencias laborales, comenzando desde la mas reciente:</h3>
-    <table width="749" border="0">
-      <tr>
-        <td><strong>Experiencia Laboral</strong></td>
-        <td>&nbsp;</td>
-        <td colspan="3">&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pempresa2">Nombre de la Empresa:</label></td>
-        <td colspan="3"><input type="text" name="pempresa" id="pempresa" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td width="130">&nbsp;</td>
-        <td width="146"><label for="prubro">Rubro:</label></td>
-        <td colspan="3"><input type="text" name="prubro" id="prubro" /></td>
-        <td width="84">&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pcargo">Cargo desempeñado:</label></td>
-        <td colspan="3"><input type="text" name="pcargo" id="pcargo" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td rowspan="2">&nbsp;</td>
-        <td rowspan="2"><label for="pperiodoIni">Fecha de Inicio:</label></td>
-        <td width="67">          día
-        </td>
-        <td width="124">mes</td>
-        <td width="172">año</td>
-        <td rowspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <td><select name="pdiaIni" size="1" id="pdiaIni">
+
+                                        <div class="box-content">Experiencia Laborar:<br />A continuación te pedimos puedas completar la información acerca tu experiencia laboral.<br /><br /><a href="5.html" class="btn btn-primary">Regresar</a></div>
+                                       
+                                        
+                                        <div class="box-content">Experiencia Laborar:</div>
+                                        
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Nombre de la Empresa</label>
+                                            <div class="controls">
+                                                <input type="text" name="pempresa" id="pempresa" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Rubro</label>
+                                            <div class="controls">
+                                                <input type="text" name="prubro" id="prubro" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Cargo</label>
+                                            <div class="controls">
+                                                <input type="text" name="pcargo" id="pcargo" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Fecha de Inicio</label>
+                                            <div class="controls">
+                                                <select name="pdiaIni" size="1" id="pdiaIni">
           <option value="01">1</option>
           <option value="02">2</option>
           <option value="03">3</option>
@@ -159,8 +155,7 @@ function showData(frm){
           <option value="29">29</option>
           <option value="30">30</option>
           <option value="31">31</option>
-        </select></td>
-        <td><select name="pmesIni" id="pmesIni">
+        </select><select name="pmesIni" id="pmesIni">
           <option value="01">Enero</option>
           <option value="02">Febrero</option>
           <option value="03">Marzo</option>
@@ -173,8 +168,7 @@ function showData(frm){
           <option value="10">Octubre</option>
           <option value="11">Noviembre</option>
           <option value="12">Diciembre</option>
-        </select></td>
-        <td><select name="panoIni" id="panoIni">
+        </select><select name="panoIni" id="panoIni">
           <option value="1930">1930</option>
           <option value="1931">1931</option>
           <option value="1932">1932</option>
@@ -296,12 +290,15 @@ function showData(frm){
           <option value="2048">2048</option>
           <option value="2049">2049</option>
           <option value="2050">2050</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pperiodoFin">Fecha de cese:</label></td>
-        <td><select name="pdiaFin" size="1" id="pdiaFin">
+        </select>
+                                                <br /><span class="help-inline">(DD / MM / AAAA)</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Fecha de Cese</label>
+                                            <div class="controls">
+                                                <select name="pdiaFin" size="1" id="pdiaFin">
             <option value="01">1</option>
             <option value="02">2</option>
             <option value="03">3</option>
@@ -333,9 +330,7 @@ function showData(frm){
             <option value="29">29</option>
             <option value="30">30</option>
             <option value="31">31</option>
-          </select>
-        </td>
-        <td><select name="pmesFin" id="pmesFin">
+          </select><select name="pmesFin" id="pmesFin">
           <option value="01">Enero</option>
           <option value="02">Febrero</option>
           <option value="03">Marzo</option>
@@ -348,8 +343,7 @@ function showData(frm){
           <option value="10">Octubre</option>
           <option value="11">Noviembre</option>
           <option value="12">Diciembre</option>
-        </select></td>
-        <td><select name="panoFin" id="panoFin">
+        </select><select name="panoFin" id="panoFin">
           <option value="1930">1930</option>
           <option value="1931">1931</option>
           <option value="1932">1932</option>
@@ -471,35 +465,43 @@ function showData(frm){
           <option value="2048">2048</option>
           <option value="2049">2049</option>
           <option value="2050">2050</option>
-        </select></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pglosa">Motivo de renuncia o cese:</label></td>
-        <td colspan="3"><input type="text" name="pglosa" id="pglosa" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td colspan="3">&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td colspan="3">
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Cancelar" />
-        </div></td>
-        <td>
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Guardar" />
-        </div></td>
-      </tr>
-    </table>
-  </form>
-</div>
+        </select>
+                                                <br /><span class="help-inline">(DD / MM / AAAA)</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Motivo de Renuncia o Cese</label>
+                                            <div class="controls">
+                                                <input type="text" name="pglosa" id="pglosa" />
+                                            </div>
+                                        </div>                                       
+
+                                        
+                                        <div class="form-actions">
+                                        <input type="submit" class="btn btn-danger" name="control" id="action" value="Guardar" />
+                                            <input type="submit" class="btn" name="control" id="action" value="Cancelar" />
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="box-title" style="text-align:right">
+                                <img src="files/logo-ink.png">
+                                </div>
+                                
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            
+            </div>       
+        </div>
+    
+        <script type="text/javascript" src="files/jquery.min.js"></script>
+		<script type="text/javascript" src="files/bootstrap.min.js"></script>
+        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="files/imperio.general.js"></script>
+        <script type="text/javascript" src="files/imperio.forms.js"></script>
+    
 </body>
 </html>

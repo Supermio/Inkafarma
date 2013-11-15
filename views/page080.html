@@ -1,41 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Censo 2012</title>
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Conociéndote | Inkafarma</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Sanchez);
-@font-face {
-  font-family: "DilleniaUPC";
-  src: url(assets/fonts/upcdb.ttf) format("truetype");
-}
-html, body{ margin:0; height:100%}
-body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
-}
-#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
-#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
-#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
+		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="files/imperio.css">
 
-#apDiv1 {
-	position: absolute;
-	left: 26px;
-	top: 97px;
-	width: 940px;
-	height: 649px;
-	z-index: 1;
-}
-#apDiv1 {
-	font-family: Arial, Helvetica, sans-serif;
-}
-</style>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 <script language="JavaScript">
 function showData(frm){
         upd = "{{ datos }}";
 		frm.datos.value = upd;
   if (upd=="1")
   {
-	  {% for valor in libres %}
+	{% for valor in libres %}
 	frm.librekey.value= "{{ valor.key }}";
 	frm.cuentared.value = "{{ valor.empCuenta }}";
     frm.anexoempresa.value = "{{ valor.empAnexo }}";
@@ -117,96 +100,105 @@ function isNumberKey(evt)
 	return true;
 }
 </script>
-</head>
+	</head>
+    <body>
+        <div class="container-fluid nopadding">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="header">
+                        <a href="#">
+							<img src="files/logo.png" alt="">
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="container">
+            <div class="row-fluid">
+            
+                <div class="span3 leftmenu">
+                    <ul style="position: relative; top: 0px; width: auto;">
+                        <li><a href="1.html"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
+                        <li><a href="2.html"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
+                        <li><a href="3.html"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
+                        <li><a href="4.html"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
+                        <li><a href="5.html"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
+                        <li><a href="6.html"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
+                        <li><a href="7.html"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
+                        <li class="active"><a href="8.html"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
+                        
+                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+                
+                <div class="span9" id="content">
 
-<body onload="showData(document.frmPersonal);"><div id="header-title">
-  <h1>Conociéndote</h1>
-  <h2>Censo</h2>
-</div>
-
-<div id="apDiv1">
-  <form id="frmPersonal" name="frmPersonal" method="post" action="">
-  
-    <p>
-      <input type="submit" name="control" id="action" value="Regresar" />
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="box alternate">
+                                
+                                <div class="box-content nopadding">
+                                    <form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
+                                   <input type="submit" name="control" id="action" value="Regresar" />
       <input type="hidden" name="frmName" value="page080" />
       <input type="hidden" name="empkey" value="{{emp.key}}"/>
       <input type="hidden" name="librekey" value=""/>
       <input name="pubigeo" type="hidden" id="pubigeo" />
       <input name="datos" type="hidden" id="datos" />
-    </p>
-    <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
-    <h3>Queremos conocer más de ti, te pedimos puedas  completar la siguiente información:</h3>
-    <table width="755" border="0">
-      <tr>
-        <td width="113"><div align="left"><strong>Datos Personales</strong></div></td>
-        <td width="212">&nbsp;</td>
-        <td width="337">&nbsp;</td>
-        <td width="75">&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td><label for="cuentared">Usuario de red:</label></td>
-        <td><input type="text" name="cuentared" id="cuentared" onkey="limitText(nomVia,20);"/></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td><label for="anexoempresa">Anexo Empresa:</label></td>
-        <td><input type="text" name="anexoempresa" id="anexoempresa" onkey="limitText(anexoempresa,20);"/>
-	</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td><label for="celularempresa">Celular Empresa:</label></td>
-        <td><input type="text" name="celularempresa" id="celularempresa" onkey="limitText(celularempresa,20);"/></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td><label for="rpmempresa">RPM Empresa:</label></td>
-        <td><input type="text" name="rpmempresa" id="rpmempresa" onkey="limitText(rpmempresa,20);" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td><label for="emailempresa">Email Empresa:</label></td>
-        <td><input type="text" name="emailempresa" id="emailempresa" onkey="limitText(emailempresa,100);"/></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="3"> <strong>Si tienes hijos, ¿Tienen ellos todas sus vacunas?</strong></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Indique:</td>
-        <td><select name="mVacunas" size="1" id="mVacunas">
+                                        <div class="box-content">Datos Adicionales:</div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Usuario de Red</label>
+                                            <div class="controls">
+                                                <input type="text" name="cuentared" id="cuentared" onkey="limitText(nomVia,20);"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Anexo Empresa</label>
+                                            <div class="controls">
+                                                <input type="text" name="anexoempresa" id="anexoempresa" onkey="limitText(anexoempresa,20);"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Celular Empresa</label>
+                                            <div class="controls">
+                                                <input type="text" name="celularempresa" id="celularempresa" onkey="limitText(celularempresa,20);"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">RPM Empresa</label>
+                                            <div class="controls">
+                                                <input type="text" name="rpmempresa" id="rpmempresa" onkey="limitText(rpmempresa,20);" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Email Empresa</label>
+                                            <div class="controls">
+                                                <input type="text" name="emailempresa" id="emailempresa" onkey="limitText(emailempresa,100);"/>
+                                            </div>
+                                        </div>                                        
+                                                                              
+                                        
+                                        <div class="box-content">Si tienes hijos, ¿Tienen ellos todas sus vacunas?</div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Indique</label>
+                                            <div class="controls">
+                                                <select name="mVacunas" size="1" id="mVacunas">
           <option value="Si" selected="selected">Si</option>
           <option value="No">No</option>
           <option value="Nohijos">No tengo hijos</option>
-        </select></td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      
-      <tr>
-        <td colspan="3"><strong>Si tiene hijos, ¿Con quién se quedan tus hijos cuando sales a trabajar?</strong></td>
-        <td>&nbsp;</td>
-      </tr>
-      <script>
+        </select>
+                                            </div>
+                                        </div>
+<script>
 		function checkHijos() {
 			var res=document.getElementById("hSalida");
 			if (res.value=='otros') {
@@ -220,34 +212,31 @@ function isNumberKey(evt)
 				pSel.style.display='none';
 				}
 		}
-		</script>
-      <tr>
-        <td>Con quien se quedan:</td>
-        <td><select name="hSalida" size="1" id="hSalida" onchange="checkHijos()">
+		</script>                                        
+                                        <div class="box-content">Si tienes hijos, ¿Con quién se quedan tus hijos cuando sales a trabajar?</div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Indique</label>
+                                            <div class="controls">
+                                                <select name="hSalida" size="1" id="hSalida" onchange="checkHijos()">
           <option value="ninera" selected="selected">Con una niñera</option>
           <option value="familiar">Con un familiar</option>
           <option value="solos">Solos</option>
           <option value="colegio">Colegio/Guarderia</option>
           <option value="otros">Otros</option>
           <option value="no">No tengo hijos</option>
-        </select></td>
-        <td id="tdOtrosHijo" style="display:none">
-        <input name="hSalidaNote" type="text" id="hSalidaNote" value="" size="45" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="3"><strong>¿Tiene antecedentes de alguna enfermedades?</strong></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Indique:</td>
-        <script>
+        </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">Indique</label>
+                                            <div class="controls" id="tdOtrosHijo" style="display:none">
+                                                <input name="hSalidaNote" type="text" id="hSalidaNote" value="" size="45" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="box-content">¿Tiene antecedentes de alguna enfermedad?</div>
+<script>
 		function checkAntEnf() {
 			var res=document.getElementById("mEnf");
 			if (res.value=='si') {
@@ -275,24 +264,19 @@ function isNumberKey(evt)
 				document.frmPersonal.mEnf10.checked = 'false';
 				}
 		}
-		</script>
-        <td>
-          <select name="mEnf" size="1" id="mEnf" onchange="checkAntEnf()">
+		</script>                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Indique</label>
+                                            <div class="controls">
+                                                <select name="mEnf" size="1" id="mEnf" onchange="checkAntEnf()">
             <option value="si" selected="selected">Si</option>
             <option value="no">No</option>
-        </select></td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr >
-        <td>&nbsp;</td>
-        <td colspan="2">En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td id='divEnf' style='display:block'>
-          <input type="checkbox" name="mEnf1" id="mEnf1" value="Yes">Alergias</input><br>
+        </select>
+                                            </div>
+                                                                                        
+                                            <div id='divEnf' style='display:block' class="controls">
+                                            <span id="small">En caso de ser positiva su respuesta, selecciona entre las siguientes opciones, una o más, según sea tu caso particular:</span><br /><br />
+                                                <input type="checkbox" name="mEnf1" id="mEnf1" value="Yes">Alergias</input><br>
           <input type="checkbox" name="mEnf2" id="mEnf2" value="Yes">Diabetes</input><br>
           <input type="checkbox" name="mEnf3" id="mEnf3" value="Yes">TBC</input><br>
           <input type="checkbox" name="mEnf4" id="mEnf4" value="Yes">Hepatitis B</input><br>
@@ -302,22 +286,17 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnf8" id="mEnf8" value="Yes">Neoplasia</input><br>
           <input type="checkbox" name="mEnf9" id="mEnf9" value="Yes">Convulsiones</input><br>
           <input type="checkbox" name="mEnf10" id="mEnf10" value="Yes">Otros</input>
-        </td>
-        <td valign="bottom" id='divEnf1' style='display:block'>
-        <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="3"><strong>Sufres actualmente de alguna enfermedad:</strong></td>
-        <td>&nbsp;</td>
-      </tr>
-      <script>
+                                            </div>
+                                            <div class="control-group">
+                                            <label class="control-label">Otro</label>
+                                            <div class="controls" id='divEnf1' style='display:block'>
+                                                <input name="mEnfTexto" type="text" id="mEnfTexto" value="" size="45" />
+                                            </div>
+                                        </div>  
+                                        </div>
+                                        
+                                        <div class="box-content">¿Sufres actualmente de alguna enfermedad?</div>
+<script>
 		function checkAct() {
 			var res=document.getElementById("mEnfAct");
 			if (res.value=='si') {
@@ -345,25 +324,19 @@ function isNumberKey(evt)
 				document.frmPersonal.mEnfAct10.checked = 'false';
 				}
 		}
-		</script>
-      <tr>
-        <td>Indique:</td>
-        <td><select name="mEnfAct" size="1" id="mEnfAct" onchange="checkAct()">
+		</script>                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Indique</label>
+                                            <div class="controls">
+                                                <select name="mEnfAct" size="1" id="mEnfAct" onchange="checkAct()">
           <option value="si" selected="selected">Si</option>
           <option value="no">No</option>
-        </select></td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td colspan="2">En caso de ser positiva su respuesta, seleccione entre las siguientes opciones, una o más, según sea tu caso particular</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td  id='divAct' style='display:block'>
-          <input type="checkbox" name="mEnfAct1" id="mEnfAct1" value="Yes"/>Digestivo<br>
+        </select>
+                                            </div>
+                                                                                        
+                                            <div class="controls" id='divAct' style='display:block'>
+                                            <span id="small">En caso de ser positiva su respuesta, selecciona entre las siguientes opciones, una o más, según sea tu caso particular:</span><br /><br />
+                                                <input type="checkbox" name="mEnfAct1" id="mEnfAct1" value="Yes"/>Digestivo<br>
           <input type="checkbox" name="mEnfAct2" id="mEnfAct2" value="Yes"/>Pared Abdominal<br>
           <input type="checkbox" name="mEnfAct3" id="mEnfAct3" value="Yes" />Cardiovascular<br>
           <input type="checkbox" name="mEnfAct4" id="mEnfAct4" value="Yes" />Respiratorio<br>
@@ -373,32 +346,40 @@ function isNumberKey(evt)
           <input type="checkbox" name="mEnfAct8" id="mEnfAct8" value="Yes"/>Oftalmológicas<br>
           <input type="checkbox" name="mEnfAct9" id="mEnfAct9" value="Yes"/>Musculoesquelética<br>
           <input type="checkbox" name="mEnfAct10" id="mEnfAct10" value="Yes"/>Otros<br>
-	</td>
-        <td valign="bottom" id='divAct1' style='display:block'>
-	  <input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" />
-	</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><div align="right"></div></td>
-        <td>&nbsp;</td>
-        <td>
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Cancelar" />
-        </div></td>
-        <td>
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Guardar" />
-        </div></td>
-      </tr>
-    </table>
-  </form>
-</div>
+                                            </div>
+                                            <div class="control-group">
+                                            <label class="control-label">Otro</label>
+                                            <div class="controls" id='divAct1' style='display:block'>
+                                                <input name="mEnfActTexto" type="text" id="mEnfActTexto" value="" size="45" />
+                                            </div>
+                                        </div>  
+                                        </div>
+
+                                                                                                                      
+                                        <div class="form-actions">
+                                            <input type="submit" class="btn btn-danger" name="control" id="action" value="Guardar" />
+                                            <input type="submit" class="btn" name="control" id="action" value="Cancelar" />
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="box-title" style="text-align:right">
+                                <img src="files/logo-ink.png">
+                                </div>
+                                
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            
+            </div>       
+        </div>
+    
+        <script type="text/javascript" src="files/jquery.min.js"></script>
+		<script type="text/javascript" src="files/bootstrap.min.js"></script>
+        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="files/imperio.general.js"></script>
+        <script type="text/javascript" src="files/imperio.forms.js"></script>
+    
 </body>
 </html>

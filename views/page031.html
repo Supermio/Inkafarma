@@ -1,53 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Censo 2012</title>
-<link rel="stylesheet" type="text/css" media="all" href="assets/css/jsDatePick_ltr.min.css" />
-<script type="text/javascript" src="assets/js/jsDatePick.min.1.3.js"></script>
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"pfechaIni",
-			dateFormat:"%d/%m/%Y",
-			cellColorScheme:"armygreen",
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"pfechaFin",
-			dateFormat:"%d/%m/%Y",
-			cellColorScheme:"armygreen",
-		});
-	};
-</script>
-<style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Sanchez);
-@font-face {
-  font-family: "DilleniaUPC";
-  src: url(assets/fonts/upcdb.ttf) format("truetype");
-}
-html, body{ margin:0; height:100%}
-body {background-color: #e3f2c7; background-image: url(assets/images/mainback-degrade.png); background-repeat: repeat-x; background-position: 0px -40px;
-}
-#header-title { position: absolute; top: 30px; right: 20px; background-image: url(assets/images/rayas-titulo.png); height: 300px; width: 500px; background-repeat: no-repeat; background-position: right 45px; padding-right: 25px; }
-#header-title h1 {font: 42px/42px 'Sanchez', "Courier New", Courier, monospace, serif; color: #dc2219; font: bold 69px/69px  "DilleniaUPC"; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
-#header-title h2 { color: #dc2219; font: normal 16px/16px Arial, Helvetica, sans-serif; text-shadow: 5px 2px 3px #fffab6; filter: dropshadow(color=#fffab6, offx=5, offy=2); margin: 0px; padding: 0px; text-align: right; }
-#apDiv1 {
-	position: absolute;
-	left: 32px;
-	top: 112px;
-	width: 843px;
-	height: 440px;
-	z-index: 1;
-}
-#apDiv1 {
-	font-family: Arial, Helvetica, sans-serif;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Conociéndote | Inkafarma</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="files/imperio.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 <script language="JavaScript">
 function showData(frm){
-        upd = {{ datos }};
+        upd = "{{ datos }}";
   if (upd=="1")
   {
     frm.pcentEstudio.value = "{{ capac.centEstudio}}";
@@ -55,12 +22,12 @@ function showData(frm){
     frm.pnomCurso.value = "{{ capac.nombCurso }}";
     var pfechaIni = "{{ capac.fechaIni }}";
     var pfechaFin = "{{ capac.fechaFin }}";
-	frm.pdiaIni.value = pfechaIni.substr(0,2)
-	frm.pmesIni.value = pfechaIni.substr(3,2)
-	frm.panoIni.value = pfechaIni.substr(6,4)
-	frm.pdiaFin.value = pfechaFin.substr(0,2)
-	frm.pmesFin.value = pfechaFin.substr(3,2)
-	frm.panoFin.value = pfechaFin.substr(6,4)
+	frm.pdiaIni.value = pfechaIni.substr(0,2);
+	frm.pmesIni.value = pfechaIni.substr(3,2);
+	frm.panoIni.value = pfechaIni.substr(6,4);
+	frm.pdiaFin.value = pfechaFin.substr(0,2);
+	frm.pmesFin.value = pfechaFin.substr(3,2);
+	frm.panoFin.value = pfechaFin.substr(6,4);
     //frm.pduracion.value = "{{ capac.duracion }}";
     frm.pDuracionHoras.value = "{{ capac.duracionHoras }}";
     frm.ptipoCapac.value = "{{ capac.tipoCapac }}";
@@ -89,65 +56,94 @@ function isNumberKey(evt)
 	return true;
 }
 </script>
-</head>
+	</head>
+    <body onload="showData(document.frmCapacitacion);">
+        <div class="container-fluid nopadding">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="header">
+                        <a href="#">
+							<img src="files/logo.png" alt="">
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="container">
+            <div class="row-fluid">
+            
+                <div class="span3 leftmenu">
+                    <ul style="position: relative; top: 0px; width: auto;">
+                        <li><a href="1.html"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
+                        <li><a href="2.html"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
+                        <li><a href="3.html"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
+                        <li class="active"><a href="4.html"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
+                        <li><a href="5.html"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
+                        <li><a href="6.html"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
+                        <li><a href="7.html"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
+                        <li><a href="8.html"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
+                        
+                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
+                        
+                    </ul>
+                    
+                    
+                </div>
+                
+                <div class="span9" id="content">
 
-<body onload="showData(document.frmCapacitacion);"><div id="header-title">
-  <h1>Conociéndote</h1>
-  <h2>Censo</h2>
-</div>
-<div id="apDiv1">
-  <form id="frmCapacitacion" name="frmCapacitacion" method="post" action="">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="box alternate">
+                                
+                                <div class="box-content nopadding">
+             <form id="frmCapacitacion" name="frmCapacitacion" method="post" action="" class="form-horizontal" novalidate>
   <input type="submit" name="control" id="action" value="Cancelar" />
   <input type="hidden" name="frmName" value="page031" />
   <input type="hidden" name="empkey" value="{{emp.key}}"/>
   <input type="hidden" name="capkey" value="{{capac.key}}"/>
   <input type="hidden" name="datos" value="{{datos}}"/>
-  <h2>Hola, {{emp.nombres}} {{emp.apePat}}  {{emp.apeMat}}</h2>
-<h3>A continuación te pedimos puedas completar	 la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años:</h3>
-    <table width="749" border="0">
-      <tr>
-        <td><strong>Capacitación</strong></td>
-        <td>&nbsp;</td>
-        <td colspan="3">&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>Centro de Estudios:</td>
-        <td colspan="3"><select name="pcentEstudio" id="pcentEstudio">
+                                   
+
+                                        <div class="box-content">Capacitaciones:<br />A continuación te pedimos puedas completar la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años.<br /><br /><a href="4.html" class="btn btn-primary">Regresar</a></div>
+                                       
+                                        
+                                        <div class="box-content">Capacitación:</div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Centro de Estudios</label>
+                                            <div class="controls">
+                                                <select name="pcentEstudio" id="pcentEstudio">
         {% for valor in cents %}
 	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
        {% endfor %}
-        </select></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td width="126">&nbsp;</td>
-        <td width="155"><label for="pTipoCurso2">Tipo de curso:</label></td>
-        <td colspan="3"><select name="pTipoCurso" id="pTipoCurso">
+        </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Tipo de Curso</label>
+                                            <div class="controls">
+                                                <select name="pTipoCurso" id="pTipoCurso">
         {% for valor in tipocurs %}
 	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
        {% endfor %}
-        </select></td>
-        <td width="76">&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pnomCurso">Nombre del curso:</label></td>
-        <td colspan="3"><input type="text" name="pnomCurso" id="pnomCurso" /></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td rowspan="2">&nbsp;</td>
-        <td rowspan="2"><label for="pfechaIni">Fecha de Inicio:</label></td>
-        <td width="77">        día
-        </td>
-        <td width="134">mes</td>
-        <td width="155">año</td>
-        <td rowspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <td><select name="pdiaIni" size="1" id="pdiaIni">
+        </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Nombre del Curso</label>
+                                            <div class="controls">
+                                                <input type="text" name="pnomCurso" id="pnomCurso" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Fecha de Inicio</label>
+                                            <div class="controls">
+                                                <select name="pdiaIni" size="1" id="pdiaIni">
           <option value="01">1</option>
           <option value="02">2</option>
           <option value="03">3</option>
@@ -179,8 +175,7 @@ function isNumberKey(evt)
           <option value="29">29</option>
           <option value="30">30</option>
           <option value="31">31</option>
-        </select></td>
-        <td><select name="pmesIni" id="pmesIni">
+        </select><select name="pmesIni" id="pmesIni">
           <option value="01">Enero</option>
           <option value="02">Febrero</option>
           <option value="03">Marzo</option>
@@ -193,8 +188,7 @@ function isNumberKey(evt)
           <option value="10">Octubre</option>
           <option value="11">Noviembre</option>
           <option value="12">Diciembre</option>
-        </select></td>
-        <td><select name="panoIni" id="panoIni">
+        </select><select name="panoIni" id="panoIni">
           <option value="1930">1930</option>
           <option value="1931">1931</option>
           <option value="1932">1932</option>
@@ -316,12 +310,15 @@ function isNumberKey(evt)
           <option value="2048">2048</option>
           <option value="2049">2049</option>
           <option value="2050">2050</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pfechaFin">Fecha de Término:</label></td>
-        <td><select name="pdiaFin" size="1" id="pdiaFin">
+        </select>
+                                                <br /><span class="help-inline">(DD / MM / AAAA)</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Fecha de Término</label>
+                                            <div class="controls">
+                                                <select name="pdiaFin" size="1" id="pdiaFin">
             <option value="01">1</option>
             <option value="02">2</option>
             <option value="03">3</option>
@@ -353,9 +350,7 @@ function isNumberKey(evt)
             <option value="29">29</option>
             <option value="30">30</option>
             <option value="31">31</option>
-          </select>
-        </td>
-        <td><select name="pmesFin" id="pmesFin">
+          </select><select name="pmesFin" id="pmesFin">
           <option value="01">Enero</option>
           <option value="02">Febrero</option>
           <option value="03">Marzo</option>
@@ -368,8 +363,7 @@ function isNumberKey(evt)
           <option value="10">Octubre</option>
           <option value="11">Noviembre</option>
           <option value="12">Diciembre</option>
-        </select></td>
-        <td><select name="panoFin" id="panoFin">
+        </select><select name="panoFin" id="panoFin">
           <option value="1930">1930</option>
           <option value="1931">1931</option>
           <option value="1932">1932</option>
@@ -491,45 +485,55 @@ function isNumberKey(evt)
           <option value="2048">2048</option>
           <option value="2049">2049</option>
           <option value="2050">2050</option>
-        </select></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="pDuracionHoras">Duración (Horas):</label></td>
-        <td colspan="3"><input type="text" name="pDuracionHoras" id="pDuracionHoras" onkeypress="return isNumberKey(event)"/></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><label for="ptipoCapac">Tipo de capacitación:</label></td>
-        <td colspan="3"><select name="ptipoCapac" id="ptipoCapac">
+        </select>
+                                                <br /><span class="help-inline">(DD / MM / AAAA)</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Duración (Horas)</label>
+                                            <div class="controls">
+                                                <input type="text" name="pDuracionHoras" id="pDuracionHoras" onkeypress="return isNumberKey(event)"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label">Tipo de Capacitación</label>
+                                            <div class="controls">
+                                                <select name="ptipoCapac" id="ptipoCapac">
         {% for valor in tipocaps %}
 	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
        {% endfor %}
-        </select></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td colspan="3">&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td colspan="3">
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Cancelar" />
-        </div></td>
-        <td>
-          <div align="right">
-            <input type="submit" name="control" id="action" value="Guardar" />
-        </div></td>
-      </tr>
-    </table>
-  </form>
-</div>
+        </select>
+                                            </div>
+                                        </div>
+                                       
+
+                                        
+                                        <div class="form-actions">
+                                            <input type="submit" name="control" id="action" class="btn btn-danger" value="Guardar" />
+                                            <input type="submit" name="control" id="action"  class="btn" value="Cancelar" />
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="box-title" style="text-align:right">
+                                <img src="files/logo-ink.png">
+                                </div>
+                                
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            
+            </div>       
+        </div>
+    
+        <script type="text/javascript" src="files/jquery.min.js"></script>
+		<script type="text/javascript" src="files/bootstrap.min.js"></script>
+        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="files/imperio.general.js"></script>
+        <script type="text/javascript" src="files/imperio.forms.js"></script>
+    
 </body>
 </html>
