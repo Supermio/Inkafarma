@@ -56,8 +56,49 @@ function isNumberKey(evt)
 	return true;
 }
 </script>
+<script>
+	function formSubmit(valor)
+	{
+	    switch (valor)
+	    {
+		case 1:
+		    document.forms["frmMain"].pOpcion.value = "1.- Información Personal";
+		    break;
+		case 2:
+		    document.forms["frmMain"].pOpcion.value = "2.- Dependientes";
+		    break;
+		case 3:
+		    document.forms["frmMain"].pOpcion.value = "3.- Estudios";
+		    break;
+		case 4:
+		    document.forms["frmMain"].pOpcion.value = "4.- Capacitaciones";
+		    break;
+		case 5:
+		    document.forms["frmMain"].pOpcion.value = "5.- Experiencia Laboral";
+		    break;
+		case 6:
+		    document.forms["frmMain"].pOpcion.value = "6.- Habilidades";
+		    break;
+		case 7:
+		    document.forms["frmMain"].pOpcion.value = "7.- Hobbies" ;
+		    break;
+		case 8:
+		    document.forms["frmMain"].pOpcion.value = "8.- Datos Adicionales" ;
+		    break;
+		case 9:
+		    document.frmMain.pOpcion.value = "Salir" ;
+		    break;
+	    }
+	    document.frmMain.submit();
+	}
+	</script>	
 	</head>
     <body onload="showData(document.frmCapacitacion);">
+	<form action="main.html" method="post" name="frmMain" target="_self">
+	    <input type="hidden" name="frmName" value="main" />
+	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+	    <input type="hidden" name="pOpcion"/>
+	</form>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -74,72 +115,58 @@ function isNumberKey(evt)
             
                 <div class="span3 leftmenu">
                     <ul style="position: relative; top: 0px; width: auto;">
-                        <li><a href="1.html"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
-                        <li><a href="2.html"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
-                        <li><a href="3.html"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
-                        <li class="active"><a href="4.html"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
-                        <li><a href="5.html"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
-                        <li><a href="6.html"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
-                        <li><a href="7.html"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
-                        <li><a href="8.html"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
+                        <li><a href="javascript:formSubmit(1);"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
+                        <li><a href="javascript:formSubmit(2);"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
+                        <li><a href="javascript:formSubmit(3);"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
+                        <li class="active"><a href="javascript:formSubmit(4);"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
+                        <li><a href="javascript:formSubmit(5);"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
+                        <li><a href="javascript:formSubmit(6);"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
+                        <li><a href="javascript:formSubmit(7);"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
+                        <li><a href="javascript:formSubmit(8);"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
                         
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
                         
                     </ul>
-                    
-                    
                 </div>
-                
                 <div class="span9" id="content">
-
                     <div class="row-fluid">
                         <div class="span12">
                             <div class="box alternate">
-                                
                                 <div class="box-content nopadding">
              <form id="frmCapacitacion" name="frmCapacitacion" method="post" action="" class="form-horizontal" novalidate>
-  <input type="submit" name="control" id="action" value="Cancelar" />
-  <input type="hidden" name="frmName" value="page031" />
-  <input type="hidden" name="empkey" value="{{emp.key}}"/>
-  <input type="hidden" name="capkey" value="{{capac.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>
-                                   
-
-                                        <div class="box-content">Capacitaciones:<br />A continuación te pedimos puedas completar la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años.<br /><br /><a href="4.html" class="btn btn-primary">Regresar</a></div>
-                                       
-                                        
+		<input type="submit" name="control" id="action" value="Cancelar" />
+		<input type="hidden" name="frmName" value="page031" />
+		<input type="hidden" name="empkey" value="{{emp.key}}"/>
+		<input type="hidden" name="capkey" value="{{capac.key}}"/>
+		<input type="hidden" name="datos" value="{{datos}}"/>
+				    <div class="box-content">Capacitaciones:<br />A continuación te pedimos puedas completar la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años.<br /><br /><a href="4.html" class="btn btn-primary">Regresar</a></div>                                        
                                         <div class="box-content">Capacitación:</div>
-                                        
-                                        <div class="control-group">
+					<div class="control-group">
                                             <label class="control-label">Centro de Estudios</label>
                                             <div class="controls">
                                                 <select name="pcentEstudio" id="pcentEstudio">
-        {% for valor in cents %}
-	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
-       {% endfor %}
-        </select>
+						    {% for valor in cents %}
+						    <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+						    {% endfor %}
+						</select>
                                             </div>
                                         </div>
-                                        
                                         <div class="control-group">
                                             <label class="control-label">Tipo de Curso</label>
                                             <div class="controls">
                                                 <select name="pTipoCurso" id="pTipoCurso">
-        {% for valor in tipocurs %}
-	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
-       {% endfor %}
-        </select>
+						    {% for valor in tipocurs %}
+						    <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+						    {% endfor %}
+						</select>
                                             </div>
                                         </div>
-                                        
                                         <div class="control-group">
                                             <label class="control-label">Nombre del Curso</label>
                                             <div class="controls">
                                                 <input type="text" name="pnomCurso" id="pnomCurso" />
                                             </div>
                                         </div>
-                                        
-                                        
                                         <div class="control-group">
                                             <label class="control-label">Fecha de Inicio</label>
                                             <div class="controls">
@@ -501,15 +528,12 @@ function isNumberKey(evt)
                                             <label class="control-label">Tipo de Capacitación</label>
                                             <div class="controls">
                                                 <select name="ptipoCapac" id="ptipoCapac">
-        {% for valor in tipocaps %}
-	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
-       {% endfor %}
-        </select>
+						    {% for valor in tipocaps %}
+						    <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+						    {% endfor %}
+						</select>
                                             </div>
                                         </div>
-                                       
-
-                                        
                                         <div class="form-actions">
                                             <input type="submit" name="control" id="action" class="btn btn-danger" value="Guardar" />
                                             <input type="submit" name="control" id="action"  class="btn" value="Cancelar" />
@@ -525,15 +549,12 @@ function isNumberKey(evt)
                         </div>
                     </div>
                 </div>
-            
             </div>       
         </div>
-    
-        <script type="text/javascript" src="files/jquery.min.js"></script>
-		<script type="text/javascript" src="files/bootstrap.min.js"></script>
+	<script type="text/javascript" src="files/jquery.min.js"></script>
+	<script type="text/javascript" src="files/bootstrap.min.js"></script>
         <script type="text/javascript" src="files/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="files/imperio.general.js"></script>
+	<script type="text/javascript" src="files/imperio.general.js"></script>
         <script type="text/javascript" src="files/imperio.forms.js"></script>
-    
 </body>
 </html>

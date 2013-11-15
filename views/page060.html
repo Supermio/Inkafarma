@@ -4,45 +4,63 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="files/imperio.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/imperio.css">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+<script>
+function formSubmit(valor)
+{
+    switch (valor)
+    {
+    case 1:
+	document.forms["frmMain"].pOpcion.value = "1.- Información Personal";
+	break;
+    case 2:
+	document.forms["frmMain"].pOpcion.value = "2.- Dependientes";
+	break;
+    case 3:
+	document.forms["frmMain"].pOpcion.value = "3.- Estudios";
+	break;
+    case 4:
+	document.forms["frmMain"].pOpcion.value = "4.- Capacitaciones";
+	break;
+    case 5:
+	document.forms["frmMain"].pOpcion.value = "5.- Experiencia Laboral";
+	break;
+    case 6:
+	document.forms["frmMain"].pOpcion.value = "6.- Habilidades";
+	break;
+    case 7:
+	document.forms["frmMain"].pOpcion.value = "7.- Hobbies" ;
+	break;
+    case 8:
+	document.forms["frmMain"].pOpcion.value = "8.- Datos Adicionales" ;
+	break;
+    case 9:
+	document.frmMain.pOpcion.value = "Salir" ;
+	break;
+    }
+    document.frmMain.submit();
+}
+</script>	        
 	</head>
     <body>
-<form action="" method="post" name="frmHobbies" target="_self">
-<input type="hidden" name="frmName" value="page060" />
-<input type="hidden" name="empkey" value="{{emp.key}}"/>
-<input name="control" id="action" type="submit" value="Regresar" />
-<script type="text/javascript">
-	function submitForm(pDep,pAccion)
-	{
-		var form = document.forms['frmHobbies'];
-		// form.action = 'put your url here';
-		var el = document.createElement("input");
-		el.type = "hidden";
-		el.name = "idhob";
-		el.value = pDep;
-		form.appendChild(el);
-		var es = document.createElement("input");
-		es.type = "hidden";
-		es.name = "control";
-		es.value = pAccion;
-		form.appendChild(es);
-		form.submit();
-	}
-</script>
-  <table width="862" border="0">
+    <form action="main.html" method="post" name="frmMain" target="_self">
+	    <input type="hidden" name="frmName" value="main" />
+	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+	    <input type="hidden" name="pOpcion"/>
+	</form>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
                     <div id="header">
                         <a href="#">
-							<img src="files/logo.png" alt="">
+							<img src="assets/images/logo.png" alt="">
 						</a>
                     </div>
                 </div>
@@ -53,32 +71,27 @@
             
                 <div class="span3 leftmenu">
                     <ul style="position: relative; top: 0px; width: auto;">
-                        <li><a href="1.html"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
-                        <li><a href="2.html"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
-                        <li><a href="3.html"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
-                        <li><a href="4.html"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
-                        <li><a href="5.html"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
-                        <li><a href="6.html"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
-                        <li class="active"><a href="7.html"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
-                        <li><a href="8.html"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
-                        
-                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
-                        
-                    </ul>
-                    
-                    
+                        <li><a href="javascript:formSubmit(1);"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
+                        <li><a href="javascript:formSubmit(2);"><span class="ico"><i class="icon-th-list"></i></span><span class="text">Dependientes</span></a></li>
+                        <li><a href="javascript:formSubmit(3);"><span class="ico"><i class="icon-book"></i></span><span class="text">Estudios</span></a></li>
+                        <li><a href="javascript:formSubmit(4);"><span class="ico"><i class="icon-ok"></i></span><span class="text">Capacitaciones</span></a></li>
+                        <li><a href="javascript:formSubmit(5);"><span class="ico"><i class="icon-briefcase"></i></span><span class="text">Experiencia Laboral</span></a></li>
+                        <li><a href="javascript:formSubmit(6);"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
+                        <li class="active"><a href="javascript:formSubmit(7);"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
+                        <li><a href="javascript:formSubmit(8);"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>                        
+                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>                        
+                    </ul>                                        
                 </div>
-                
+                <form action="" method="post" name="frmHobbies" target="_self">
+					    <input type="hidden" name="frmName" value="page060" />
+					    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+					    <input name="control" id="action" type="submit" value="Regresar" />
                 <div class="span9" id="content">
-
                     <div class="row-fluid">
                         <div class="span12">
-                            <div class="box alternate">
-                                
+                            <div class="box alternate">                                
                                 <div class="box-content nopadding">                                   
-
-                                        <div class="box-content">Hobbies:<br />Indicar 5 actividades a las cuales le dedicas tu tiempo libre.</div>
-                                                                              
+                                        <div class="box-content">Hobbies:<br />Indicar 5 actividades a las cuales le dedicas tu tiempo libre.</div>                                                                            
                                         <div style="padding:20px">
                                         <table class="table table-bordered table-striped">
                                     	<thead>
@@ -92,36 +105,31 @@
                                     		<tr class="odd gradeX">
                                     			<td class="center">{{ hobbie.descrip }}</td>
                                                 <td class="center">
-        <button type="submit" name="control" class="btn btn-primary" id="pEditar" value="Editar" onclick="submitForm('{{ hobbie.key }}','Editar'); false">Editar</button>
-        <button type="submit" name="control" class="btn btn-danger delete" id="pBorrar" value="Borrar" onclick="submitForm('{{ hobbie.key }}','Borrar'); false">Borrar</button>
-                                                    <a href="#" >Borrar</a>
+						    <button type="submit" name="control" class="btn btn-primary" id="pEditar" value="Editar" onclick="submitForm('{{ hobbie.key }}','Editar'); false">Editar</button>
+						    <button type="submit" name="control" class="btn btn-danger delete" id="pBorrar" value="Borrar" onclick="submitForm('{{ hobbie.key }}','Borrar'); false">Borrar</button>
                                                 </td>
                                     		</tr>
                                         {% endfor %}
                                         </tbody>
-                                        </table>
-                                        
+                                        </table>                                        
                                         <hr>
-                                        <input type="submit" class="btn btn-primary delete" name="control" id="action" value="Agregar" />
+                                        <input type="submit" class="btn btn-primary delete" name="control" id="action" value="Agregar" />                                        
                                         </div>
-
                                 <div class="box-title" style="text-align:right">
-                                <img src="files/logo-ink.png">
-                                </div>
-                                
+                                <img src="assets/images/logo-ink.png">
+                                </div>                            
                             </div>                        
                         </div>
                     </div>
-                </div>
-            
+                </div>            
             </div>       
         </div>
+    </form>
+        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="assets/js/imperio.general.js"></script>
+        <script type="text/javascript" src="assets/js/imperio.forms.js"></script>
     
-        <script type="text/javascript" src="files/jquery.min.js"></script>
-		<script type="text/javascript" src="files/bootstrap.min.js"></script>
-        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="files/imperio.general.js"></script>
-        <script type="text/javascript" src="files/imperio.forms.js"></script>
-</form>
 </body>
 </html>
