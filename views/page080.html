@@ -142,7 +142,13 @@ function formSubmit(valor)
     <input type="hidden" name="frmName" value="main" />
     <input type="hidden" name="empkey" value="{{emp.key}}"/>
     <input type="hidden" name="pOpcion"/>
-</form>	
+</form>
+<form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
+    <input type="hidden" name="frmName" value="page080" />
+    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+    <input type="hidden" name="librekey" value=""/>
+    <input name="pubigeo" type="hidden" id="pubigeo" />
+    <input name="datos" type="hidden" id="datos" />
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -165,7 +171,7 @@ function formSubmit(valor)
                         <li><a href="javascript:formSubmit(6);"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
                         <li><a href="javascript:formSubmit(7);"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
                         <li class="active"><a href="javascript:formSubmit(8);"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
-                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>                        
+                        <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li><br /><br /><input type="submit" class="btn" name="control" id="action" value="Cancelar" />
                     </ul>                                    
                 </div>                
                 <div class="span9" id="content">
@@ -173,13 +179,6 @@ function formSubmit(valor)
                         <div class="span12">
                             <div class="box alternate">                                
                                 <div class="box-content nopadding">
-                                    <form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
-                                   <input type="submit" name="control" id="action" value="Regresar" />
-      <input type="hidden" name="frmName" value="page080" />
-      <input type="hidden" name="empkey" value="{{emp.key}}"/>
-      <input type="hidden" name="librekey" value=""/>
-      <input name="pubigeo" type="hidden" id="pubigeo" />
-      <input name="datos" type="hidden" id="datos" />
                                         <div class="box-content">Datos Adicionales:</div>                                        
                                         <div class="control-group">
                                             <label class="control-label">Usuario de Red</label>
