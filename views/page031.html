@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="files/imperio.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/imperio.css">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -99,12 +99,17 @@ function isNumberKey(evt)
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
+	<form id="frmCapacitacion" name="frmCapacitacion" method="post" action="" class="form-horizontal" novalidate>
+		<input type="hidden" name="frmName" value="page031" />
+		<input type="hidden" name="empkey" value="{{emp.key}}"/>
+		<input type="hidden" name="capkey" value="{{capac.key}}"/>
+		<input type="hidden" name="datos" value="{{datos}}"/>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
                     <div id="header">
                         <a href="#">
-							<img src="files/logo.png" alt="">
+							<img src="assets/images/logo.png" alt="">
 						</a>
                     </div>
                 </div>
@@ -133,13 +138,8 @@ function isNumberKey(evt)
                         <div class="span12">
                             <div class="box alternate">
                                 <div class="box-content nopadding">
-             <form id="frmCapacitacion" name="frmCapacitacion" method="post" action="" class="form-horizontal" novalidate>
-		<input type="submit" name="control" id="action" value="Cancelar" />
-		<input type="hidden" name="frmName" value="page031" />
-		<input type="hidden" name="empkey" value="{{emp.key}}"/>
-		<input type="hidden" name="capkey" value="{{capac.key}}"/>
-		<input type="hidden" name="datos" value="{{datos}}"/>
-				    <div class="box-content">Capacitaciones:<br />A continuación te pedimos puedas completar la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años.<br /><br /><a href="4.html" class="btn btn-primary">Regresar</a></div>                                        
+             
+				    <div class="box-content">Capacitaciones:<br />A continuación te pedimos puedas completar la información acerca de las capacitaciones y/o actualizaciones en las que has participado en los últimos 3 años.<br /><br /><button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Regresar</button></div>                                        
                                         <div class="box-content">Capacitación:</div>
 					<div class="control-group">
                                             <label class="control-label">Centro de Estudios</label>
@@ -536,13 +536,13 @@ function isNumberKey(evt)
                                         </div>
                                         <div class="form-actions">
                                             <input type="submit" name="control" id="action" class="btn btn-danger" value="Guardar" />
-                                            <input type="submit" name="control" id="action"  class="btn" value="Cancelar" />
+                                            <input type="submit" name="control" id="action"  class="btn btn-primary delete" value="Cancelar" />
                                         </div>
                                     </form>
                                 </div>
                                 
                                 <div class="box-title" style="text-align:right">
-                                <img src="files/logo-ink.png">
+                                <img src="assets/images/logo-ink.png">
                                 </div>
                                 
                             </div>                        
@@ -551,10 +551,10 @@ function isNumberKey(evt)
                 </div>
             </div>       
         </div>
-	<script type="text/javascript" src="files/jquery.min.js"></script>
-	<script type="text/javascript" src="files/bootstrap.min.js"></script>
-        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="files/imperio.general.js"></script>
-        <script type="text/javascript" src="files/imperio.forms.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="assets/js/imperio.general.js"></script>
+        <script type="text/javascript" src="assets/js/imperio.forms.js"></script>
 </body>
 </html>

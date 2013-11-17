@@ -143,6 +143,12 @@ function showData(frm){
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
+	<form id="frmDependientes" name="frmDependientes" method="post" action="" class="form-horizontal" novalidate>
+  <input type="hidden" name="frmName" value="page011" />
+  <input type="hidden" name="empkey" value="{{emp.key }}"/>
+  <input type="hidden" name="depkey" value="{{depend.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
+  <input name="pubigeo" type="hidden" id="pubigeo" />
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -179,19 +185,8 @@ function showData(frm){
                             <div class="box alternate">
                                 
                                 <div class="box-content nopadding">
-                                <form id="frmDependientes" name="frmDependientes" method="post" action="" class="form-horizontal" novalidate>
-  <input type="submit" name="control" id="action" value="Cancelar" />
-  <input type="hidden" name="frmName" value="page011" />
-  <input type="hidden" name="empkey" value="{{emp.key }}"/>
-  <input type="hidden" name="depkey" value="{{depend.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>
-  <input name="pubigeo" type="hidden" id="pubigeo" />
-
-                                        <div class="box-content">Dependientes:<br />Te invitamos a brindarnos información acerca de tus dependientes (hijos, hijas, esposo, esposa).<br /><br /><a href="2.html" class="btn btn-primary">Regresar</a></div>
-                                       
-                                        
+                                        <div class="box-content">Dependientes:<br />Te invitamos a brindarnos información acerca de tus dependientes (hijos, hijas, esposo, esposa).<br /><br /><button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Regresar</button></div>                                       
                                         <div class="box-content">Dependientes:</div>
-                                        
                                         <div class="control-group">
                                             <label class="control-label">Tipo de Documento</label>
                                             <div class="controls">
@@ -677,7 +672,7 @@ function showData(frm){
                                         </div>                                       
                                         <div class="form-actions">
                                             <input type="submit" class="btn btn-danger" value="Guardar" name="control" id="action">
-                                            <button class="btn" class="btn btn-primary delete" name="control" id="action" value="Cancelar">Cancelar</button>
+                                            <button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Cancelar</button>
                                         </div>
                                     </form>
                                 </div>

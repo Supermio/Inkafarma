@@ -59,8 +59,6 @@
     <form action="" method="post" name="frmDependientes" target="_self">
     <input type="hidden" name="frmName" value="page010" />
     <input type="hidden" name="empkey" value="{{emp.key}}"/>
-    <input type="hidden" name="pOpcion"/>
-    <input type="submit" name="control" id="action" value="Regresar" />
     <script type="text/javascript">
 	function submitForm(pDep,pAccion)
 	{
@@ -128,8 +126,8 @@
                                     			<td class="center">{{ depend.nombres }}</td>
                                     			<td class="center">{{ depend.numDoc }}</td>
                                                 <td class="center">
-                                                    <button type="submit" name="control" id="pEditar" value="Editar" onclick="submitForm('{{ depend.key }}','Editar'); false">Editar</button>
-                                                    <button type="submit" name="control" id="pBorrar" value="Borrar" onclick="submitForm('{{ depend.key }}','Borrar'); false">Borrar</button>
+                                                    <button type="submit" class="btn btn-primary"  name="control" id="pEditar" value="Editar" onclick="submitForm('{{ depend.key }}','Editar'); false">Editar</button>
+                                                    <button type="submit" class="btn btn-danger delete" name="control" id="pBorrar" value="Borrar" onclick="submitForm('{{ depend.key }}','Borrar'); false">Borrar</button>
                                                 </td>
                                     		</tr>
                                           {% endfor %}

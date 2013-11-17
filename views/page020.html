@@ -58,7 +58,6 @@
     <form action="" method="post" name="frmEstudios" target="_self">
 <input type="hidden" name="frmName" value="page020" />
 <input type="hidden" name="empkey" value="{{emp.key}}"/>
-<input name="control" id="action" type="submit" value="Regresar" />
 <script type="text/javascript">
 	function submitForm(pEst,pAccion)
 	{
@@ -136,8 +135,8 @@
                                     			<td class="center">{{ estudio.periodIni }}</td>
                                     			<td class="center">{{ estudio.periodFin }}</td>
                                                 <td class="center">
-                                                    <button type="submit" name="control" id="pEditar" value="Editar" onclick="submitForm('{{ estudio.key }}','Editar'); false">Editar</button>
-                                                    <button type="submit" name="control" id="pBorrar" value="Borrar" onclick="submitForm('{{ estudio.key }}','Borrar'); false">Borrar</button>
+                                                    <button type="submit" class="btn btn-primary" name="control" id="pEditar" value="Editar" onclick="submitForm('{{ estudio.key }}','Editar'); false">Editar</button>
+                                                    <button type="submit" class="btn btn-danger delete" name="control" id="pBorrar" value="Borrar" onclick="submitForm('{{ estudio.key }}','Borrar'); false">Borrar</button>
                                                 </td>
                                     		</tr>
                                             {% endfor %}

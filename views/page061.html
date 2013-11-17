@@ -63,7 +63,13 @@ function formSubmit(valor)
     <input type="hidden" name="frmName" value="main" />
     <input type="hidden" name="empkey" value="{{emp.key}}"/>
     <input type="hidden" name="pOpcion"/>
-</form>	
+</form>
+<form id="frmHobbie" name="frmHobbie" method="post" action="" class="form-horizontal" novalidate>
+  <input type="submit" name="control" id="action" value="Cancelar" />
+  <input type="hidden" name="frmName" value="page061" />
+  <input type="hidden" name="empkey" value="{{emp.key}}"/>
+  <input type="hidden" name="hobkey" value="{{hobbie.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -94,13 +100,8 @@ function formSubmit(valor)
                         <div class="span12">
                             <div class="box alternate">                                
                                 <div class="box-content nopadding">
-                                    <form id="frmHobbie" name="frmHobbie" method="post" action="" class="form-horizontal" novalidate>
-  <input type="submit" name="control" id="action" value="Cancelar" />
-  <input type="hidden" name="frmName" value="page061" />
-  <input type="hidden" name="empkey" value="{{emp.key}}"/>
-  <input type="hidden" name="hobkey" value="{{hobbie.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>
-                                        <div class="box-content">Hobbies:<br />Indicar 5 actividades a las cuales le dedicas tu tiempo libre.<br /><br /><a href="7.html" class="btn btn-primary">Regresar</a></div>                                                                               
+                                    
+                                        <div class="box-content">Hobbies:<br />Indicar 5 actividades a las cuales le dedicas tu tiempo libre.<br /><br /><button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Regresar</button></div>                                                                               
                                         <div class="box-content">Hobbie:</div>                                                                                
                                         <div class="control-group">
                                             <label class="control-label">Indique</label>
@@ -114,7 +115,7 @@ function formSubmit(valor)
                                         </div>                                        
                                         <div class="form-actions">
                                             <input type="submit" class="btn btn-danger"  name="control" id="action" value="Guardar" />
-                                            <input type="submit" class="btn" name="control" id="action" value="Cancelar" />
+                                            <input type="submit" class="btn btn-primary delete" name="control" id="action" value="Cancelar" />
                                         </div>
                                     </form>
                                 </div>                                

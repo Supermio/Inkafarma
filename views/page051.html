@@ -66,6 +66,11 @@ function showData(frm){
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
+	<form id="frmHabilidad" name="frmHabilidad" method="post" action="" class="form-horizontal" novalidate>
+  <input type="hidden" name="frmName" value="page051" />
+  <input type="hidden" name="empkey" value="{{emp.key}}"/>
+  <input type="hidden" name="habkey" value="{{hab.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -95,14 +100,8 @@ function showData(frm){
                     <div class="row-fluid">
                         <div class="span12">
                             <div class="box alternate">                                
-                                <div class="box-content nopadding">
-                                    <form id="frmHabilidad" name="frmHabilidad" method="post" action="" class="form-horizontal" novalidate>
-  <input type="submit" name="control" id="action" value="Cancelar" />
-  <input type="hidden" name="frmName" value="page051" />
-  <input type="hidden" name="empkey" value="{{emp.key}}"/>
-  <input type="hidden" name="habkey" value="{{hab.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>                                   
-                                        <div class="box-content">Habilidades:<br />Identifique 5 habilidades que mejor lo describen como persona y profesional y califique cada una de ellas.<br /><br /><a href="6.html" class="btn btn-primary">Regresar</a></div>                                                                               
+                                <div class="box-content nopadding">                                   
+                                        <div class="box-content">Habilidades:<br />Identifique 5 habilidades que mejor lo describen como persona y profesional y califique cada una de ellas.<br /><br /><button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Regresar</button></div>                                                                               
                                         <div class="box-content">Habilidades:</div>                                                                                
                                         <div class="control-group">
                                             <label class="control-label">Habilidad</label>
@@ -126,7 +125,7 @@ function showData(frm){
                                         </div>                                                                            
                                         <div class="form-actions">
                                             <input type="submit" class="btn btn-danger" name="control" id="action" value="Guardar" />
-                                            <input type="submit" class="btn" name="control" id="action" value="Cancelar" />
+                                            <input type="submit" class="btn btn-primary delete" name="control" id="action" value="Cancelar" />
                                         </div>
                                     </form>
                                 </div>                                

@@ -87,6 +87,11 @@ function showData(frm){
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
+	<form id="frmExperiencia" name="frmExperiencia" method="post" action="" class="form-horizontal" novalidate>
+    <input type="hidden" name="frmName" value="page041" />
+    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+    <input type="hidden" name="expkey" value="{{exper.key}}"/>
+    <input type="hidden" name="datos" value="{{datos}}"/>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -120,13 +125,7 @@ function showData(frm){
                         <div class="span12">
                             <div class="box alternate">                                
                                 <div class="box-content nopadding">
-<form id="frmExperiencia" name="frmExperiencia" method="post" action="" class="form-horizontal" novalidate>
-    <input type="submit" name="control" id="action" value="Cancelar" />
-    <input type="hidden" name="frmName" value="page041" />
-    <input type="hidden" name="empkey" value="{{emp.key}}"/>
-    <input type="hidden" name="expkey" value="{{exper.key}}"/>
-    <input type="hidden" name="datos" value="{{datos}}"/>
-			<div class="box-content">Experiencia Laborar:<br />A continuación te pedimos puedas completar la información acerca tu experiencia laboral.<br /><br /><a href="5.html" class="btn btn-primary">Regresar</a></div>                                        
+			<div class="box-content">Experiencia Laborar:<br />A continuación te pedimos puedas completar la información acerca tu experiencia laboral.<br /><br /><button class="btn btn-primary delete" name="control" id="action" value="Cancelar">Regresar</button></div>                                        
                                         <div class="box-content">Experiencia Laborar:</div>
                                         <div class="control-group">
                                             <label class="control-label">Nombre de la Empresa</label>
@@ -506,7 +505,7 @@ function showData(frm){
                                         
                                         <div class="form-actions">
                                         <input type="submit" class="btn btn-danger" name="control" id="action" value="Guardar" />
-                                            <input type="submit" class="btn" name="control" id="action" value="Cancelar" />
+                                            <input type="submit" class="btn btn-primary delete" name="control" id="action" value="Cancelar" />
                                         </div>
                                     </form>
                                 </div>
