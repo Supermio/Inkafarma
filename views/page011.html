@@ -137,7 +137,7 @@ function showData(frm){
 	}
 	</script>	
 	</head>
-    <body>
+    <body onload="showData(document.frmDependientes);">
 	<form action="main.html" method="post" name="frmMain" target="_self">
 	    <input type="hidden" name="frmName" value="main" />
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
@@ -185,10 +185,10 @@ function showData(frm){
                                             <label class="control-label">Tipo de Documento</label>
                                             <div class="controls">
                                                 <select name="ptipoDoc" id="ptipoDoc">
-        {% for valor in tipodocs %}
-	   <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
-	{% endfor %}
-        </select>
+						    {% for valor in tipodocs %}
+						    <option value="{{ valor.idValor }}">{{ valor.nombre }}</option>
+						    {% endfor %}
+						</select>
                                             </div>
                                         </div>                                        
                                         <div class="control-group">

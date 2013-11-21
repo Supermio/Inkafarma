@@ -30,6 +30,16 @@ function showData(frm){
 	frm.mVacunas.value = "{{ mVac }}";
 	frm.hSalida.value = "{{ hSalida }}";
 	frm.hSalidaNote.value ="{{ hSalidaNote }}";
+	var res=document.getElementById("hSalida");
+	if (res.value=='otros') {
+	    console.debug(res.value);
+	    pSel = document.getElementById("tdOtrosHijo");
+	    pSel.style.display='block';}
+	else {
+	    console.debug(res.value);
+	    pSel = document.getElementById("tdOtrosHijo");
+	    pSel.style.display='none';
+	}
 	frm.mEnf.value = "{{ antEnf }}";
 	if ('{{ antEnf1 }}'=='True') frm.mEnf1.checked = 'true';
 	if ('{{ antEnf2 }}'=='True') frm.mEnf2.checked = 'true';
