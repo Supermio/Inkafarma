@@ -208,3 +208,7 @@ indexes:
   - name: hSalida
   - name: hSalidaNote
   - name: vacunas
+- kind: autorizado
+  properties:
+  - name: idEmpleado
+  - name: mAutorizado

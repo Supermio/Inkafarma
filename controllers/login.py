@@ -42,6 +42,18 @@ class MainHandler(webapp2.RequestHandler):
          path =  "views/main.html"
          template_values = {'emp'    : pEmp,
                             'empkey' : pkey}
+         ##Mostrar el disclaimer
+         pRes = getData.getDisclaimer(pEmp.idEmpleado)
+         if (pRes== 1):
+            path =  "views/main.html"
+            template_values = {'emp'    : pEmp,
+                              'empkey' : pkey}
+         else:
+            terms = 'hola'
+            path = "views/autorizacion.html"
+            template_values = {'emp' : pEmp,
+                               'empkey' : pkey,
+                               'terms': terms}
       else:
          path = "views/default.html"
          template_values = {"error": "Credenciales invalidas",

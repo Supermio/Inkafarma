@@ -22,18 +22,31 @@ class MainHandler(webapp2.RequestHandler):
    def post(self):
          pEmpkey =  self.request.get('empkey')
          pagina= self.request.get('frmName')
+         pNavigator = self.request.headers.get('User-Agent')
          path = "views/main.html"
          pEmp = getData.getEmp(pEmpkey)
-         
+   
          opcion =""
          template_values = {'error': opcion}
          if pagina == "main":
-            opcion = self.request.get('pOpcion')
+            opcion = self.request.get('pOpcion')+";"
+            opcion = opcion.strip()
+            print "El valor de Opcion es:/"+ opcion +"//" 
+            
             if opcion == "Salir":
                path="views/default.html"
                template_values={}
                self.redirect("/")
+            if opcion == ";":
+               path="views/default.html"
+               template_values={}
+               self.redirect("/")
             opcion = opcion[0]
+            if  opcion == "0":
+               putData.setDisclaimer(pEmp.idCompania,pEmp.idEmpleado,pNavigator)
+               path= "views/main.html"
+               template_values = {'emp' : pEmp,
+                                    'error': ''}
             if   opcion == "1":
                  path = "views/page000.html"
                  tipovias  = getData.getTipoVia()

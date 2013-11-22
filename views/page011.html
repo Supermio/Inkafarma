@@ -130,7 +130,7 @@ function showData(frm){
 		    document.forms["frmMain"].pOpcion.value = "8.- Datos Adicionales" ;
 		    break;
 		case 9:
-		    document.frmMain.pOpcion.value = "Salir" ;
+		    document.forms["frmMain"].pOpcion.value = "Salir" ;
 		    break;
 	    }
 	    document.frmMain.submit();
@@ -153,8 +153,13 @@ function showData(frm){
             <div class="row-fluid">
                 <div class="span12">
                     <div id="header">
-                        <a href="#"><img src="assets/images/logo.png" alt=""></a>
-                    </div>
+<a href="#">
+<img src="assets/images/logo.png" alt="">
+</a>
+<div class="hright">
+<a href="javascript:formSubmit(9);"><button class="btn btn-danger"><i class="icon-remove icon-white"></i> Cerrar Sesión</button></a>
+</div>
+</div>
                 </div>
             </div>
         </div>

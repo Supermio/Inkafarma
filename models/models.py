@@ -16,7 +16,7 @@ class autorizado(db.Model):
 	idEmpleado = db.StringProperty(required=True, indexed=True)
 	mAutorizado = db.IntegerProperty(required=True)
 	mNavegador = db.StringProperty()
-	mFecha = db.StringProperty(required=True)
+	mFecha = db.DateTimeProperty(auto_now_add=True)
 	
 class libres(db.Model):
 	idCompania  = db.StringProperty(required=True, indexed=True)

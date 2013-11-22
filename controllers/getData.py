@@ -12,7 +12,7 @@ def authenticar(pcodEmpleado, pfechaNac, pnumDoc):
 def getDisclaimer(pcodEmpleado):
     query = "select mAutorizado from autorizado where idEmpleado = :1"
     try:
-        data = db.GqlQuery(query)
+        data = db.GqlQuery(query,pcodEmpleado)
         return data[0].mAutorizado
     except:
         print "Error con mAutorizado:"+ query

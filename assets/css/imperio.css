@@ -149,7 +149,7 @@ a.cancel:hover {
     border-right: 1px solid #444444;
 }
 .leftmenu ul li.active a span.ico i {
-    background-image: url("assets/images/glyphicons-halflings-white.png");
+    background-image: url("/assets/images/glyphicons-halflings-white.png");
 }
 .leftmenu ul li.hider a {
     margin-top: 5px;

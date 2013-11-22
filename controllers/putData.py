@@ -8,6 +8,13 @@ def delRecord(pkey):
     if not dep is None:
       dep.delete()
 
+def setDisclaimer(pidCompania,pidEmpleado,pNavegador):
+    e = models.autorizado(idCompania  = pidCompania,
+                          idEmpleado  = pidEmpleado,
+                          mAutorizado = 1,
+                          mNavegador  = pNavegador)
+    e.put()
+
 def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,pempEmail):
     e = models.libres(idCompania    = pidCompania,
                     idEmpleado       = pidEmpleado,

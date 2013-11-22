@@ -42,7 +42,7 @@
 		    document.forms["frmMain"].pOpcion.value = "8.- Datos Adicionales" ;
 		    break;
 		case 9:
-		    document.frmMain.pOpcion.value = "Salir" ;
+		    document.forms["frmMain"].pOpcion.value = "Salir" ;
 		    break;
 	    }
 	    document.frmMain.submit();
@@ -58,16 +58,18 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div id="header">
-                        <a href="#">
-							<img src="assets/images/logo.png" alt="">
-						</a>
-                    </div>
+<a href="#">
+<img src="assets/images/logo.png" alt="">
+</a>
+<div class="hright">
+<a href="javascript:formSubmit(9);"><button class="btn btn-danger"><i class="icon-remove icon-white"></i> Cerrar Sesión</button></a>
+</div>
+</div>
                 </div>
             </div>
         </div>
         <div class="container-fluid" id="container">
             <div class="row-fluid">
-            
                 <div class="span3 leftmenu">
                     <ul style="position: relative; top: 0px; width: auto;">
                         <li><a href="javascript:formSubmit(1);"><span class="ico"><i class="icon-user"></i></span><span class="text">Información Personal</span></a></li>
@@ -78,7 +80,7 @@
                         <li><a href="javascript:formSubmit(6);"><span class="ico"><i class="icon-check"></i></span><span class="text">Habilidades</span></a></li>              
                         <li><a href="javascript:formSubmit(7);"><span class="ico"><i class="icon-eye-open"></i></span><span class="text">Hobbies</span></a></li>
                         <li><a href="javascript:formSubmit(8);"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
-                        
+        
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
                         
                     </ul>
