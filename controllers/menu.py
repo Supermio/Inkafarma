@@ -30,8 +30,6 @@ class MainHandler(webapp2.RequestHandler):
          template_values = {'error': opcion}
          if pagina == "main":
             opcion = self.request.get('pOpcion')+";"
-            opcion = opcion.strip()
-            print "El valor de Opcion es:/"+ opcion +"//" 
             
             if opcion == "Salir":
                path="views/default.html"
