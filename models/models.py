@@ -6,6 +6,19 @@ from google.appengine.ext import db
 # that you will be able to store in
 # AppEngine's data store.
 
+class contador(db.Model):
+	idCompania   = db.StringProperty(required=True, indexed=True)
+	idEmpleado   = db.StringProperty(required=True, indexed=True)
+	mFecha       = db.DateTimeProperty(auto_now=True)
+	sLibs        = db.IntegerProperty()
+	sEmps        = db.IntegerProperty()
+	sDeps        = db.IntegerProperty()
+	sEsts        = db.IntegerProperty()
+	sCaps        = db.IntegerProperty()
+	sExps        = db.IntegerProperty()
+	sHabs        = db.IntegerProperty()
+	sHobs       = db.IntegerProperty()
+	
 class textos(db.Model):
 	idCompania = db.StringProperty(required=True, indexed=True)
 	idTexto = db.IntegerProperty(required=True, indexed=True)

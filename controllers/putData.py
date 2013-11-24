@@ -8,6 +8,65 @@ def delRecord(pkey):
     if not dep is None:
       dep.delete()
 
+def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
+    sql = "select idEmpleado from contador where idCompania=:1 and idEmpleado=:2"
+    try:
+        data = db.GqlQuery(query,pidCompania,pidEmpleado)
+        id = data[0]
+        data = db.get(id)
+        if pidTabla == "libres":
+            data.sLibs = pStatus
+        if pidTabla == "empleado":
+            data.sEmps = pStatus
+        if pidTabla == "dependiente":
+            data.sDeps == pStatus
+        if pidTabla == "estudio":
+            data.sEsts == pStatus
+        if pidTabla == "capacitacion":
+            data.sCaps == pStatus
+        if pidTabla == "experiencia":
+            data.sExps == pStatus
+        if pidTabla == "habilidades":
+            data.sHabs == pStatus
+        if pidTabla == "hobbie":
+            data.sHobs == pStatus
+        data.put()
+    except:
+        print "Creando Status para este empleado"+pidEmpleado
+	sEmps = 0
+	sDeps = 0
+	sEsts = 0
+	sCaps = 0
+	sExps = 0
+	sHabs = 0
+	sHobs = 0
+	if pidTabla == "libres":
+	    sLibs = pStatus
+        if pidTabla == "empleado":
+            sEmps = pStatus
+        if pidTabla == "dependiente":
+            sDeps = pStatus
+        if pidTabla == "estudio":
+            sEsts = pStatus
+        if pidTabla == "capacitacion":
+            sCaps = pStatus
+        if pidTabla == "experiencia":
+            sExps = pStatus
+        if pidTabla == "habilidades":
+            sHabs = pStatus
+        if pidTabla == "hobbie":
+            sHobs = pStatus
+        e = models.contador(idCompania = pidCompania,
+			    idEmpleado = pidEmpleado,
+			    sEmps      = sEmps,
+			    sDeps      = sDeps,
+			    sEsts      = sEsts,
+			    sCaps      = sCaps,
+			    sExps      = sExps,
+			    sHabs      = sHabs,
+			    sHobs      = sHobs)
+	e.put()
+
 def setDisclaimer(pidCompania,pidEmpleado,pNavegador):
     e = models.autorizado(idCompania  = pidCompania,
                           idEmpleado  = pidEmpleado,
@@ -24,6 +83,18 @@ def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,p
                     empRPM           = pempRPM,
                     empEmail         = pempEmail)
     e.put()
+    completo = 1
+    if pempCuenta == "":
+	completo = 0
+    if pempAnexo == "":
+	completo = 0
+    if pempCelular == "":
+	completo = 0
+    if pempRPM == "":
+	completo = 0
+    if pempEmail == "":
+	completo = 0
+    setEmpStatus(pidCompania,pidEmpleado,'libres',completo)
 
 def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
     e = db.get(pKey)
@@ -33,7 +104,19 @@ def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
     e.empRPM       = pempRPM
     e.empEmail     = pempEmail
     e.put()
-    
+    completo = 1
+    if pempCuenta == "":
+	completo = 0
+    if pempAnexo == "":
+	completo = 0
+    if pempCelular == "":
+	completo = 0
+    if pempRPM == "":
+	completo = 0
+    if pempEmail == "":
+	completo = 0
+    setEmpStatus(pidCompania,pidEmpleado,'libres',completo)
+
 def setEmp(pidcompania, pidempleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
 	pdomubiprov,pdomubidist,pdomubides,ptelffijo,ptelcel,ppemail,pcontactoemer,pcontactotelf,pcontactotelc,
@@ -68,6 +151,57 @@ def setEmp(pidcompania, pidempleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomn
                   turno         = pturno
                   )
     e.put()
+    completo = 1
+    if pdomtipovia == "":
+	completo = 0
+    if pdomnombrevia == "":
+	completo = 0
+    if pdomtipozona == "":
+	completo = 0
+    if pdomnomzona == "":
+	completo = 0
+    if pdomnumero == "":
+	completo = 0
+    if pdominterior == "":
+	completo = 0
+    if pdomdept == "":
+	completo = 0
+    if pdommanz == "":
+	completo = 0
+    if pdomlote == "":
+	completo = 0
+    if pdomkm == "":
+	completo = 0
+    if pdomblock == "":
+	completo = 0
+    if pdometapa == "":
+	completo = 0
+    if pdomref == "":
+	completo = 0
+    if pdomubidep == "":
+	completo = 0
+    if pdomubiprov == "":
+	completo = 0
+    if pdomubidist == "":
+	completo = 0
+    if ptelffijo == "":
+	completo = 0
+    if ptelcel == "":
+	completo = 0
+    if ppemail == "":
+	completo = 0
+    if pcontactoemer == "":
+	completo = 0
+    if pcontactotelf == "":
+	completo = 0
+    if pcontactotelc == "":
+	completo = 0
+    if ptrabinterior == "":
+	completo = 0
+    if pturno == "":
+	completo = 0
+    setEmpStatus(pidCompania,pidEmpleado,'empleado',completo)
+
 def updEmp(pKey,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
 	pdomubiprov,pdomubidist,pdomubides,ptelffijo,ptelcel,ppemail,pcontactoemer,pcontactotelf,pcontactotelc,
@@ -98,8 +232,58 @@ def updEmp(pKey,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
     e.contactoTelC  = pcontactotelc
     e.trabInterior  = ptrabinterior
     e.turno         = pturno
-    e.put()
-    
+
+    completo = 1
+    if pdomtipovia == "":
+	completo = 0
+    if pdomnombrevia == "":
+	completo = 0
+    if pdomtipozona == "":
+	completo = 0
+    if pdomnomzona == "":
+	completo = 0
+    if pdomnumero == "":
+	completo = 0
+    if pdominterior == "":
+	completo = 0
+    if pdomdept == "":
+	completo = 0
+    if pdommanz == "":
+	completo = 0
+    if pdomlote == "":
+	completo = 0
+    if pdomkm == "":
+	completo = 0
+    if pdomblock == "":
+	completo = 0
+    if pdometapa == "":
+	completo = 0
+    if pdomref == "":
+	completo = 0
+    if pdomubidep == "":
+	completo = 0
+    if pdomubiprov == "":
+	completo = 0
+    if pdomubidist == "":
+	completo = 0
+    if ptelffijo == "":
+	completo = 0
+    if ptelcel == "":
+	completo = 0
+    if ppemail == "":
+	completo = 0
+    if pcontactoemer == "":
+	completo = 0
+    if pcontactotelf == "":
+	completo = 0
+    if pcontactotelc == "":
+	completo = 0
+    if ptrabinterior == "":
+	completo = 0
+    if pturno == "":
+	completo = 0
+    setEmpStatus(e.idCompania,e.idEmpleado,'empleado',completo)
+    e.put()    
 def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
            pvinculo,ptipoDocSus,pnumDocSus,pfechaAlta,pfechaBaja,pmotivBaja,pdomicProp,
            pdomtipoVia,pdomnombreVia,pdomtipoZona,pdomnomZona,pdomnumero,pdominterior,pdomDept,
@@ -140,6 +324,7 @@ def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfe
                domUbiDescrip = pdomUbides,
                declarado     = pdeclarado)
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'dependiente',1)
 
 def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
            pvinculo,ptipoDocSus,pnumDocSus,pfechaAlta,pfechaBaja,pmotivBaja,pdomicProp,
@@ -180,7 +365,8 @@ def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
     e.domUbiDescrip = pdomUbides
     e.declarado     = pdeclarado
     e.put()
-
+    setEmpStatus(pidCompania,pidEmpleado,'dependiente',1)
+    
 def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
     e = models.estudio(idCompania    = pidCompania,
@@ -193,6 +379,7 @@ def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pper
                     periodFin     = pperiodFin,
                     descrip       = pDescrip)
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'estudio',1)
 
 def updEstudio(pkey,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
@@ -205,7 +392,8 @@ def updEstudio(pkey,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     e.periodFin     = pperiodFin
     e.descrip       = pDescrip
     e.put()
-
+    setEmpStatus(pidCompania,pidEmpleado,'estudio',1)
+    
 def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
     e = models.capacitacion(idCompania    = pidCompania,
@@ -222,6 +410,7 @@ def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFi
                     moneda        = pmoneda,
                     glosa         = pglosa)
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'capacitacion',1)
 
 def updCapac(pkey,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
@@ -238,6 +427,7 @@ def updCapac(pkey,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
     e.moneda        = pmoneda
     e.glosa         = pglosa
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'capacitacion',1)
 
 def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e = models.experiencia(idCompania    = pidCompania,
@@ -249,6 +439,7 @@ def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,
                            fechaFin      = pfechaFin,
                            glosa         = pglosa)
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'experiencia',1)
 
 def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e = db.get(pkey)
@@ -259,7 +450,8 @@ def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e.fechaFin      = pfechaFin
     e.glosa         = pglosa
     e.put()
-
+    setEmpStatus(pidCompania,pidEmpleado,'experiencia',1)
+    
 def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
     cuenta=0;
     try:
@@ -277,6 +469,7 @@ def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
                            codCalif      = pcodCalif,
                            descrip       = pDescrip)
        e.put()
+       setEmpStatus(pidCompania,pidEmpleado,'habilidad',1)
 
 def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     pDescrip = getData.getHabsFilter(pidHabil)
@@ -286,6 +479,7 @@ def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     e.codCalif      = pcodCalif
     e.descrip       = pDescrip
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'habilidad',1)
 
 def setHobbie(pidCompania,pidEmpleado,pidHobbie):
     cuenta=0;
@@ -302,6 +496,7 @@ def setHobbie(pidCompania,pidEmpleado,pidHobbie):
                           idHobbie      = pidHobbie,
                           descrip       = pDescrip)
         e.put()
+        setEmpStatus(pidCompania,pidEmpleado,'hobbie',1)
 
 def updHobbie(pkey,pidHobbie):
     pDescrip = getData.getHobFilter(pidHobbie)
@@ -309,6 +504,7 @@ def updHobbie(pkey,pidHobbie):
     e.idHobbie   = pidHobbie
     e.descrip    = pDescrip
     e.put()
+    setEmpStatus(pidCompania,pidEmpleado,'hobbie',1)
 
 def getGerencia(idGer):
     data=db.GqlQuery("select nombre from organizacion where idGer= :1 and idDep='00' and idArea='00' and idSeccion='00'",str(idGer))

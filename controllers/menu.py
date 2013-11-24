@@ -31,7 +31,7 @@ class MainHandler(webapp2.RequestHandler):
          if pagina == "main":
             opcion = self.request.get('pOpcion')+";"
             
-            if opcion == "Salir":
+            if opcion == "Salir;":
                path="views/default.html"
                template_values={}
                self.redirect("/")
