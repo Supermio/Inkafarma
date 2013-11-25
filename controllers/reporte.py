@@ -16,7 +16,7 @@ class MainHandler(webapp2.RequestHandler):
          'domain' : 'superdominio'
          }
       
-      path = "views/default.html"
+      path = "views/listado.html"
       self.response.out.write(template.render(path, template_values))
 
    def post(self):
@@ -30,7 +30,6 @@ class MainHandler(webapp2.RequestHandler):
          template_values = {'error': opcion}
          if pagina == "main":
             opcion = self.request.get('pOpcion')+";"
-            
             if opcion == "Salir;":
                path="views/default.html"
                template_values={}

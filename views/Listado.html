@@ -3,11 +3,9 @@
 		<title>Conociéndote | Inkafarma</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/imperio.css">
-
+		<link rel="stylesheet" type="text/css" href="files/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="files/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="files/imperio.css">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,76 +16,46 @@
             <div class="row-fluid">
                 <div class="span12">
                     <div id="header">
-                        <a href="#">
-							<img src="assets/images/logo.png" alt="">
-						</a>
+                        <a href="#"><img src="files/logo.png" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid" id="container">
             <div class="row-fluid">
-                
-
-                    <div class="row-fluid">
-                        <div class="span12">
-                            <div class="box alternate">
-                                
-                                <div class="box-content ">                                   
-
-                                        <div class="box-content">Perfiles Incompletos</div>
-                                                                              
-                                        <hr>
-                                        <table class="table table-bordered table-striped">
-                                    	<thead>
-                                    		<tr>
-                                    			<th>CÓDIGO DE EMPLEADO</th>
-                                                <th>NOMBRE</th>
-                                                <th>APELLIDO</th>
-                                    		</tr>
-                                    	</thead>
-                                    	<tbody>
-                                    		<tr class="odd gradeX">
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    		</tr>
-                                    		<tr class="even gradeC">
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    		</tr>
-                                    		<tr class="even gradeC">
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    			<td class="center">xxx</td>
-                                    		</tr>
-                                        </tbody>
-                                        </table>
-                                        
-                                        <hr>
-                                        <a href="Menu.html" class="btn btn-primary delete">Regresar</a><br />
-                                        <br />
-                                        
-
-                                        
-                                
-                                <div class="box-title" style="text-align:right">
-                                <img src="assets/images/logo-ink.png">
-                                </div>
-                                
+		<div class="row-fluid">
+		    <div class="span12">
+			<div class="box alternate">
+			    <div class="box-content ">
+				<div class="box-content">Perfiles Incompletos</div>
+				<hr>
+				<table class="table table-bordered table-striped">
+				<thead>
+				    <tr>
+					<th>CÓDIGO DE EMPLEADO</th>
+					<th>NOMBRE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+				    {% for depend in  dependientes %}
+                                    <tr class="odd gradeX">
+                                    	<td class="center">{{ empin.idEmpleado }}</td>
+                                    	<td class="center">{{ empin.nombre }}</td>
+                                    </tr>
+				    {% endfor %}
+                                </tbody>
+                                </table>
+                                <hr><!-- a href="Menu.html" class="btn btn-primary delete">Regresar</a><br /><br /> -->
+				<div class="box-title" style="text-align:right"><img src="files/logo-ink.png"></div>
                             </div>                        
                         </div>
                     </div>
-            
             </div>       
         </div>
-    
-        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="assets/js/imperio.general.js"></script>
-        <script type="text/javascript" src="assets/js/imperio.forms.js"></script>
-    
+        <script type="text/javascript" src="files/jquery.min.js"></script>
+	<script type="text/javascript" src="files/bootstrap.min.js"></script>
+        <script type="text/javascript" src="files/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="files/imperio.general.js"></script>
+        <script type="text/javascript" src="files/imperio.forms.js"></script>
 </body>
 </html>

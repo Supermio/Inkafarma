@@ -55,27 +55,7 @@
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
-    <form action="" method="post" name="frmEstudios" target="_self">
-<input type="hidden" name="frmName" value="page020" />
-<input type="hidden" name="empkey" value="{{emp.key}}"/>
-<script type="text/javascript">
-	function submitForm(pEst,pAccion)
-	{
-		var form = document.forms['frmEstudios'];
-		// form.action = 'put your url here';
-		var el = document.createElement("input");
-		el.type = "hidden";
-		el.name = "idest";
-		el.value = pEst;
-		form.appendChild(el);
-		var es = document.createElement("input");
-		es.type = "hidden";
-		es.name = "control";
-		es.value = pAccion;
-		form.appendChild(es);
-		form.submit();
-	}
-</script>
+    
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -112,7 +92,28 @@
                     
                     
                 </div>
-                
+                <form action="" method="post" name="frmEstudios" target="_self">
+<input type="hidden" name="frmName" value="page020" />
+<input type="hidden" name="empkey" value="{{emp.key}}"/>
+<input type="hidden" name="cuenta" value="{{ cuenta }}">
+<script type="text/javascript">
+	function submitForm(pEst,pAccion)
+	{
+		var form = document.forms['frmEstudios'];
+		// form.action = 'put your url here';
+		var el = document.createElement("input");
+		el.type = "hidden";
+		el.name = "idest";
+		el.value = pEst;
+		form.appendChild(el);
+		var es = document.createElement("input");
+		es.type = "hidden";
+		es.name = "control";
+		es.value = pAccion;
+		form.appendChild(es);
+		form.submit();
+	}
+</script>
                 <div class="span9" id="content">
 
                     <div class="row-fluid">

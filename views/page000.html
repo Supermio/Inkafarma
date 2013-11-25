@@ -39,12 +39,13 @@ function showData(frm){
     frm.pblock.value = "{{ empData.domBlock }}";
     frm.petapa.value = "{{ empData.domEtapa}}";
     frm.preferencia.value = "{{ empData.domRef}}";
-	frm.pubi.disabled=false;
-	frm.pubi.value ="{{ empData.domUbiDep }}"+ "{{empData.domUbiProv}}" + "{{empData.domUbiDist}}" + "-" + "{{empData.domUbiDescrip }}";
+    frm.pubi.disabled=false;
+    frm.pubigeo.value ="{{ empData.domUbiDep }}"+ "{{empData.domUbiProv}}" + "{{empData.domUbiDist}}" + "-" + "{{empData.domUbiDescrip }}";
+    frm.pubi.value ="{{ empData.domUbiDep }}"+ "{{empData.domUbiProv}}" + "{{empData.domUbiDist}}" + "-" + "{{empData.domUbiDescrip }}";
     frm.pubi.disabled=true;
-	frm.mViv.value = "{{ vivProp }}";
-	frm.mVivOtros.value ="{{ vivPropOtros }}";
-	frm.mMiembros.value = "{{ mMiembros }}";
+    frm.mViv.value = "{{ vivProp }}";
+    frm.mVivOtros.value ="{{ vivPropOtros }}";
+    frm.mMiembros.value = "{{ mMiembros }}";
 	
 	var res=document.getElementById("mViv");
 	if (res.value=='Otros') {
@@ -102,7 +103,7 @@ function isNumberKey(evt)
 		    document.forms["frmMain"].pOpcion.value = "8.- Datos Adicionales" ;
 		    break;
 		case 9:
-		    document.forms["frmMain"].pOpcion.value = "Salir" ;
+		    document.frmMain.pOpcion.value = "Salir" ;
 		    break;
 	    }
 	    document.frmMain.submit();
@@ -115,13 +116,7 @@ function isNumberKey(evt)
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
-    <form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
-  
-    <p>
-      <input type="hidden" name="frmName" value="page000" />
-      <input type="hidden" name="empkey" value="{{emp.key}}"/>
-      <input name="pubigeo" type="hidden" id="pubigeo" />
-    </p>
+    
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -153,7 +148,11 @@ function isNumberKey(evt)
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
                         
                     </ul>                                        
-                </div>                
+                </div>
+		<form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
+		    <input type="hidden" name="frmName" value="page000" />
+		    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+		    <input name="pubigeo" type="hidden" id="pubigeo" />
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="span12">

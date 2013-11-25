@@ -64,12 +64,7 @@ function formSubmit(valor)
     <input type="hidden" name="empkey" value="{{emp.key}}"/>
     <input type="hidden" name="pOpcion"/>
 </form>
-<form id="frmHobbie" name="frmHobbie" method="post" action="" class="form-horizontal" novalidate>
-  <input type="submit" name="control" id="action" value="Cancelar" />
-  <input type="hidden" name="frmName" value="page061" />
-  <input type="hidden" name="empkey" value="{{emp.key}}"/>
-  <input type="hidden" name="hobkey" value="{{hobbie.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>
+
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -99,7 +94,13 @@ function formSubmit(valor)
                         
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>                        
                     </ul>                                    
-                </div>                
+                </div>
+		<form id="frmHobbie" name="frmHobbie" method="post" action="" class="form-horizontal" novalidate>
+  <input type="submit" name="control" id="action" value="Cancelar" />
+  <input type="hidden" name="frmName" value="page061" />
+  <input type="hidden" name="empkey" value="{{emp.key}}"/>
+  <input type="hidden" name="hobkey" value="{{hobbie.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="span12">

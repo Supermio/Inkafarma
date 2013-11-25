@@ -45,7 +45,15 @@ indexes:
   - name: empresa
   - name: fechaIni
   - name: rubro
-  
+
+- kind: inEmpleado
+  properties:
+    - name: idCompania
+    - name: idEmpleado
+    - name: apeMat
+    - name: apePat
+    - name: nombres
+    
 - kind: inEmpleado
   ancestor: no
   properties:

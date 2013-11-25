@@ -55,27 +55,7 @@
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
-    <form action="" method="post" name="frmCapacitaciones" target="_self">
-<input type="hidden" name="frmName" value="page030" />
-<input type="hidden" name="empkey" value="{{emp.key}}"/>
-<script type="text/javascript">
-	function submitForm(pDep,pAccion)
-	{
-		var form = document.forms['frmCapacitaciones'];
-		// form.action = 'put your url here';
-		var el = document.createElement("input");
-		el.type = "hidden";
-		el.name = "idcapac";
-		el.value = pDep;
-		form.appendChild(el);
-		var es = document.createElement("input");
-		es.type = "hidden";
-		es.name = "control";
-		es.value = pAccion;
-		form.appendChild(es);
-		form.submit();
-	}
-</script>
+    
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -106,7 +86,29 @@
                         
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>                        
                     </ul>                                        
-                </div>                
+                </div>
+		<form action="" method="post" name="frmCapacitaciones" target="_self">
+<input type="hidden" name="frmName" value="page030" />
+<input type="hidden" name="empkey" value="{{emp.key}}"/>
+<input type="hidden" name="cuenta" value="{{ cuenta }}">
+<script type="text/javascript">
+	function submitForm(pDep,pAccion)
+	{
+		var form = document.forms['frmCapacitaciones'];
+		// form.action = 'put your url here';
+		var el = document.createElement("input");
+		el.type = "hidden";
+		el.name = "idcapac";
+		el.value = pDep;
+		form.appendChild(el);
+		var es = document.createElement("input");
+		es.type = "hidden";
+		es.name = "control";
+		es.value = pAccion;
+		form.appendChild(es);
+		form.submit();
+	}
+</script>
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="span12">

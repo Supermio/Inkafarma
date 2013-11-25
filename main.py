@@ -15,4 +15,5 @@ import webapp2
 
 application = webapp2.WSGIApplication([('/', login.MainHandler),
                 ('/main.html', menu.MainHandler),
-                ('/ubigeo.html', ubigeo.MainHandler)],debug=True)
+                ('/ubigeo.html', ubigeo.MainHandler),
+                ('/listado.html', reporte.MainHandler)],debug=True)

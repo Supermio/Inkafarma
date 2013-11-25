@@ -153,12 +153,7 @@ function formSubmit(valor)
     <input type="hidden" name="empkey" value="{{emp.key}}"/>
     <input type="hidden" name="pOpcion"/>
 </form>
-<form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
-    <input type="hidden" name="frmName" value="page080" />
-    <input type="hidden" name="empkey" value="{{emp.key}}"/>
-    <input type="hidden" name="librekey" value=""/>
-    <input name="pubigeo" type="hidden" id="pubigeo" />
-    <input name="datos" type="hidden" id="datos" />
+
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -188,7 +183,13 @@ function formSubmit(valor)
                         <li class="active"><a href="javascript:formSubmit(8);"><span class="ico"><i class="icon-plus-sign"></i></span><span class="text">Datos Adicionales</span></a></li>
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
                     </ul>                                    
-                </div>                
+                </div>
+		<form id="frmPersonal" name="frmPersonal" method="post" action="" class="form-horizontal" novalidate>
+    <input type="hidden" name="frmName" value="page080" />
+    <input type="hidden" name="empkey" value="{{emp.key}}"/>
+    <input type="hidden" name="librekey" value=""/>
+    <input name="pubigeo" type="hidden" id="pubigeo" />
+    <input name="datos" type="hidden" id="datos" />
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="span12">

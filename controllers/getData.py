@@ -1,6 +1,8 @@
 from google.appengine.ext import db
 from google.appengine.api import memcache
 
+
+
 def authenticar(pcodEmpleado, pfechaNac, pnumDoc):
     tmpEmpleados =db.GqlQuery("Select __key__ from inEmpleado "
                                 "where "

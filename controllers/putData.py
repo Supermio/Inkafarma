@@ -7,32 +7,51 @@ def delRecord(pkey):
     dep = db.get(pkey)
     if not dep is None:
       dep.delete()
-
+def getNombres(pidCompania,pidEmpleado):
+    query = "select nombres, apePat, apeMat from inEmpleado where idCompania = :1 and idEmpleado = :2"
+    try:
+        data = db.GqlQuery(query,pidCompania,pidEmpleado)
+	nombre = data[0].nombres + " "+data[0].apePat +" "+ data[0].apeMat
+	print "Compania:"+pidCompania+" Empleado:"+pidEmpleado+" el nombre es:"+nombre
+        return nombre
+    except Exception,err:
+	print("Error: %s" % err)
+        return "John Doe"
 def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
     sql = "select __key__ from contador where idCompania=:1 and idEmpleado=:2"
     print "Compania:"+pidCompania + " Empleado:"+pidEmpleado
+    if pStatus > 0:
+	pStatus=1
     try:
         data = db.GqlQuery(sql,pidCompania,pidEmpleado)
         id = data[0]
         data = db.get(id)
         if pidTabla == "libres":
             data.sLibs = pStatus
+	    print "actualizare libres"
         if pidTabla == "empleado":
             data.sEmps = pStatus
+	    print "actualizare empleado"
         if pidTabla == "dependiente":
-            data.sDeps == pStatus
+            data.sDeps = pStatus
+	    print "actualizare dependiente"
         if pidTabla == "estudio":
-            data.sEsts == pStatus
+            data.sEsts = pStatus
+	    print "actualizare estudio"
         if pidTabla == "capacitacion":
-            data.sCaps == pStatus
+            data.sCaps = pStatus
+	    print "actualizare capacitacion"
         if pidTabla == "experiencia":
-            data.sExps == pStatus
-        if pidTabla == "habilidades":
-            data.sHabs == pStatus
+            data.sExps = pStatus
+	    print "actualizare experiencia"
+        if pidTabla == "habilidad":
+            data.sHabs = pStatus
+	    print "actualizare habilidades"
         if pidTabla == "hobbie":
-            data.sHobs == pStatus
+            data.sHobs = pStatus
+	    print "actualizare hobbie"
         data.put()
-	print "Registro actualizado"
+	print "Registro actualizado con status:"+ str(pStatus)
     except Exception, err:
 	print("Error: %s" % err)
         print "Creando Status para este empleado"+pidEmpleado
@@ -59,15 +78,16 @@ def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
             sHabs = pStatus
         if pidTabla == "hobbie":
             sHobs = pStatus
-        e = models.contador(idCompania = pidCompania,
-			    idEmpleado = pidEmpleado,
-			    sEmps      = sEmps,
-			    sDeps      = sDeps,
-			    sEsts      = sEsts,
-			    sCaps      = sCaps,
-			    sExps      = sExps,
-			    sHabs      = sHabs,
-			    sHobs      = sHobs)
+        e = models.contador(idCompania  = pidCompania,
+			    idEmpleado  = pidEmpleado,
+			    nomEmpleado = getNombres(pidCompania,pidEmpleado),
+			    sEmps       = sEmps,
+			    sDeps       = sDeps,
+			    sEsts       = sEsts,
+			    sCaps       = sCaps,
+			    sExps       = sExps,
+			    sHabs       = sHabs,
+			    sHobs       = sHobs)
 	e.put()
 	print "Registro creado"
 
@@ -320,7 +340,9 @@ def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfe
                domUbiDescrip = pdomUbides,
                declarado     = pdeclarado)
     e.put()
+    print "voy a actualizar el status"
     setEmpStatus(pidCompania,pidEmpleado,'dependiente',1)
+    print "ya actuallice el status"
 
 def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
            pvinculo,ptipoDocSus,pnumDocSus,pfechaAlta,pfechaBaja,pmotivBaja,pdomicProp,
@@ -361,7 +383,7 @@ def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
     e.domUbiDescrip = pdomUbides
     e.declarado     = pdeclarado
     e.put()
-    setEmpStatus(e.idCompania,e.idEmpleado,'dependiente',1)
+    
     
 def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
@@ -375,7 +397,7 @@ def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pper
                     periodFin     = pperiodFin,
                     descrip       = pDescrip)
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'estudio',1)
+
 
 def updEstudio(pkey,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
@@ -388,7 +410,6 @@ def updEstudio(pkey,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     e.periodFin     = pperiodFin
     e.descrip       = pDescrip
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'estudio',1)
     
 def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
@@ -406,7 +427,6 @@ def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFi
                     moneda        = pmoneda,
                     glosa         = pglosa)
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'capacitacion',1)
 
 def updCapac(pkey,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
@@ -423,7 +443,6 @@ def updCapac(pkey,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
     e.moneda        = pmoneda
     e.glosa         = pglosa
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'capacitacion',1)
 
 def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e = models.experiencia(idCompania    = pidCompania,
@@ -435,7 +454,6 @@ def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,
                            fechaFin      = pfechaFin,
                            glosa         = pglosa)
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'experiencia',1)
 
 def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e = db.get(pkey)
@@ -446,7 +464,7 @@ def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e.fechaFin      = pfechaFin
     e.glosa         = pglosa
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'experiencia',1)
+
     
 def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
     cuenta=0;
@@ -465,7 +483,6 @@ def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
                            codCalif      = pcodCalif,
                            descrip       = pDescrip)
        e.put()
-       setEmpStatus(pidCompania,pidEmpleado,'habilidad',1)
 
 def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     pDescrip = getData.getHabsFilter(pidHabil)
@@ -475,7 +492,6 @@ def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     e.codCalif      = pcodCalif
     e.descrip       = pDescrip
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'habilidad',1)
 
 def setHobbie(pidCompania,pidEmpleado,pidHobbie):
     cuenta=0;
@@ -492,7 +508,6 @@ def setHobbie(pidCompania,pidEmpleado,pidHobbie):
                           idHobbie      = pidHobbie,
                           descrip       = pDescrip)
         e.put()
-        setEmpStatus(pidCompania,pidEmpleado,'hobbie',1)
 
 def updHobbie(pkey,pidHobbie):
     pDescrip = getData.getHobFilter(pidHobbie)
@@ -500,7 +515,6 @@ def updHobbie(pkey,pidHobbie):
     e.idHobbie   = pidHobbie
     e.descrip    = pDescrip
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'hobbie',1)
 
 def getGerencia(idGer):
     data=db.GqlQuery("select nombre from organizacion where idGer= :1 and idDep='00' and idArea='00' and idSeccion='00'",str(idGer))

@@ -143,12 +143,7 @@ function showData(frm){
 	    <input type="hidden" name="empkey" value="{{emp.key}}"/>
 	    <input type="hidden" name="pOpcion"/>
 	</form>
-	<form id="frmDependientes" name="frmDependientes" method="post" action="" class="form-horizontal" novalidate>
-  <input type="hidden" name="frmName" value="page011" />
-  <input type="hidden" name="empkey" value="{{emp.key }}"/>
-  <input type="hidden" name="depkey" value="{{depend.key}}"/>
-  <input type="hidden" name="datos" value="{{datos}}"/>
-  <input name="pubigeo" type="hidden" id="pubigeo" />
+	
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
@@ -179,6 +174,12 @@ function showData(frm){
                         <li style="color:#30782e;"><br><strong>* Si no puedes terminar el censo, puedes darle "Guardar" y luego seguir contestando en otro momento.</strong></li>
                     </ul>
                 </div>
+		<form id="frmDependientes" name="frmDependientes" method="post" action="" class="form-horizontal" novalidate>
+  <input type="hidden" name="frmName" value="page011" />
+  <input type="hidden" name="empkey" value="{{emp.key }}"/>
+  <input type="hidden" name="depkey" value="{{depend.key}}"/>
+  <input type="hidden" name="datos" value="{{datos}}"/>
+  <input name="pubigeo" type="hidden" id="pubigeo" />
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="span12">

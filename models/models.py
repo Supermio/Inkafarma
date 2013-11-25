@@ -9,6 +9,7 @@ from google.appengine.ext import db
 class contador(db.Model):
 	idCompania   = db.StringProperty(required=True, indexed=True)
 	idEmpleado   = db.StringProperty(required=True, indexed=True)
+	nomEmpleado  = db.StringProperty()
 	mFecha       = db.DateTimeProperty(auto_now=True)
 	sLibs        = db.IntegerProperty()
 	sEmps        = db.IntegerProperty()
