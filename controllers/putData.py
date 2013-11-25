@@ -9,9 +9,10 @@ def delRecord(pkey):
       dep.delete()
 
 def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
-    sql = "select idEmpleado from contador where idCompania=:1 and idEmpleado=:2"
+    sql = "select __key__ from contador where idCompania=:1 and idEmpleado=:2"
+    print "Compania:"+pidCompania + " Empleado:"+pidEmpleado
     try:
-        data = db.GqlQuery(query,pidCompania,pidEmpleado)
+        data = db.GqlQuery(sql,pidCompania,pidEmpleado)
         id = data[0]
         data = db.get(id)
         if pidTabla == "libres":
@@ -31,7 +32,9 @@ def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
         if pidTabla == "hobbie":
             data.sHobs == pStatus
         data.put()
-    except:
+	print "Registro actualizado"
+    except Exception, err:
+	print("Error: %s" % err)
         print "Creando Status para este empleado"+pidEmpleado
 	sEmps = 0
 	sDeps = 0
@@ -66,6 +69,7 @@ def setEmpStatus(pidCompania,pidEmpleado,pidTabla,pStatus):
 			    sHabs      = sHabs,
 			    sHobs      = sHobs)
 	e.put()
+	print "Registro creado"
 
 def setDisclaimer(pidCompania,pidEmpleado,pNavegador):
     e = models.autorizado(idCompania  = pidCompania,
@@ -73,7 +77,19 @@ def setDisclaimer(pidCompania,pidEmpleado,pNavegador):
                           mAutorizado = 1,
                           mNavegador  = pNavegador)
     e.put()
-
+def statusLibres(pidCompania,pidEmpleado,pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
+    completo = 1
+    if pempCuenta == "":
+	completo = 0
+    if pempAnexo == "":
+	completo = 0
+    if pempCelular == "":
+	completo = 0
+    if pempRPM == "":
+	completo = 0
+    if pempEmail == "":
+	completo = 0
+    setEmpStatus(pidCompania,pidEmpleado,"libres",completo)    
 def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,pempEmail):
     e = models.libres(idCompania    = pidCompania,
                     idEmpleado       = pidEmpleado,
@@ -83,18 +99,7 @@ def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,p
                     empRPM           = pempRPM,
                     empEmail         = pempEmail)
     e.put()
-    completo = 1
-    if pempCuenta == "":
-	completo = 0
-    if pempAnexo == "":
-	completo = 0
-    if pempCelular == "":
-	completo = 0
-    if pempRPM == "":
-	completo = 0
-    if pempEmail == "":
-	completo = 0
-    setEmpStatus(pidCompania,pidEmpleado,'libres',completo)
+    statusLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,pempEmail)
 
 def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
     e = db.get(pKey)
@@ -104,19 +109,8 @@ def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
     e.empRPM       = pempRPM
     e.empEmail     = pempEmail
     e.put()
-    completo = 1
-    if pempCuenta == "":
-	completo = 0
-    if pempAnexo == "":
-	completo = 0
-    if pempCelular == "":
-	completo = 0
-    if pempRPM == "":
-	completo = 0
-    if pempEmail == "":
-	completo = 0
-    setEmpStatus(pidCompania,pidEmpleado,'libres',completo)
-
+    statusLibres(e.idCompania,e.idEmpleado,pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail)
+    
 def setEmp(pidcompania, pidempleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
 	pdomubiprov,pdomubidist,pdomubides,ptelffijo,ptelcel,ppemail,pcontactoemer,pcontactotelf,pcontactotelc,
@@ -283,7 +277,9 @@ def updEmp(pKey,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
     if pturno == "":
 	completo = 0
     setEmpStatus(e.idCompania,e.idEmpleado,'empleado',completo)
-    e.put()    
+    e.put()
+
+
 def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
            pvinculo,ptipoDocSus,pnumDocSus,pfechaAlta,pfechaBaja,pmotivBaja,pdomicProp,
            pdomtipoVia,pdomnombreVia,pdomtipoZona,pdomnomZona,pdomnumero,pdominterior,pdomDept,
@@ -365,7 +361,7 @@ def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
     e.domUbiDescrip = pdomUbides
     e.declarado     = pdeclarado
     e.put()
-    setEmpStatus(pidCompania,pidEmpleado,'dependiente',1)
+    setEmpStatus(e.idCompania,e.idEmpleado,'dependiente',1)
     
 def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
