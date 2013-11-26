@@ -1081,6 +1081,7 @@ class MainHandler(webapp2.RequestHandler):
                                     'expers'  : expers,
                                     'error'   : action}
          elif pagina == "page051":
+            print "Ya llegue"
             action= self.request.get("control")
             path= "views/page050.html"
             template_values = {'error': action}
@@ -1093,17 +1094,20 @@ class MainHandler(webapp2.RequestHandler):
                                     'error': action}
             elif action=="Guardar":
                  datos = self.request.get('datos')
+                 print "Voy a grabar"+pEmp.idCompania+"/"+pEmp.idEmpleado+"/"+self.request.get('phabilidad')+ " "+ self.request.get('ptipocal')
                  if datos !="1":
                     putData.setHabil(pEmp.idCompania,
                                      pEmp.idEmpleado,
                                      self.request.get('phabilidad'),
                                      "",
                                      self.request.get('ptipocal'))
+                    print "Ya grabe"
                  else:
                     putData.updHabil(self.request.get('habkey'),
                                      self.request.get('phabilidad'),
                                      "",
                                      self.request.get('ptipocal'))
+                    print "Ya actualice"
                  path= "views/page050.html"
                  habiles = getData.getAllHabiles(pEmp.idCompania,
                                                  pEmp.idEmpleado)

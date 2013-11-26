@@ -2,6 +2,7 @@
 
 from google.appengine.ext import db
 
+
 # These classes define the data objects
 # that you will be able to store in
 # AppEngine's data store.
@@ -18,7 +19,8 @@ class contador(db.Model):
 	sCaps        = db.IntegerProperty()
 	sExps        = db.IntegerProperty()
 	sHabs        = db.IntegerProperty()
-	sHobs       = db.IntegerProperty()
+	sHobs        = db.IntegerProperty()
+	total        = db.IntegerProperty()
 	
 class textos(db.Model):
 	idCompania = db.StringProperty(required=True, indexed=True)

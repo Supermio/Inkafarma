@@ -7,6 +7,7 @@ def delRecord(pkey):
     dep = db.get(pkey)
     if not dep is None:
       dep.delete()
+      print "Registro borrado"
 def getNombres(pidCompania,pidEmpleado):
     query = "select nombres, apePat, apeMat from inEmpleado where idCompania = :1 and idEmpleado = :2"
     try:
@@ -468,21 +469,26 @@ def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     
 def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
     cuenta=0;
+    print "Ya estoy en setHabil"
     try:
-        data=db.GqlQuery("select idHabilidad from habilidades where idHabilidad=:1 and idEmpleado=:2 and idCompania=:3", str(pidHabil),str(pidEmpleado),str(pidCompania))
-        cuenta= data.count
-    except:
-        cuenta=0
-
-    if cuenta == 0:
-       pDescrip = getData.getHabsFilter(pidHabil)
-       e = models.habilidades(idCompania    = pidCompania,
+        print "Antes de verificar"
+        data = db.GqlQuery("select * from habilidades where idHabilidad=:1 and idEmpleado=:2 and idCompania=:3", str(pidHabil),str(pidEmpleado),str(pidCompania))
+        cuenta = data.count()
+        print "Ya verifique:"+ str(cuenta)
+	if cuenta == 0:
+	    print "Voy a obtener la descripcion"
+	    pDescrip = getData.getHabsFilter(pidHabil)
+	    print "Ya tengo la descrip:"+ pDescrip
+	    e = models.habilidades(idCompania    = pidCompania,
                            idEmpleado    = pidEmpleado,
                            idHabilidad   = pidHabil,
                            tipoHabilidad = ptipoHabil,
                            codCalif      = pcodCalif,
                            descrip       = pDescrip)
-       e.put()
+	    e.put()
+	    print "Ya grabre la habilidad"
+    except Exception,err:
+        print("Error: %s" % err)
 
 def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     pDescrip = getData.getHabsFilter(pidHabil)
@@ -496,18 +502,21 @@ def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
 def setHobbie(pidCompania,pidEmpleado,pidHobbie):
     cuenta=0;
     try:
-        data=db.GqlQuery("select idHobbie from hobbie where idHobbie=:1 and idEmpleado=:2 and idCompania=:3", str(pidHobbie),str(pidEmpleado),str(pidCompania))
-        cuenta= data.count
-    except:
-        cuenta=0
-
-    if cuenta == 0:
-        pDescrip = getData.getHobFilter(pidHobbie)
-        e = models.hobbie(idCompania    = pidCompania,
+        data=db.GqlQuery("select * from hobbie where idHobbie=:1 and idEmpleado=:2 and idCompania=:3", str(pidHobbie),str(pidEmpleado),str(pidCompania))
+        cuenta= data.count()
+        print "Verificando Hobbile"
+        if cuenta == 0:
+            print "Ya vi que no hay nada"
+            pDescrip = getData.getHobFilter(pidHobbie)
+            e = models.hobbie(idCompania    = pidCompania,
                           idEmpleado    = pidEmpleado,
                           idHobbie      = pidHobbie,
                           descrip       = pDescrip)
-        e.put()
+            e.put()
+    except Exception,err:
+        cuenta=0
+        print("Error: %s" % err)
+
 
 def updHobbie(pkey,pidHobbie):
     pDescrip = getData.getHobFilter(pidHobbie)

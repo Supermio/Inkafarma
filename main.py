@@ -2,7 +2,7 @@
 
 # Importing the controllers that will handle
 # the generation of the pages:
-from controllers import login, menu, ubigeo
+from controllers import login, menu, ubigeo,reporte
 
 # Importing some of Google's AppEngine modules:
 import webapp2

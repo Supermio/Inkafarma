@@ -220,3 +220,17 @@ indexes:
   properties:
   - name: idEmpleado
   - name: mAutorizado
+
+- kind: contador
+  properties:
+  - name: sCaps
+  - name: sDeps
+  - name: sEmps
+  - name: sEsts
+  - name: sExps
+  - name: sHabs
+  - name: sHobs
+  - name: sLibs
+  - name: idEmpleado
+  - name: mFecha
+  - name: nomEmpleado
