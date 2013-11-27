@@ -123,14 +123,17 @@ def setLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,p
     statusLibres(pidCompania,pidEmpleado,pempCuenta,pempAnexo,pempCelular,pempRPM,pempEmail)
 
 def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
-    e = db.get(pKey)
-    e.empCuenta    = pempCuenta
-    e.empAnexo     = pempAnexo
-    e.empCelular   = pempCelular
-    e.empRPM       = pempRPM
-    e.empEmail     = pempEmail
-    e.put()
-    statusLibres(e.idCompania,e.idEmpleado,pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail)
+    try:
+	e = db.get(pKey)
+	e.empCuenta    = pempCuenta
+	e.empAnexo     = pempAnexo
+	e.empCelular   = pempCelular
+	e.empRPM       = pempRPM
+	e.empEmail     = pempEmail
+	e.put()
+	statusLibres(e.idCompania,e.idEmpleado,pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail)
+    except Exception,err:
+	print("Error: %s" % err)
     
 def setEmp(pidcompania, pidempleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
@@ -221,84 +224,87 @@ def updEmp(pKey,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
 	pdomubiprov,pdomubidist,pdomubides,ptelffijo,ptelcel,ppemail,pcontactoemer,pcontactotelf,pcontactotelc,
 	ptrabinterior,pturno):
-    e = db.get(pKey)
-    e.domtipoVia    = pdomtipovia
-    e.domnombreVia  = pdomnombrevia
-    e.domtipoZona   = pdomtipozona
-    e.domnomZona    = pdomnomzona
-    e.domnumero     = pdomnumero
-    e.dominterior   = pdominterior
-    e.domDept       = pdomdept
-    e.domManz       = pdommanz
-    e.domLote       = pdomlote
-    e.domKm         = pdomkm
-    e.domBlock      = pdomblock
-    e.domEtapa      = pdometapa
-    e.domRef        = pdomref
-    e.domUbiDep     = pdomubidep
-    e.domUbiProv    = pdomubiprov
-    e.domUbiDist    = pdomubidist
-    e.domUbiDescrip = pdomubides
-    e.telfFijo      = ptelffijo
-    e.telCel        = ptelcel
-    e.pemail        = ppemail
-    e.contactoEmer  = pcontactoemer
-    e.contactoTelF  = pcontactotelf
-    e.contactoTelC  = pcontactotelc
-    e.trabInterior  = ptrabinterior
-    e.turno         = pturno
-
-    completo = 1
-    if pdomtipovia == "":
-	completo = 0
-    if pdomnombrevia == "":
-	completo = 0
-    if pdomtipozona == "":
-	completo = 0
-    if pdomnomzona == "":
-	completo = 0
-    if pdomnumero == "":
-	completo = 0
-    if pdominterior == "":
-	completo = 0
-    if pdomdept == "":
-	completo = 0
-    if pdommanz == "":
-	completo = 0
-    if pdomlote == "":
-	completo = 0
-    if pdomkm == "":
-	completo = 0
-    if pdomblock == "":
-	completo = 0
-    if pdometapa == "":
-	completo = 0
-    if pdomref == "":
-	completo = 0
-    if pdomubidep == "":
-	completo = 0
-    if pdomubiprov == "":
-	completo = 0
-    if pdomubidist == "":
-	completo = 0
-    if ptelffijo == "":
-	completo = 0
-    if ptelcel == "":
-	completo = 0
-    if ppemail == "":
-	completo = 0
-    if pcontactoemer == "":
-	completo = 0
-    if pcontactotelf == "":
-	completo = 0
-    if pcontactotelc == "":
-	completo = 0
-    if ptrabinterior == "":
-	completo = 0
-    if pturno == "":
-	completo = 0
-    setEmpStatus(e.idCompania,e.idEmpleado,'empleado',completo)
-    e.put()
+    try:
+	e = db.get(pKey)
+	e.domtipoVia    = pdomtipovia
+	e.domnombreVia  = pdomnombrevia
+	e.domtipoZona   = pdomtipozona
+	e.domnomZona    = pdomnomzona
+	e.domnumero     = pdomnumero
+	e.dominterior   = pdominterior
+	e.domDept       = pdomdept
+	e.domManz       = pdommanz
+	e.domLote       = pdomlote
+	e.domKm         = pdomkm
+	e.domBlock      = pdomblock
+	e.domEtapa      = pdometapa
+	e.domRef        = pdomref
+	e.domUbiDep     = pdomubidep
+	e.domUbiProv    = pdomubiprov
+	e.domUbiDist    = pdomubidist
+	e.domUbiDescrip = pdomubides
+	e.telfFijo      = ptelffijo
+	e.telCel        = ptelcel
+	e.pemail        = ppemail
+	e.contactoEmer  = pcontactoemer
+	e.contactoTelF  = pcontactotelf
+	e.contactoTelC  = pcontactotelc
+	e.trabInterior  = ptrabinterior
+	e.turno         = pturno
+	
+	completo = 1
+	if pdomtipovia == "":
+	    completo = 0
+	if pdomnombrevia == "":
+	    completo = 0
+	if pdomtipozona == "":
+	    completo = 0
+	if pdomnomzona == "":
+	    completo = 0
+	if pdomnumero == "":
+	    completo = 0
+	if pdominterior == "":
+	    completo = 0
+	if pdomdept == "":
+	    completo = 0
+	if pdommanz == "":
+	    completo = 0
+	if pdomlote == "":
+	    completo = 0
+	if pdomkm == "":
+	    completo = 0
+	if pdomblock == "":
+	    completo = 0
+	if pdometapa == "":
+	    completo = 0
+	if pdomref == "":
+	    completo = 0
+	if pdomubidep == "":
+	    completo = 0
+	if pdomubiprov == "":
+	    completo = 0
+	if pdomubidist == "":
+	    completo = 0
+	if ptelffijo == "":
+	    completo = 0
+	if ptelcel == "":
+	    completo = 0
+	if ppemail == "":
+	    completo = 0
+	if pcontactoemer == "":
+	    completo = 0
+	if pcontactotelf == "":
+	    completo = 0
+	if pcontactotelc == "":
+	    completo = 0
+	if ptrabinterior == "":
+	    completo = 0
+	if pturno == "":
+	    completo = 0
+	setEmpStatus(e.idCompania,e.idEmpleado,'empleado',completo)
+	e.put()
+    except Exception, err:
+	print("Error: %s" % err)
 
 
 def setDep(pidCompania,pidEmpleado,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
@@ -350,40 +356,42 @@ def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
            pdomtipoVia,pdomnombreVia,pdomtipoZona,pdomnomZona,pdomnumero,pdominterior,pdomDept,
            pdomManz,pdomLote,pdomKm,pdomBlock,pdomEtapa,pdomRef,pdomUbiDep,pdomUbiProv,pdomUbiDist,pdomUbides,
            pdeclarado):
-    e = db.get(pkey)
-    e.tipoDoc       = ptipoDoc
-    e.numDoc        = pnumDoc
-    e.apePat        = papePat
-    e.apeMat        = papeMat
-    e.nombres       = pnombres
-    e.fechaNac      = pfechaNac
-    e.sexo          = psexo
-    e.vinculo       = pvinculo
-    e.tipoDocSus    = ptipoDocSus
-    e.numDocSus     = pnumDocSus
-    e.fechaAlta     = pfechaAlta
-    e.fechaBaja     = pfechaBaja
-    e.motivBaja     = pmotivBaja
-    e.domicProp     = pdomicProp
-    e.domtipoVia    = pdomtipoVia
-    e.domnombreVia  = pdomnombreVia
-    e.domtipoZona   = pdomtipoZona
-    e.domnomZona    = pdomnomZona
-    e.domnumero     = pdomnumero
-    e.dominterior   = pdominterior
-    e.domDept       = pdomDept
-    e.domManz       = pdomManz
-    e.domLote       = pdomLote
-    e.domKm         = pdomKm
-    e.domBlock      = pdomBlock
-    e.domEtapa      = pdomEtapa
-    e.domRef        = pdomRef
-    e.domUbiDep     = pdomUbiDep
-    e.domUbiProv    = pdomUbiProv
-    e.domUbiDist    = pdomUbiDist
-    e.domUbiDescrip = pdomUbides
-    e.declarado     = pdeclarado
-    e.put()
+    try:
+	e = db.get(pkey)
+	e.tipoDoc       = ptipoDoc
+	e.numDoc        = pnumDoc
+	e.apePat        = papePat
+	e.apeMat        = papeMat
+	e.nombres       = pnombres
+	e.fechaNac      = pfechaNac
+	e.sexo          = psexo
+	e.vinculo       = pvinculo
+	e.tipoDocSus    = ptipoDocSus
+	e.numDocSus     = pnumDocSus
+	e.fechaAlta     = pfechaAlta
+	e.fechaBaja     = pfechaBaja
+	e.motivBaja     = pmotivBaja
+	e.domicProp     = pdomicProp
+	e.domtipoVia    = pdomtipoVia
+	e.domnombreVia  = pdomnombreVia
+	e.domtipoZona   = pdomtipoZona
+	e.domnomZona    = pdomnomZona
+	e.domnumero     = pdomnumero
+	e.dominterior   = pdominterior
+	e.domDept       = pdomDept
+	e.domManz       = pdomManz
+	e.domLote       = pdomLote
+	e.domKm         = pdomKm
+	e.domBlock      = pdomBlock
+	e.domEtapa      = pdomEtapa
+	e.domRef        = pdomRef
+	e.domUbiDep     = pdomUbiDep
+	e.domUbiProv    = pdomUbiProv
+	e.domUbiDist    = pdomUbiDist
+	e.domUbiDescrip = pdomUbides
+	e.declarado     = pdeclaradoe.put()
+    except Exception, err:
+	print("Error: %s" % err)
     
     
 def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
@@ -402,15 +410,19 @@ def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pper
 
 def updEstudio(pkey,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)
-    e = db.get(pkey)
-    e.grado         = pgrado
-    e.especialidad  = pespe
-    e.centEstudio   = pcent
-    e.ciclo         = pciclo
-    e.periodIni     = pperiodIni
-    e.periodFin     = pperiodFin
-    e.descrip       = pDescrip
-    e.put()
+    try:
+	e = db.get(pkey)
+	e.grado         = pgrado
+	e.especialidad  = pespe
+	e.centEstudio   = pcent
+	e.ciclo         = pciclo
+	e.periodIni     = pperiodIni
+	e.periodFin     = pperiodFin
+	e.descrip       = pDescrip
+	e.put()
+    except Exception, err:
+	print("Error: %s" % err)
+
     
 def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
@@ -431,19 +443,23 @@ def setCapac(pidCompania,pidEmpleado,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFi
 
 def updCapac(pkey,pcent,ptipoCur,pnomCurso,pfechaIni,pfechaFin,pduracion,
              pduracionhoras,ptipoCapac,pcosto,pmoneda,pglosa):
-    e = db.get(pkey)
-    e.centEstudio   = pcent
-    e.tipoCurso     = ptipoCur
-    e.nombCurso     = pnomCurso
-    e.fechaIni      = pfechaIni
-    e.fechaFin      = pfechaFin
-    e.duracion      = pduracion
-    e.duracionHoras = pduracionhoras
-    e.tipoCapac     = ptipoCapac
-    e.costo         = pcosto
-    e.moneda        = pmoneda
-    e.glosa         = pglosa
-    e.put()
+    try:
+	e = db.get(pkey)
+	e.centEstudio   = pcent
+	e.tipoCurso     = ptipoCur
+	e.nombCurso     = pnomCurso
+	e.fechaIni      = pfechaIni
+	e.fechaFin      = pfechaFin
+	e.duracion      = pduracion
+	e.duracionHoras = pduracionhoras
+	e.tipoCapac     = ptipoCapac
+	e.costo         = pcosto
+	e.moneda        = pmoneda
+	e.glosa         = pglosa
+	e.put()
+    except Exception, err:
+	print("Error: %s" % err)
+    
 
 def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
     e = models.experiencia(idCompania    = pidCompania,
@@ -457,15 +473,17 @@ def setExper(pidCompania,pidEmpleado,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,
     e.put()
 
 def updExpr(pkey,pEmpresa,prubro,pcargo,pfechaIni,pfechaFin,pglosa):
-    e = db.get(pkey)
-    e.empresa       = pEmpresa
-    e.rubro         = prubro
-    e.cargo         = pcargo
-    e.fechaIni      = pfechaIni
-    e.fechaFin      = pfechaFin
-    e.glosa         = pglosa
-    e.put()
-
+    try:
+	e = db.get(pkey)
+	e.empresa       = pEmpresa
+	e.rubro         = prubro
+	e.cargo         = pcargo
+	e.fechaIni      = pfechaIni
+	e.fechaFin      = pfechaFin
+	e.glosa         = pglosa
+	e.put()
+    except Exception, err:
+	print("Error: %s" % err)
     
 def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
     cuenta=0;
@@ -492,12 +510,15 @@ def setHabil(pidCompania,pidEmpleado,pidHabil,ptipoHabil,pcodCalif):
 
 def updHabil(pkey,pidHabil,ptipoHabil,pcodCalif):
     pDescrip = getData.getHabsFilter(pidHabil)
-    e = db.get(pkey)
-    e.idHabilidad   = pidHabil
-    e.tipoHabilidad = ptipoHabil
-    e.codCalif      = pcodCalif
-    e.descrip       = pDescrip
-    e.put()
+    try:
+	e = db.get(pkey)
+	e.idHabilidad   = pidHabil
+	e.tipoHabilidad = ptipoHabil
+	e.codCalif      = pcodCalif
+	e.descrip       = pDescrip
+	e.put()
+    except Exception, err:
+	print("Error: %s" % err)
 
 def setHobbie(pidCompania,pidEmpleado,pidHobbie):
     cuenta=0;
@@ -520,10 +541,13 @@ def setHobbie(pidCompania,pidEmpleado,pidHobbie):
 
 def updHobbie(pkey,pidHobbie):
     pDescrip = getData.getHobFilter(pidHobbie)
-    e = db.get(pkey)
-    e.idHobbie   = pidHobbie
-    e.descrip    = pDescrip
-    e.put()
+    try:
+	e = db.get(pkey)
+	e.idHobbie   = pidHobbie
+	e.descrip    = pDescrip
+	e.put() 
+    except Exception, err:
+	print("Error: %s" % err)
 
 def getGerencia(idGer):
     data=db.GqlQuery("select nombre from organizacion where idGer= :1 and idDep='00' and idArea='00' and idSeccion='00'",str(idGer))

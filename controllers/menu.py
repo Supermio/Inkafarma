@@ -382,12 +382,20 @@ class MainHandler(webapp2.RequestHandler):
                                     'deps'     : deps,
                                     'error'    : self.request.get('pTipoVia')}
             elif action == "Borrar":
+               print "Click en borrar dependiente"
                path= "views/page010.html"
                iddep = self.request.get('iddep')
-               putData.delRecord(iddep)
                depends = getData.getAllDepends(pEmp.idCompania,
                                               pEmp.idEmpleado)
                cuenta = depends.count()
+               print "Cuenta antes de borrar :" + str(cuenta)
+               putData.delRecord(iddep)
+               print "Dependiente borrado"
+               depends = getData.getAllDepends(pEmp.idCompania,
+                                              pEmp.idEmpleado)
+               
+               cuenta = depends.count()
+               print "Cuenta luego de borrar:" +  str(cuenta)
                putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'dependiente',cuenta)
                template_values = {'emp'             : pEmp,
                                  'dependientes'     : depends,
@@ -946,7 +954,6 @@ class MainHandler(webapp2.RequestHandler):
                                 "",
                                 "",
                                 self.request.get('pDeclarado'))
-                     
                  path= "views/page010.html"
                  deps = getData.getAllDepends(pEmp.idCompania,
                                               pEmp.idEmpleado)
