@@ -59,11 +59,13 @@ class MainHandler(webapp2.RequestHandler):
       totalCompletos = 0
       totalIncompletos = 0
       try:
-	totalCompletos = getCompletos()
+	temp = getCompletos()
+	totalCompletos = temp.count()
       except Exception, err:
 	totalCompletos = 0
       try:
-	totalIncompletos = getIncompletos()
+	temp = getIncompletos()
+	totalIncompletos = temp.count()
       except Exception,err:
 	totalIncompletos = 0
       totalUsuarios = totalCompletos + totalIncompletos
@@ -86,21 +88,22 @@ class MainHandler(webapp2.RequestHandler):
 	path = "views/listado.html"
       if pOpcion == "2":
 	totalCompletos = 0
-      totalIncompletos = 0
-      try:
-	totalCompletos = getCompletos()
-      except Exception, err:
-	totalCompletos = 0
-      try:
-	totalIncompletos = getIncompletos()
-      except Exception,err:
-	totalIncompletos = 0
-      totalUsuarios = totalCompletos + totalIncompletos
-      template_values = {
-	'totalUsuarios'    : totalUsuarios,
-	'totalCompletos'   : totalCompletos,
-	'totalIncompletos' : totalIncompletos
-      }
+        totalIncompletos = 0
+        try:
+	  temp = getCompletos()
+	  totalCompletos = temp.count()
+        except Exception, err:
+	  totalCompletos = 0
+        try:
+	  temp = getIncompletos()
+	  totalIncompletos = temp.count()
+        except Exception,err:
+	  totalIncompletos = 0
+        totalUsuarios = totalCompletos + totalIncompletos
+        template_values = {
+	  'totalUsuarios'    : totalUsuarios,
+	  'totalCompletos'   : totalCompletos,
+	  'totalIncompletos' : totalIncompletos
+        }
       path = "views/total.html"
       self.response.out.write(template.render(path, template_values))
-      

@@ -10,8 +10,27 @@
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-	</head>
+<script>
+	function formSubmit(valor)
+	{
+	    switch (valor)
+	    {
+		case 1:
+		    document.forms["frmMain"].pOpcion.value = "1";
+		    break;
+		case 2:
+		    document.forms["frmMain"].pOpcion.value = "2";
+		    break;
+	    }
+	    document.frmMain.submit();
+	}
+</script>
+</head>
     <body>
+	<form action="listado.html" method="post" name="frmMain" target="_self">
+	    <input type="hidden" name="frmName" value="main" />
+	    <input type="hidden" name="pOpcion"/>
+	</form>
         <div class="container-fluid nopadding">
             <div class="row-fluid">
                 <div class="span12">
