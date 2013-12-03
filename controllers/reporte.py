@@ -34,12 +34,73 @@ def getIncompletos():
                               contador.sHobs == 0))
    return res
 
+def getCompletos():
+   res = contador.query(ndb.AND(contador.sCaps == 1,
+                              contador.sDeps == 1,
+                              contador.sEmps == 1,
+                              contador.sEsts == 1,
+                              contador.sExps == 1,
+                              contador.sHabs == 1,
+                              contador.sHobs == 1))
+   return res
+
+def getCompletos():
+   res = contador.query(ndb.AND(contador.sCaps == 1,
+                              contador.sDeps == 1,
+                              contador.sEmps == 1,
+                              contador.sEsts == 1,
+                              contador.sExps == 1,
+                              contador.sHabs == 1,
+                              contador.sHobs == 1))
+   return res
+
 class MainHandler(webapp2.RequestHandler):
    def get(self):
-      empin = getIncompletos()
+      totalCompletos = 0
+      totalIncompletos = 0
+      try:
+	totalCompletos = getCompletos()
+      except Exception, err:
+	totalCompletos = 0
+      try:
+	totalIncompletos = getIncompletos()
+      except Exception,err:
+	totalIncompletos = 0
+      totalUsuarios = totalCompletos + totalIncompletos
       template_values = {
+	'totalUsuarios'    : totalUsuarios,
+	'totalCompletos'   : totalCompletos,
+	'totalIncompletos' : totalIncompletos
+      }
+      path = "views/total.html"
+      self.response.out.write(template.render(path, template_values))
+
+   def post(self):
+      pOpcion = self.request.get('pOpcion')
+      if pOpcion == "1":
+	empin = getIncompletos()
+	template_values = {
          'title'  : 'supertitulo',
          'empin'  : empin
          }
-      path = "views/listado.html"
+	path = "views/listado.html"
+      if pOpcion == "2":
+	totalCompletos = 0
+      totalIncompletos = 0
+      try:
+	totalCompletos = getCompletos()
+      except Exception, err:
+	totalCompletos = 0
+      try:
+	totalIncompletos = getIncompletos()
+      except Exception,err:
+	totalIncompletos = 0
+      totalUsuarios = totalCompletos + totalIncompletos
+      template_values = {
+	'totalUsuarios'    : totalUsuarios,
+	'totalCompletos'   : totalCompletos,
+	'totalIncompletos' : totalIncompletos
+      }
+      path = "views/total.html"
       self.response.out.write(template.render(path, template_values))
+      
