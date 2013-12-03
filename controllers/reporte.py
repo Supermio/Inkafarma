@@ -79,6 +79,7 @@ class MainHandler(webapp2.RequestHandler):
 
    def post(self):
       pOpcion = self.request.get('pOpcion')
+      print "opcion seleccionada: "+ pOpcion
       if pOpcion == "1":
 	empin = getIncompletos()
 	template_values = {
@@ -105,5 +106,5 @@ class MainHandler(webapp2.RequestHandler):
 	  'totalCompletos'   : totalCompletos,
 	  'totalIncompletos' : totalIncompletos
         }
-      path = "views/total.html"
+        path = "views/total.html"
       self.response.out.write(template.render(path, template_values))
