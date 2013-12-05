@@ -135,13 +135,13 @@ def updLibres(pKey, pempCuenta, pempAnexo, pempCelular, pempRPM, pempEmail):
     except Exception,err:
 	print("Error: %s" % err)
     
-def setEmp(pidcompania, pidempleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
+def setEmp(pidCompania, pidEmpleado,pdomtipovia,pdomnombrevia,pdomtipozona,pdomnomzona,
 	pdomnumero,pdominterior,pdomdept,pdommanz,pdomlote,pdomkm,pdomblock,pdometapa,pdomref,pdomubidep,
 	pdomubiprov,pdomubidist,pdomubides,ptelffijo,ptelcel,ppemail,pcontactoemer,pcontactotelf,pcontactotelc,
 	ptrabinterior,pturno):
 
-    e = models.empleado( idCompania    = pidcompania,
-                  idEmpleado    = pidempleado,
+    e = models.empleado( idCompania    = pidCompania,
+                  idEmpleado    = pidEmpleado,
                   domtipoVia    = pdomtipovia,
                   domnombreVia  = pdomnombrevia,
                   domtipoZona   = pdomtipozona,
