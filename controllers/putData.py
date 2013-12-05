@@ -389,10 +389,10 @@ def updDep(pkey,ptipoDoc,pnumDoc,papePat,papeMat,pnombres,pfechaNac,psexo,
 	e.domUbiProv    = pdomUbiProv
 	e.domUbiDist    = pdomUbiDist
 	e.domUbiDescrip = pdomUbides
-	e.declarado     = pdeclaradoe.put()
+	e.declarado     = pdeclarado
+	e.put()
     except Exception, err:
 	print("Error: %s" % err)
-    
     
 def setEstudio(pidCompania,pidEmpleado,pgrado,pespe,pcent,pciclo,pperiodIni,pperiodFin):
     pDescrip = getData.getEspsFilter(pespe)

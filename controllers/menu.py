@@ -347,6 +347,7 @@ class MainHandler(webapp2.RequestHandler):
                                      self.request.get('mViv'),
                                      self.request.get('mVivOtros'),
                                      self.request.get('mMiembros'))
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'empleado',1)
                  path= "views/main.html"
                  template_values = {'emp' : pEmp,
                                     'error': action}
@@ -704,6 +705,7 @@ class MainHandler(webapp2.RequestHandler):
                         self.request.get('celularempresa'),
                         self.request.get('rpmempresa'),
                         self.request.get('emailempresa'))
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'libres',1)
                  penf1 = 'False'
                  penf2 = 'False'
                  penf3 = 'False'
@@ -954,6 +956,7 @@ class MainHandler(webapp2.RequestHandler):
                                 "",
                                 "",
                                 self.request.get('pDeclarado'))
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'dependientes',1)   
                  path= "views/page010.html"
                  deps = getData.getAllDepends(pEmp.idCompania,
                                               pEmp.idEmpleado)
@@ -993,7 +996,7 @@ class MainHandler(webapp2.RequestHandler):
                                         "",
                                         pperiodoIni,
                                         pperiodoFin)
-                     
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'estudios',1)
                  path= "views/page020.html"
                  estudios = getData.getAllEstudios(pEmp.idCompania,
                                                    pEmp.idEmpleado)
@@ -1043,6 +1046,7 @@ class MainHandler(webapp2.RequestHandler):
                                      "",
                                      "",
                                      "")
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'estudios',1)
                  path= "views/page030.html"
                  capacs = getData.getAllCapas(pEmp.idCompania,
                                               pEmp.idEmpleado)
@@ -1081,6 +1085,7 @@ class MainHandler(webapp2.RequestHandler):
                                     pperiodoIni,
                                     pperiodoFin,
                                     self.request.get('pglosa'))
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'experiencia',1)
                  path= "views/page040.html"
                  expers = getData.getAllExpers(pEmp.idCompania,
                                                pEmp.idEmpleado)
@@ -1115,6 +1120,7 @@ class MainHandler(webapp2.RequestHandler):
                                      "",
                                      self.request.get('ptipocal'))
                     print "Ya actualice"
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'habilidad',1)
                  path= "views/page050.html"
                  habiles = getData.getAllHabiles(pEmp.idCompania,
                                                  pEmp.idEmpleado)
@@ -1142,7 +1148,7 @@ class MainHandler(webapp2.RequestHandler):
                  else:
                     putData.updHobbie(self.request.get('hobkey'),
                                       newhob)
-                    
+                 putData.setEmpStatus(pEmp.idCompania,pEmp.idEmpleado,'hobbie',1)
                  path= "views/page060.html"
                  hobbies = getData.getAllHobs(pEmp.idCompania,
                                               pEmp.idEmpleado)
