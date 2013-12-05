@@ -42,6 +42,7 @@ class libres(db.Model):
 	empCelular  = db.StringProperty()
 	empRPM      = db.StringProperty()
 	empEmail    = db.StringProperty()
+	mFecha      = db.DateTimeProperty(auto_now=True)
 	
 class ubigeo(db.Model):
 	ubidep = db.StringProperty(required = True, indexed = True)
@@ -65,6 +66,7 @@ class inEmpleado(db.Model):
 	tipoDoc       = db.StringProperty()
 	numDoc        = db.StringProperty(indexed = True)
 	fechaNac      = db.StringProperty(indexed = True)
+	mFecha        = db.DateTimeProperty(auto_now=True)
 
 class empleado(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -94,6 +96,7 @@ class empleado(db.Model):
 	contactoTelC  = db.StringProperty()
 	trabInterior  = db.StringProperty()
 	turno         = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 	
 class dependiente(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -130,6 +133,7 @@ class dependiente(db.Model):
 	domUbiDist    = db.StringProperty()
 	domUbiDescrip = db.StringProperty()
 	declarado     = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 	
 class estudio(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -141,6 +145,7 @@ class estudio(db.Model):
 	periodIni     = db.StringProperty()
 	periodFin     = db.StringProperty()
 	descrip       = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 	
 class capacitacion(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -156,6 +161,7 @@ class capacitacion(db.Model):
 	costo         = db.StringProperty()
 	moneda        = db.StringProperty()
 	glosa         = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 
 class experiencia(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -166,6 +172,7 @@ class experiencia(db.Model):
 	fechaIni      = db.StringProperty()
 	fechaFin      = db.StringProperty()
 	glosa         = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 	
 class habilidades(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -174,12 +181,14 @@ class habilidades(db.Model):
 	tipoHabilidad = db.StringProperty()
 	codCalif      = db.StringProperty()
 	descrip       = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 	
 class hobbie(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
 	idEmpleado    = db.StringProperty(required = True, indexed = True)
 	idHobbie      = db.StringProperty()
 	descrip       = db.StringProperty()
+	mFecha        = db.DateTimeProperty(auto_now=True)
 
 class area(db.Model):
 	idCompania    = db.StringProperty(required = True, indexed = True)
@@ -230,3 +239,4 @@ class adicionales(db.Model):
 	actEnfNote   = db.StringProperty()
 	hSalida      = db.StringProperty()
 	hSalidaNote  = db.StringProperty()
+	mFecha       = db.DateTimeProperty(auto_now=True)
